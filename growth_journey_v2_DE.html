@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GF Wachstumsreise</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#87CEEB 0%,#1e3c72 100%);min-height:100vh;overflow-x:auto}
+        .container{position:relative;width:100vw;height:100vh;background-image:url('./image/background_consulting_3.png');background-size:cover;background-position:center;background-repeat:no-repeat}
+        .title{position:absolute;top:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:24px;font-weight:bold;text-align:center;text-shadow:2px 2px 4px rgba(0,0,0,0.5);z-index:10}
+        .box{position:absolute;background:rgba(30,60,114,0.95);color:#fff;padding:10px;border-radius:8px;cursor:pointer;border:2px solid #00FFFF;transition:all 0.3s;font-size:11px;min-width:110px;text-align:center;box-shadow:0 0 15px rgba(0,255,255,0.3);z-index:5}
+        .box:hover{background:rgba(30,60,114,1);transform:scale(1.05);box-shadow:0 0 25px rgba(0,255,255,0.6)}
+        .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8)}
+        .modal-content{background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;margin:10% auto;padding:25px;border-radius:15px;width:85%;max-width:450px;border:2px solid #00FFFF;box-shadow:0 0 30px rgba(0,255,255,0.5)}
+        .close{color:#00FFFF;float:right;font-size:28px;font-weight:bold;cursor:pointer}
+        .close:hover{color:#fff;text-shadow:0 0 10px #00FFFF}
+        @media(max-width:768px){.box{font-size:9px;padding:6px;min-width:90px}.title{font-size:18px}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">GF INNOVATIVE LÖSUNGEN<br>WACHSTUMSREISE</h1>
+        
+        <div class="box" style="left:8%;top:480px" onclick="openModal('trends')">
+            Trends/<br>Auswirkungen
+        </div>
+        
+        <div class="box" style="left:22%;top:420px" onclick="openModal('alternatives')">
+            Alternativen
+        </div>
+        
+        <div class="box" style="left:17%;top:360px" onclick="openModal('competitors')">
+            Wettbewerbs-<br>landschaft
+        </div>
+        
+        <div class="box" style="left:35%;top:320px" onclick="openModal('market')">
+            Markt-<br>einblicke
+        </div>
+        
+        <div class="box" style="left:28%;top:280px" onclick="openModal('revenue')">
+            Umsatz-<br>strategie
+        </div>
+        
+        <div class="box" style="left:48%;top:280px" onclick="openModal('sales')">
+            Vertriebs-<br>beschleunigung
+        </div>
+        
+        <div class="box" style="left:42%;top:220px" onclick="openModal('capabilities')">
+            Strategische<br>Fähigkeiten
+        </div>
+        
+        <div class="box" style="left:62%;top:180px" onclick="openModal('cost')">
+            Kosten-<br>effizienz
+        </div>
+        
+        <div class="box" style="left:55%;top:120px" onclick="openModal('partner')">
+            Strategische<br>Partnerschaften
+        </div>
+        
+        <div class="box" style="left:78%;top:120px" onclick="openModal('usp')">
+            Wert-<br>versprechen
+        </div>
+        
+        <div class="box" style="left:72%;top:60px" onclick="openModal('pitch')">
+            Pitch-<br>Bereitschaft
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title" style="color:#00FFFF;margin-bottom:15px"></h2>
+            <p id="modal-text" style="line-height:1.6"></p>
+        </div>
+    </div>
+
+    <script>
+        const content={
+            trends:{title:"Trends/Auswirkungen",text:"Analysieren Sie wichtige Stakeholder, externe Einflüsse und Trends, um Lösungen zu gestalten, die widerstandsfähig und anpassungsfähig an Marktveränderungen sind.\n\n• Stakeholder-Analyse\n• Externe Einflussanalyse\n• Trendidentifikation\n• Marktanpassungsstrategien\n• Resilienzplanung"},
+            alternatives:{title:"Alternativen",text:"Erkunden Sie alternative Lösungen und Geschäftsmodelle, um sicherzustellen, dass Ihr Unternehmen wettbewerbsfähig und innovativ bleibt.\n\n• Alternative Geschäftsmodelle\n• Lösungserkundung\n• Innovationsstrategien\n• Wettbewerbspositionierung\n• Strategische Optionsanalyse"},
+            competitors:{title:"Wettbewerbslandschaft",text:"Analysieren Sie die Stärken und Strategien direkter und indirekter Konkurrenten, um Ihre Marke einzigartig zu positionieren.\n\n• Direkte Konkurrentenanalyse\n• Indirekte Konkurrentenforschung\n• Bewertung der Wettbewerbsstärken\n• Strategische Positionierung\n• Markendifferenzierung"},
+            market:{title:"Markteinblicke",text:"Erkunden Sie wichtige Marktsegmente, aktuelle Volumina und aufkommende Trends, um Wachstumspfade zu identifizieren.\n\n• Marktsegmentierungsanalyse\n• Volumenbewertung\n• Identifikation aufkommender Trends\n• Entdeckung von Wachstumspfaden\n• Marktchancen-Mapping"},
+            revenue:{title:"Umsatzstrategie",text:"Maximieren Sie die Rentabilität durch Bewertung von Einkommensströmen und strategischen Partnerschaften.\n\n• Bewertung der Einkommensströme\n• Rentabilitätsoptimierung\n• Bewertung strategischer Partnerschaften\n• Umsatzmodellentwicklung\n• Verbesserung der Finanzleistung"},
+            sales:{title:"Vertriebsbeschleunigung",text:"Verbessern Sie Reichweite und Konversion durch Optimierung Ihres Verkaufsansatzes und Kanalmixes.\n\n• Optimierung des Verkaufsansatzes\n• Kanalmix-Strategie\n• Reichweitenerweiterung\n• Verbesserung der Konversionsrate\n• Vertriebsleistungsbeschleunigung"},
+            capabilities:{title:"Strategische Fähigkeiten",text:"Bauen Sie die wesentlichen Fähigkeiten, Ressourcen und Technologien auf, die langfristigen Erfolg fördern.\n\n• Entwicklung wesentlicher Fähigkeiten\n• Ressourcenoptimierung\n• Technologieintegration\n• Langfristige Erfolgsplanung\n• Fähigkeitenaufbau"},
+            cost:{title:"Kosteneffizienz",text:"Rationalisieren Sie Ausgaben und verfeinern Sie Kostenmodelle, um die finanzielle Agilität zu verbessern.\n\n• Ausgabenrationalisierung\n• Kostenmodellverfeinerung\n• Verbesserung der finanziellen Agilität\n• Operative Effizienz\n• Budgetoptimierung"},
+            partner:{title:"Strategische Partnerschaften",text:"Schmieden Sie Allianzen, die Ihre Stärken ergänzen und Ihre Marktpräsenz erweitern.\n\n• Allianzentwicklung\n• Stärkenergänzung\n• Marktpräsenzerweiterung\n• Partnerschaftsstrategie\n• Kollaboratives Wachstum"},
+            usp:{title:"Wertversprechen",text:"Definieren Sie klar, was Ihr Angebot auszeichnet, um dauerhaften Wettbewerbsvorteil zu schaffen.\n\n• Definition des einzigartigen Werts\n• Schaffung von Wettbewerbsvorteilen\n• Marktdifferenzierung\n• Wertkommunikation\n• Positionierungsstrategie"},
+            pitch:{title:"Pitch-Bereitschaft",text:"Gestalten Sie überzeugende Investor- und Kundenpräsentationen, die Engagement und Commitment fördern.\n\n• Investor-Pitch-Entwicklung\n• Kundenpräsentationsgestaltung\n• Engagement-Strategie\n• Commitment-Aufbau\n• Überzeugende Kommunikation"}
+        };
+        
+        function openModal(key){
+            const modal=document.getElementById('modal');
+            document.getElementById('modal-title').textContent=content[key].title;
+            document.getElementById('modal-text').style.whiteSpace='pre-line';
+            document.getElementById('modal-text').textContent=content[key].text;
+            modal.style.display='block';
+        }
+        
+        function closeModal(){
+            document.getElementById('modal').style.display='none';
+        }
+        
+        window.onclick=function(event){
+            if(event.target===document.getElementById('modal')){
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

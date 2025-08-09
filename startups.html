@@ -66,41 +66,41 @@
             <!-- Growth Journey Packages floating over the background, no white box -->
             <div style="position:relative; min-height: 700px; width:100%;">
                 <div class="growth-box" data-step="competitive" style="position:absolute;left:5%;top:600px;width:220px;cursor:pointer;">
-                    <strong>Competitive Landscape</strong>
+                    <strong data-en="Competitive Landscape" data-de="Wettbewerbslandschaft">Competitive Landscape</strong>
                 </div>
                 <div class="growth-box" data-step="market" style="position:absolute;left:15%;top:530px;width:220px;cursor:pointer;">
-                    <strong>Market Insights</strong>
+                    <strong data-en="Market Insights" data-de="Markteinblicke">Market Insights</strong>
                 </div>
                 <div class="growth-box" data-step="revenue" style="position:absolute;left:25%;top:460px;width:220px;cursor:pointer;">
-                    <strong>Revenue Strategy</strong>
+                    <strong data-en="Revenue Strategy" data-de="Umsatzstrategie">Revenue Strategy</strong>
                 </div>
                 <div class="growth-box" data-step="sales" style="position:absolute;left:35%;top:390px;width:220px;cursor:pointer;">
-                    <strong>Sales Acceleration</strong>
+                    <strong data-en="Sales Acceleration" data-de="Vertriebsbeschleunigung">Sales Acceleration</strong>
                 </div>
                 <div class="growth-box" data-step="capabilities" style="position:absolute;left:45%;top:320px;width:220px;cursor:pointer;">
-                    <strong>Strategic Capabilities</strong>
+                    <strong data-en="Strategic Capabilities" data-de="Strategische Fähigkeiten">Strategic Capabilities</strong>
                 </div>
                 <div class="growth-box" data-step="cost" style="position:absolute;left:55%;top:250px;width:220px;cursor:pointer;">
-                    <strong>Cost Efficiency</strong>
+                    <strong data-en="Cost Efficiency" data-de="Kosteneffizienz">Cost Efficiency</strong>
                 </div>
                 <div class="growth-box" data-step="partner" style="position:absolute;left:65%;top:180px;width:220px;cursor:pointer;">
-                    <strong>Strategic Partnerships</strong>
+                    <strong data-en="Strategic Partnerships" data-de="Strategische Partnerschaften">Strategic Partnerships</strong>
                 </div>
                 <div class="growth-box" data-step="usp" style="position:absolute;left:75%;top:110px;width:220px;cursor:pointer;">
-                    <strong>Value Proposition</strong>
+                    <strong data-en="Value Proposition" data-de="Wertversprechen">Value Proposition</strong>
                 </div>
                 <div class="growth-box" data-step="pitch" style="position:absolute;left:85%;top:40px;width:220px;cursor:pointer;">
-                    <strong>Pitch Readiness</strong>
+                    <strong data-en="Pitch Readiness" data-de="Pitch-Bereitschaft">Pitch Readiness</strong>
                 </div>
                 <div class="growth-box" data-step="ai" style="position:absolute;left:95%;top:-30px;width:220px;transform:translateX(-100%);cursor:pointer;">
-                    <strong>AI for Startups</strong>
+                    <strong data-en="AI for Startups" data-de="KI für Startups">AI for Startups</strong>
                 </div>
             </div>
 
             <!-- Growth Journey Modal -->
             <div id="growth-modal" class="growth-modal">
                 <div class="growth-modal-content">
-                    <span class="growth-close" onclick="closeGrowthModal()">&times;</span>
+                    <span class="growth-close">&times;</span>
                     <h3 id="growth-modal-title"></h3>
                     <p id="growth-modal-text"></p>
                 </div>
@@ -183,30 +183,19 @@
                     <h4 data-en="Contact" data-de="Kontakt">Contact</h4>
                     <p>info@gfinnov.com</p>
                     <p>+49 172 95 123 76</p>
+                    <p>Wiesbadener Straße 41<br>D-70372 Stuttgart<br>Germany</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2024 GF Innovative Solutions. <span data-en="All rights reserved." data-de="Alle Rechte vorbehalten.">All rights reserved.</span></p>
+                <div class="footer-links">
+                    <a href="imprint.html" data-en="Imprint" data-de="Impressum">Imprint</a> | 
+                    <a href="privacy.html" data-en="Privacy Policy" data-de="Datenschutzerklärung">Privacy Policy</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="startup-script.js"></script>
-    <script>
-        function openGrowthModal(title, text) {
-            console.log('Modal opened:', title, text);
-            document.getElementById('growth-modal-title').innerText = title;
-            document.getElementById('growth-modal-text').innerText = text;
-            document.getElementById('growth-modal').style.display = 'block';
-        }
-        function closeGrowthModal() {
-            document.getElementById('growth-modal').style.display = 'none';
-        }
-        window.onclick = function(event) {
-            if (event.target === document.getElementById('growth-modal')) {
-                closeGrowthModal();
-            }
-        }
-    </script>
 </body>
 </html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="VR Solutions for Training and Marketing" />
+    <meta name="author" content="GF Innovative Solutions" />
+    <title>GF Innovative Solutions - VR Solutions</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <!-- Font Awesome icons -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" crossorigin="anonymous"></script>
+    
+    <!-- Google fonts - Matching main website -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- VR Website Specific Styles -->
+    <link rel="stylesheet" href="styles-vr.css">
+</head>
+
+<body>
+    <!-- Email Capture Modal -->
+    <div class="modal-overlay" id="emailModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-title" data-en="🚀 Revolutionize Your Trade Show Presence!" data-de="🚀 Revolutionieren Sie Ihre Messepräsenz!">🚀 Revolutionieren Sie Ihre Messepräsenz!</h3>
+            <p class="modal-subtitle" data-en="Get our exclusive 'VR/AR/MR Trade Show Success Guide' with proven strategies for 10x more booth visitors." data-de="Erhalten Sie unseren exklusiven 'VR/AR/MR Messe-Erfolgs-Guide' mit bewährten Strategien für 10x mehr Standbesucher.">Erhalten Sie unseren exklusiven <strong>"VR/AR/MR Messe-Erfolgs-Guide"</strong> mit bewährten Strategien für 10x mehr Standbesucher.</p>
+            
+            <ul class="modal-benefits">
+                <li data-en="15+ successful VR trade show projects analyzed" data-de="15+ erfolgreiche VR-Messe-Projekte analysiert">15+ erfolgreiche VR-Messe-Projekte analysiert</li>
+                <li data-en="Average ROI increase of 340%" data-de="ROI-Steigerung von durchschnittlich 340%">ROI-Steigerung von durchschnittlich 340%</li>
+                <li data-en="Step-by-step implementation guide" data-de="Schritt-für-Schritt Implementierung">Schritt-für-Schritt Implementierung</li>
+                <li data-en="Free initial consultation included" data-de="Kostenlose Erstberatung inklusive">Kostenlose Erstberatung inklusive</li>
+            </ul>
+            
+            <form class="email-form" id="modalForm">
+                <input type="email" class="email-input" placeholder="Ihre E-Mail-Adresse" required id="modalEmail" data-en="Your email address" data-de="Ihre E-Mail-Adresse">
+                <button type="submit" class="email-submit" data-en="📧 Get Free Guide" data-de="📧 Kostenlosen Guide erhalten">📧 Kostenlosen Guide erhalten</button>
+            </form>
+            
+            <p class="privacy-note" data-en="🔒 100% secure - no data sharing" data-de="🔒 100% sicher - keine Weitergabe Ihrer Daten">
+                <i class="fas fa-lock"></i> 100% sicher - keine Weitergabe Ihrer Daten
+            </p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/gf-logo.png" alt="GF Innovative Solutions" style="height: 40px;">
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link" data-en="Home" data-de="Startseite">Startseite</a>
+                <a href="#packages" class="nav-link" data-en="Packages" data-de="Packages">Packages</a>
+                <a href="#gallery" class="nav-link" data-en="Gallery" data-de="Galerie">Galerie</a>
+                <a href="#newsletter" class="nav-link" data-en="Free Guide" data-de="Free Guide">Free Guide</a>
+                <a href="#messe" class="nav-link" data-en="VR in Trade Shows" data-de="VR in Messen">VR in Messen</a>
+                <a href="#frontline" class="nav-link" data-en="Frontline.io" data-de="Frontline.io">Frontline.io</a>
+                <a href="#contact" class="nav-link" data-en="Contact" data-de="Kontakt">Kontakt</a>
+                <button class="language-toggle" type="button" aria-label="Toggle Language">
+                    <span id="current-lang">DE</span> | <span id="alt-lang">EN</span>
+                </button>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content fade-in">
+            <h1 data-en="Captivate Your Audience with VR/AR" data-de="Begeistern Sie Ihr Publikum mit VR/AR">Begeistern Sie Ihr Publikum mit VR/AR</h1>
+            <p data-en="Innovative Virtual & Augmented Reality solutions for unforgettable trade show experiences, efficient training and maximum ROI" data-de="Innovative Virtual & Augmented Reality Lösungen für unvergessliche Messeerlebnisse, effizientes Training und maximalen ROI">Innovative Virtual & Augmented Reality Lösungen für unvergessliche Messeerlebnisse, effizientes Training und maximalen ROI</p>
+            <a href="#packages" class="cta-button" data-en="Discover Our VR Packages" data-de="Entdecken Sie unsere VR-Pakete">Entdecken Sie unsere VR-Pakete</a>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="section" id="packages">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="VR Solutions Packages" data-de="VR Solutions Packages">VR Solutions Packages</h2>
+            <p class="section-subtitle fade-in" data-en="Tailored VR solutions for maximum efficiency and ROI" data-de="Maßgeschneiderte VR-Lösungen für maximale Effizienz und ROI">Maßgeschneiderte VR-Lösungen für maximale Effizienz und ROI</p>
+            
+            <div class="packages-grid">
+                <div class="package-card fade-in">
+                    <div class="package-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3 class="package-title" data-en="Package 1: Digital Twin Development" data-de="Package 1: Digital Twin Entwicklung">Package 1: Digital Twin Entwicklung</h3>
+                    <p class="package-description" data-en="Professional development of customized digital twins for training and trade show presentations" data-de="Professionelle Entwicklung maßgeschneiderter digitaler Zwillinge für Training und Messepräsentationen">Professionelle Entwicklung maßgeschneiderter digitaler Zwillinge für Training und Messepräsentationen</p>
+                    <ul class="package-features">
+                        <li data-en="Custom Digital Twin development service" data-de="Custom Digital Twin Entwicklungsservice">Custom Digital Twin Entwicklungsservice</li>
+                        <li data-en="Versatile for training AND trade shows" data-de="Vielseitig für Training UND Messen einsetzbar">Vielseitig für Training UND Messen einsetzbar</li>
+                        <li data-en="Complete ownership of all assets" data-de="Vollständiges Eigentum an allen Assets">Vollständiges Eigentum an allen Assets</li>
+                        <li data-en="Comprehensive implementation support included" data-de="Umfassende Implementierungsbetreuung inklusive">Umfassende Implementierungsbetreuung inklusive</li>
+                        <li data-en="Based on your CAD data" data-de="Basierend auf Ihren CAD-Daten">Basierend auf Ihren CAD-Daten</li>
+                    </ul>
+                    <button class="package-btn" onclick="contactUs('Digital Twin Development Package')" data-en="Request Quote" data-de="Angebot anfordern">Angebot anfordern</button>
+                </div>
+
+                <div class="package-card fade-in">
+                    <div class="package-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3 class="package-title" data-en="Package 2: VR Video Production" data-de="Package 2: VR Video Produktion">Package 2: VR Video Produktion</h3>
+                    <p class="package-description" data-en="High-quality VR video content for immersive product presentations and virtual tours" data-de="Hochwertige VR-Video-Inhalte für immersive Produktpräsentationen und virtuelle Rundgänge">Hochwertige VR-Video-Inhalte für immersive Produktpräsentationen und virtuelle Rundgänge</p>
+                    <ul class="package-features">
+                        <li data-en="360° video production" data-de="360°-Video-Produktion">360°-Video-Produktion</li>
+                        <li data-en="Professional editing and post-production" data-de="Professionelle Bearbeitung und Nachbearbeitung">Professionelle Bearbeitung und Nachbearbeitung</li>
+                        <li data-en="Multi-platform compatibility" data-de="Multi-Plattform-Kompatibilität">Multi-Plattform-Kompatibilität</li>
+                        <li data-en="Interactive hotspots and annotations" data-de="Interaktive Hotspots und Annotationen">Interaktive Hotspots und Annotationen</li>
+                        <li data-en="Trade show ready formats" data-de="Messefertige Formate">Messefertige Formate</li>
+                    </ul>
+                    <button class="package-btn" onclick="contactUs('VR Video Production Package')" data-en="Request Quote" data-de="Angebot anfordern">Angebot anfordern</button>
+                </div>
+
+                <div class="package-card fade-in">
+                    <div class="package-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h3 class="package-title" data-en="Package 3: frontline.io Platform" data-de="Package 3: frontline.io Plattform">Package 3: frontline.io Plattform</h3>
+                    <p class="package-description" data-en="Complete access to the frontline.io platform with enterprise-grade VR/AR solutions" data-de="Vollständiger Zugang zur frontline.io-Plattform mit VR/AR-Lösungen auf Unternehmensebene">Vollständiger Zugang zur frontline.io-Plattform mit VR/AR-Lösungen auf Unternehmensebene</p>
+                    <ul class="package-features">
+                        <li data-en="Full platform access and licensing" data-de="Vollständiger Plattformzugang und Lizenzierung">Vollständiger Plattformzugang und Lizenzierung</li>
+                        <li data-en="Remote support capabilities" data-de="Remote-Support-Funktionen">Remote-Support-Funktionen</li>
+                        <li data-en="Real-time analytics and reporting" data-de="Echtzeit-Analytik und Berichterstattung">Echtzeit-Analytik und Berichterstattung</li>
+                        <li data-en="Multi-user collaboration tools" data-de="Multi-User-Kollaborationstools">Multi-User-Kollaborationstools</li>
+                        <li data-en="Ongoing support and updates" data-de="Laufender Support und Updates">Laufender Support und Updates</li>
+                    </ul>
+                    <button class="package-btn" onclick="contactUs('frontline.io Platform Package')" data-en="Request Quote" data-de="Angebot anfordern">Angebot anfordern</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section" id="gallery" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="VR & AR in Action" data-de="VR & AR in Aktion">VR & AR in Aktion</h2>
+            <p class="section-subtitle fade-in" data-en="Experience the diversity of our VR solutions in various application areas" data-de="Erleben Sie die Vielfalt unserer VR-Lösungen in verschiedenen Anwendungsbereichen">Erleben Sie die Vielfalt unserer VR-Lösungen in verschiedenen Anwendungsbereichen</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                <!-- Digital Twin -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/frontline.io - digital Twin gif .gif" alt="Digital Twin" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="Digital Twins" data-de="Digitale Zwillinge">Digitale Zwillinge</h4>
+                        <p style="color: #6c757d;" data-en="Virtual replicas of your machines for immersive training and simulation" data-de="Virtuelle Abbilder Ihrer Maschinen für immersives Training und Simulation">Virtuelle Abbilder Ihrer Maschinen für immersives Training und Simulation</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Helicopter -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/frontline. io - Robbins Helicopter GIF .gif" alt="Interactive Helicopter" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="Interactive Parts Catalogs" data-de="Interaktive Teilekataloge">Interaktive Teilekataloge</h4>
+                        <p style="color: #6c757d;" data-en="Complete 3D representation with metadata for quick part identification" data-de="Vollständige 3D-Darstellung mit Metadaten für schnelle Teileidentifikation">Vollständige 3D-Darstellung mit Metadaten für schnelle Teileidentifikation</p>
+                    </div>
+                </div>
+
+                <!-- Remote Support -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/frontline.io-Remote-Support-high.gif" alt="Remote Support" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="AR Remote Support" data-de="AR Remote Support">AR Remote Support</h4>
+                        <p style="color: #6c757d;" data-en="Real-time expert assistance through AR-supported remote maintenance" data-de="Expertenhilfe in Echtzeit durch AR-gestützte Fernwartung">Expertenhilfe in Echtzeit durch AR-gestützte Fernwartung</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Flows -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/frontline.io Interactive-Flows-high.gif" alt="Interactive Flows" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="Interactive Processes" data-de="Interaktive Prozesse">Interaktive Prozesse</h4>
+                        <p style="color: #6c757d;" data-en="Step-by-step 3D instructions for optimal training results" data-de="Schritt-für-Schritt 3D-Anleitungen für optimale Schulungsergebnisse">Schritt-für-Schritt 3D-Anleitungen für optimale Schulungsergebnisse</p>
+                    </div>
+                </div>
+
+                <!-- Analytics -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/frontline.io - analytics2.jpg" alt="Analytics" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="Real-time Analytics" data-de="Echtzeit Analytics">Echtzeit Analytics</h4>
+                        <p style="color: #6c757d;" data-en="Data collection and analysis for continuous improvement" data-de="Datenerfassung und Analyse für kontinuierliche Verbesserung">Datenerfassung und Analyse für kontinuierliche Verbesserung</p>
+                    </div>
+                </div>
+
+                <!-- AR Custom -->
+                <div class="gallery-item fade-in">
+                    <div class="gallery-image">
+                        <img src="images/frontline/AR.gif" alt="AR Custom Solutions" style="width: 100%; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    </div>
+                    <div style="padding: 1.5rem; text-align: center;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 1rem;" data-en="Custom AR Solutions" data-de="Maßgeschneiderte AR">Maßgeschneiderte AR</h4>
+                        <p style="color: #6c757d;" data-en="Individual AR solutions for your specific requirements" data-de="Individuelle AR-Lösungen für Ihre spezifischen Anforderungen">Individuelle AR-Lösungen für Ihre spezifischen Anforderungen</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter-section" id="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-text fade-in">
+                    <h3 data-en="🎯 Your VR success at trade shows starts here" data-de="🎯 Ihr VR-Erfolg auf Messen startet hier">🎯 Ihr VR-Erfolg auf Messen startet hier</h3>
+                    <p data-en="Get the exclusive 'VR/AR/MR Trade Show Guide' with proven strategies, ROI calculations and practical tips for maximum trade show success." data-de="Erhalten Sie den exklusiven 'VR/AR/MR Messe-Guide' mit bewährten Strategien, ROI-Berechnungen und praktischen Tipps für maximalen Messeerfolg.">Erhalten Sie den exklusiven <strong>"VR/AR/MR Messe-Guide"</strong> mit bewährten Strategien, ROI-Berechnungen und praktischen Tipps für maximalen Messeerfolg.</p>
+                    
+                    <div class="newsletter-benefits">
+                        <div class="newsletter-benefit" data-en="15+ practical examples" data-de="15+ Praxisbeispiele">15+ Praxisbeispiele</div>
+                        <div class="newsletter-benefit" data-en="ROI calculators" data-de="ROI-Kalkulatoren">ROI-Kalkulatoren</div>
+                        <div class="newsletter-benefit" data-en="Setup checklists" data-de="Setup-Checklisten">Setup-Checklisten</div>
+                        <div class="newsletter-benefit" data-en="Technology comparisons" data-de="Technologie-Vergleiche">Technologie-Vergleiche</div>
+                        <div class="newsletter-benefit" data-en="Cost optimization" data-de="Kosten-Optimierung">Kosten-Optimierung</div>
+                        <div class="newsletter-benefit" data-en="Success metrics" data-de="Erfolgs-Metriken">Erfolgs-Metriken</div>
+                    </div>
+                    
+                    <p style="font-size: 0.9rem; opacity: 0.8;" data-en="Bonus: Monthly updates on VR trends and new case studies directly to your inbox." data-de="Bonus: Monatliche Updates zu VR-Trends und neue Case Studies direkt in Ihr Postfach."><strong>Bonus:</strong> Monatliche Updates zu VR-Trends und neue Case Studies direkt in Ihr Postfach.</p>
+                </div>
+                
+                <div class="newsletter-form-container fade-in">
+                    <h4 style="margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;" data-en="Download Free Guide" data-de="Kostenlosen Guide herunterladen">Kostenlosen Guide herunterladen</h4>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="text" class="newsletter-input" placeholder="Ihr Name" required id="nameInput" data-en="Your Name" data-de="Ihr Name">
+                        <input type="email" class="newsletter-input" placeholder="Ihre E-Mail-Adresse" required id="emailInput" data-en="Your Email Address" data-de="Ihre E-Mail-Adresse">
+                        <input type="text" class="newsletter-input" placeholder="Unternehmen (optional)" id="companyInput" data-en="Company (optional)" data-de="Unternehmen (optional)">
+                        <button type="submit" class="newsletter-submit" data-en="📧 Get Free Guide" data-de="📧 Guide kostenlos erhalten">📧 Guide kostenlos erhalten</button>
+                    </form>
+                    <div class="success-message" id="successMessage">
+                        <strong data-en="🎉 Thank you!" data-de="🎉 Vielen Dank!">🎉 Vielen Dank!</strong><br>
+                        <span data-en="Your VR Trade Show Guide will be in your inbox within the next few minutes." data-de="Ihr VR-Messe-Guide wird in den nächsten Minuten in Ihrem Postfach sein.">Ihr VR-Messe-Guide wird in den nächsten Minuten in Ihrem Postfach sein.</span>
+                    </div>
+                    <p class="privacy-note" data-en="🔒 Your data is secure. No sharing with third parties. Unsubscribe anytime." data-de="🔒 Ihre Daten sind sicher. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.">
+                        <i class="fas fa-lock"></i> Ihre Daten sind sicher. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VR in Messe Section -->
+    <section class="section vr-messe" id="messe">
+        <div class="container">
+            <div class="messe-content">
+                <div class="messe-text fade-in">
+                    <h3 data-en="VR at Trade Shows: The Crowd Magnet" data-de="VR auf Messen: Der Publikumsmagnet">VR auf Messen: Der Publikumsmagnet</h3>
+                    <p style="color: #6c757d; margin-bottom: 2rem;" data-en="Harness the power of Virtual Reality at trade shows and events to captivate visitors and create lasting impressions." data-de="Nutzen Sie die Kraft der Virtual Reality auf Messen und Events, um Besucher zu begeistern und bleibende Eindrücke zu hinterlassen.">Nutzen Sie die Kraft der Virtual Reality auf Messen und Events, um Besucher zu begeistern und bleibende Eindrücke zu hinterlassen.</p>
+                    <ul class="package-features" style="margin-bottom: 2rem;">
+                        <li data-en="Up to 10x longer booth visits" data-de="Bis zu 10x länger Standbesuch">Bis zu 10x länger Standbesuch</li>
+                        <li data-en="Interactive product experiences" data-de="Interaktive Produkterlebnisse">Interaktive Produkterlebnisse</li>
+                        <li data-en="Measurable lead generation" data-de="Messbare Lead-Generierung">Messbare Lead-Generierung</li>
+                        <li data-en="Unique brand experiences" data-de="Einzigartige Markenerlebnisse">Einzigartige Markenerlebnisse</li>
+                        <li data-en="Social media-worthy content" data-de="Social Media-worthy Content">Social Media-worthy Content</li>
+                    </ul>
+                    <p style="color: #495057;" data-en="Application of our VR packages: All three packages can be seamlessly adapted for trade show presentations - from interactive VR demos to impressive video presentations." data-de="Anwendung unserer VR-Pakete: Alle drei Pakete können nahtlos für Messepräsentationen adaptiert werden - von interaktiven VR-Demos bis hin zu beeindruckenden Video-Präsentationen."><strong>Anwendung unserer VR-Pakete:</strong> Alle drei Pakete können nahtlos für Messepräsentationen adaptiert werden - von interaktiven VR-Demos bis hin zu beeindruckenden Video-Präsentationen.</p>
+                </div>
+                <div class="messe-image fade-in">
+                    <img src="images/frontline/02-Portfolio2.jpg" alt="VR auf Messen" style="width: 100%; border-radius: 15px; box-shadow: 0 15px 40px rgba(0,0,0,0.1);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frontline Section -->
+    <section class="section frontline" id="frontline">
+        <div class="container">
+            <h2 class="section-title fade-in" data-en="Powered by frontline.io" data-de="Powered by frontline.io">Powered by frontline.io</h2>
+            <p class="section-subtitle fade-in" style="color: rgba(255,255,255,0.8);" data-en="The leading platform for industrial VR applications and digital twins" data-de="Die führende Plattform für industrielle VR-Anwendungen und digitale Zwillinge">Die führende Plattform für industrielle VR-Anwendungen und digitale Zwillinge</p>
+            
+            <div class="frontline-features">
+                <div class="frontline-feature fade-in">
+                    <i class="fas fa-cube"></i>
+                    <h4 data-en="Digital Twins" data-de="Digitale Zwillinge">Digitale Zwillinge</h4>
+                    <p data-en="Create virtual replicas of your machines and processes in hours" data-de="Erstellen Sie virtuelle Abbilder Ihrer Maschinen und Prozesse in wenigen Stunden">Erstellen Sie virtuelle Abbilder Ihrer Maschinen und Prozesse in wenigen Stunden</p>
+                </div>
+                <div class="frontline-feature fade-in">
+                    <i class="fas fa-headset"></i>
+                    <h4 data-en="Remote Support" data-de="Remote Support">Remote Support</h4>
+                    <p data-en="Real-time expert assistance through AR/VR-supported remote maintenance" data-de="Expertenhilfe in Echtzeit durch AR/VR-gestützte Fernwartung">Expertenhilfe in Echtzeit durch AR/VR-gestützte Fernwartung</p>
+                </div>
+                <div class="frontline-feature fade-in">
+                    <i class="fas fa-chart-line"></i>
+                    <h4 data-en="Analytics" data-de="Analytics">Analytics</h4>
+                    <p data-en="Real-time monitoring and AI-compatible data collection for continuous improvement" data-de="Echtzeit-Überwachung und KI-kompatible Datenerfassung für kontinuierliche Verbesserung">Echtzeit-Überwachung und KI-kompatible Datenerfassung für kontinuierliche Verbesserung</p>
+                </div>
+                <div class="frontline-feature fade-in">
+                    <i class="fas fa-play-circle"></i>
+                    <h4 data-en="Interactive Workflows" data-de="Interaktive Abläufe">Interaktive Abläufe</h4>
+                    <p data-en="Step-by-step 3D instructions for training and troubleshooting" data-de="Schritt-für-Schritt 3D-Anleitungen für Training und Fehlerbehebung">Schritt-für-Schritt 3D-Anleitungen für Training und Fehlerbehebung</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container fade-in">
+            <h2 class="section-title" data-en="Ready for the VR Revolution?" data-de="Bereit für die VR-Revolution?">Bereit für die VR-Revolution?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;" data-en="Contact us for a free consultation and discover how VR can transform your business" data-de="Kontaktieren Sie uns für eine kostenlose Beratung und erfahren Sie, wie VR Ihr Business transformieren kann">Kontaktieren Sie uns für eine kostenlose Beratung und erfahren Sie, wie VR Ihr Business transformieren kann</p>
+            <a href="mailto:info@gfinnov.com" class="contact-btn">info@gfinnov.com</a>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <h3 data-en="Get in Touch" data-de="Kontakt">Kontakt</h3>
+            <div class="contact-details">
+                <div class="contact-detail">
+                    <h4 data-en="Email" data-de="E-Mail">E-Mail</h4>
+                    <p>info@gfinnov.com</p>
+                </div>
+                <div class="contact-detail">
+                    <h4 data-en="Phone" data-de="Telefon">Telefon</h4>
+                    <p>+49 172 95 123 76</p>
+                </div>
+                <div class="contact-detail">
+                    <h4 data-en="Address" data-de="Adresse">Adresse</h4>
+                    <p>Wiesbadener Straße 41<br>D-70372 Stuttgart<br>Germany</p>
+                </div>
+                <div class="contact-detail">
+                    <h4 data-en="Consultation" data-de="Beratung">Beratung</h4>
+                    <p>
+                        <a href="https://calendly.com/gfinnov-info/30min" target="_blank" style="color: var(--innovation-green); text-decoration: none; font-weight: 600;">
+                            <span data-en="Schedule a Call" data-de="Termin vereinbaren">Termin vereinbaren</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="script-vr.js"></script>
+</body>
+</html>

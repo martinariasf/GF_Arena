@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GF Growth Journey MARTIN</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#87CEEB 0%,#1e3c72 100%);min-height:100vh;overflow-x:auto}
+        .container{position:relative;width:100vw;height:100vh;background-image:url('./images/background_consulting_4.png');background-size:cover;background-position:center;background-repeat:no-repeat}
+        .title{position:absolute;top:20px;left:50%;transform:translateX(-50%);color:#fff;font-size:24px;font-weight:bold;text-align:center;text-shadow:2px 2px 4px rgba(0,0,0,0.5);z-index:10}
+        .box{position:absolute;background:rgba(30,60,114,0.95);color:#fff;padding:10px;border-radius:8px;cursor:pointer;border:2px solid #00FFFF;transition:all 0.3s;font-size:11px;min-width:110px;text-align:center;box-shadow:0 0 15px rgba(0,255,255,0.3);z-index:5}
+        .box:hover{background:rgba(30,60,114,1);transform:scale(1.05);box-shadow:0 0 25px rgba(0,255,255,0.6)}
+        .modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8)}
+        .modal-content{background:linear-gradient(135deg,#1e3c72,#2a5298);color:#fff;margin:10% auto;padding:25px;border-radius:15px;width:85%;max-width:450px;border:2px solid #00FFFF;box-shadow:0 0 30px rgba(0,255,255,0.5)}
+        .close{color:#00FFFF;float:right;font-size:28px;font-weight:bold;cursor:pointer}
+        .close:hover{color:#fff;text-shadow:0 0 10px #00FFFF}
+        @media(max-width:768px){.box{font-size:9px;padding:6px;min-width:90px}.title{font-size:18px}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">GF INNOVATIVE SOLUTIONS<br>GROWTH JOURNEY</h1>
+        
+        <div class="box" style="left:8%;top:480px" onclick="openModal('trends')">
+            Trends/<br>Impacts
+        </div>
+        
+        <div class="box" style="left:22%;top:420px" onclick="openModal('alternatives')">
+            Alternatives
+        </div>
+        
+        <div class="box" style="left:17%;top:360px" onclick="openModal('competitors')">
+            Competitive<br>Landscape
+        </div>
+        
+        <div class="box" style="left:35%;top:320px" onclick="openModal('market')">
+            Market<br>Insights
+        </div>
+        
+        <div class="box" style="left:28%;top:280px" onclick="openModal('revenue')">
+            Revenue<br>Strategy
+        </div>
+        
+        <div class="box" style="left:48%;top:280px" onclick="openModal('sales')">
+            Sales<br>Acceleration
+        </div>
+        
+        <div class="box" style="left:42%;top:220px" onclick="openModal('capabilities')">
+            Strategic<br>Capabilities
+        </div>
+        
+        <div class="box" style="left:62%;top:180px" onclick="openModal('cost')">
+            Cost<br>Efficiency
+        </div>
+        
+        <div class="box" style="left:55%;top:120px" onclick="openModal('partner')">
+            Strategic<br>Partnerships
+        </div>
+        
+        <div class="box" style="left:78%;top:120px" onclick="openModal('usp')">
+            Value<br>Proposition
+        </div>
+        
+        <div class="box" style="left:72%;top:60px" onclick="openModal('pitch')">
+            Pitch<br>Readiness
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title" style="color:#00FFFF;margin-bottom:15px"></h2>
+            <p id="modal-text" style="line-height:1.6"></p>
+        </div>
+    </div>
+
+    <script>
+        const content={
+            trends:{title:"Trends/Impacts",text:"Analyze key stakeholders, external influences, and trends to shape solutions that are resilient and adaptive to market changes.\n\n• Stakeholder Analysis\n• External Influence Mapping\n• Trend Identification\n• Market Adaptation Strategies\n• Resilience Planning"},
+            alternatives:{title:"Alternatives",text:"Explore alternative solutions and business models to ensure that your business remains competitive and innovative.\n\n• Alternative Business Models\n• Solution Exploration\n• Innovation Strategies\n• Competitive Positioning\n• Strategic Options Analysis"},
+            competitors:{title:"Competitive Landscape",text:"Analyze the strengths and strategies of direct and indirect competitors to position your brand uniquely.\n\n• Direct Competitor Analysis\n• Indirect Competitor Research\n• Competitive Strengths Assessment\n• Strategic Positioning\n• Brand Differentiation"},
+            market:{title:"Market Insights",text:"Explore key market segments, current volumes, and emerging trends to identify growth paths.\n\n• Market Segmentation Analysis\n• Volume Assessment\n• Emerging Trend Identification\n• Growth Path Discovery\n• Market Opportunity Mapping"},
+            revenue:{title:"Revenue Strategy",text:"Maximize profitability by evaluating income streams and strategic partnerships.\n\n• Income Stream Evaluation\n• Profitability Optimization\n• Strategic Partnership Assessment\n• Revenue Model Development\n• Financial Performance Enhancement"},
+            sales:{title:"Sales Acceleration",text:"Enhance reach and conversion by optimizing your sales approach and channel mix.\n\n• Sales Approach Optimization\n• Channel Mix Strategy\n• Reach Enhancement\n• Conversion Rate Improvement\n• Sales Performance Acceleration"},
+            capabilities:{title:"Strategic Capabilities",text:"Build the essential skills, resources, and technologies that drive long-term success.\n\n• Essential Skills Development\n• Resource Optimization\n• Technology Integration\n• Long-term Success Planning\n• Capability Building"},
+            cost:{title:"Cost Efficiency",text:"Streamline expenses and refine cost models to improve financial agility.\n\n• Expense Streamlining\n• Cost Model Refinement\n• Financial Agility Enhancement\n• Operational Efficiency\n• Budget Optimization"},
+            partner:{title:"Strategic Partnerships",text:"Forge alliances that complement your strengths and expand your market presence.\n\n• Alliance Development\n• Strength Complementation\n• Market Presence Expansion\n• Partnership Strategy\n• Collaborative Growth"},
+            usp:{title:"Value Proposition",text:"Clearly define what sets your offering apart to create lasting competitive advantage.\n\n• Unique Value Definition\n• Competitive Advantage Creation\n• Market Differentiation\n• Value Communication\n• Positioning Strategy"},
+            pitch:{title:"Pitch Readiness",text:"Craft persuasive investor and client pitches that drive engagement and commitment.\n\n• Investor Pitch Development\n• Client Presentation Crafting\n• Engagement Strategy\n• Commitment Building\n• Persuasive Communication"}
+        };
+        
+        function openModal(key){
+            const modal=document.getElementById('modal');
+            document.getElementById('modal-title').textContent=content[key].title;
+            document.getElementById('modal-text').style.whiteSpace='pre-line';
+            document.getElementById('modal-text').textContent=content[key].text;
+            modal.style.display='block';
+        }
+        
+        function closeModal(){
+            document.getElementById('modal').style.display='none';
+        }
+        
+        window.onclick=function(event){
+            if(event.target===document.getElementById('modal')){
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 // VR Website JavaScript - Following GF Corporate Standards
 
 // Global variables
-let currentLanguage = 'en';
+let currentLanguage = 'de';
 let modalShown = false;
 let emailCaptured = false;
 
@@ -20,7 +20,7 @@ function initializeVRWebsite() {
     initializeLanguageToggle();
     initializeEmailCapture();
     loadLanguagePreference();
-    updateLanguage(currentLanguage || 'en');
+    updateLanguage(currentLanguage || 'de');
     console.log('VR Website initialization completed');
 }
 
@@ -160,13 +160,16 @@ function loadLanguagePreference() {
         currentLanguage = savedLanguage;
         console.log('Loaded language preference:', currentLanguage);
     } else {
-        currentLanguage = 'en'; // Default to English
-        console.log('No saved preference, defaulting to English');
+        currentLanguage = 'de'; // Default to German for VR website
+        console.log('No saved preference, defaulting to German');
     }
 }
 
 // Email Capture Modal and Newsletter functionality
 function initializeEmailCapture() {
+    // Set timestamps when page loads
+    setFormTimestamps();
+    
     // Timer-based popup (30 seconds)
     setTimeout(() => {
         if (!modalShown && !emailCaptured) {
@@ -199,10 +202,32 @@ function initializeEmailCapture() {
     const modalForm = document.getElementById('modalForm');
     if (modalForm) {
         modalForm.addEventListener('submit', function(e) {
-            e.preventDefault();
+            // Set reply-to before submission
             const email = document.getElementById('modalEmail').value;
-            handleEmailSubmission(email, 'popup');
-            closeModal();
+            const modalReplyTo = document.getElementById('modalReplyTo');
+            if (modalReplyTo) {
+                modalReplyTo.value = email;
+            }
+            
+            // Update timestamp
+            const modalTimestamp = document.getElementById('modalTimestamp');
+            if (modalTimestamp) {
+                modalTimestamp.value = new Date().toISOString();
+            }
+            
+            // Form will submit normally to Formspree
+            // Show loading state
+            const submitBtn = e.target.querySelector('.email-submit');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = currentLanguage === 'de' ? 'Wird gesendet...' : 'Sending...';
+            }
+            
+            // Close modal after a brief delay to allow form submission
+            setTimeout(() => {
+                closeModal();
+                showSubmissionFeedback('popup');
+            }, 1000);
         });
     }
     
@@ -210,11 +235,30 @@ function initializeEmailCapture() {
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('nameInput').value;
+            // Set reply-to and timestamp before submission
             const email = document.getElementById('emailInput').value;
-            const company = document.getElementById('companyInput').value;
-            handleEmailSubmission(email, 'newsletter', name, company);
+            const hiddenReplyTo = document.getElementById('hiddenReplyTo');
+            if (hiddenReplyTo) {
+                hiddenReplyTo.value = email;
+            }
+            
+            const timestamp = document.getElementById('timestamp');
+            if (timestamp) {
+                timestamp.value = new Date().toISOString();
+            }
+            
+            // Show loading state
+            const submitBtn = e.target.querySelector('.newsletter-submit');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = currentLanguage === 'de' ? 'Wird gesendet...' : 'Sending...';
+            }
+            
+            // Form will submit normally to Formspree
+            // Show success message after brief delay
+            setTimeout(() => {
+                handleEmailSubmission(email, 'newsletter');
+            }, 1000);
         });
     }
     
@@ -240,6 +284,55 @@ function initializeEmailCapture() {
             closeModal();
         }
     });
+}
+
+function setFormTimestamps() {
+    const timestamp = document.getElementById('timestamp');
+    const modalTimestamp = document.getElementById('modalTimestamp');
+    const currentTime = new Date().toISOString();
+    
+    if (timestamp) timestamp.value = currentTime;
+    if (modalTimestamp) modalTimestamp.value = currentTime;
+}
+
+function showSubmissionFeedback(source) {
+    let message;
+    if (currentLanguage === 'de') {
+        message = source === 'popup' 
+            ? 'Vielen Dank! Ihre Anfrage wurde gesendet. Wir kontaktieren Sie bald mit dem VR-Guide.'
+            : 'Vielen Dank! Ihre Newsletter-Anfrage wurde gesendet.';
+    } else {
+        message = source === 'popup'
+            ? 'Thank you! Your request has been sent. We\'ll contact you soon with the VR Guide.'
+            : 'Thank you! Your newsletter request has been sent.';
+    }
+    
+    // Create and show temporary notification
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #8BC07C, rgba(139, 192, 124, 0.8));
+        color: white;
+        padding: 16px 24px;
+        border-radius: 8px;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        z-index: 10001;
+        font-family: var(--font-primary);
+        font-weight: 600;
+        max-width: 300px;
+        animation: slideInRight 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    // Remove notification after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 5000);
 }
 
 function showModal() {
@@ -352,3 +445,117 @@ window.VRWebsite = {
     closeModal,
     handleEmailSubmission
 };
+
+// === Consent Manager (A+B) ===
+(function(){
+  const STORAGE_KEY = 'consent-' + (window.__CONSENT_VERSION__||'vr-v1');
+  const GA_ID = window.__GA_MEASUREMENT_ID__ || 'G-2D1MXJ2SMZ';
+
+  const $ = (sel) => document.querySelector(sel);
+
+  function getConsent(){
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || null; } catch(e){ return null; }
+  }
+  function setConsent(obj){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
+  }
+
+  function applyConsent(consent){
+    // Only analytics is toggled here (necessary is always on)
+    if(consent.analytics === true){
+      // Load GA loader once
+      if(!window.__GA_LOADED__){
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        s.onload = function(){
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+          gtag('consent','update',{ analytics_storage: 'granted' });
+        };
+        document.head.appendChild(s);
+        window.__GA_LOADED__ = true;
+      }else{
+        gtag('consent','update',{ analytics_storage: 'granted' });
+      }
+    }else{
+      // Update to denied
+      gtag('consent','update',{ analytics_storage: 'denied' });
+    }
+  }
+
+  function showBanner(){
+    const banner = $('#cookie-banner');
+    if(banner) banner.style.display = 'block';
+  }
+  function hideBanner(){
+    const banner = $('#cookie-banner');
+    if(banner) banner.style.display = 'none';
+  }
+  function openModal(){
+    const modal = $('#cookie-modal');
+    if(modal){ modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); }
+  }
+  function closeModal(){
+    const modal = $('#cookie-modal');
+    if(modal){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+  }
+
+  function initUI(){
+    const btnAccept = $('#cookie-accept');
+    const btnReject = $('#cookie-reject');
+    const btnCustomize = $('#cookie-customize');
+    const btnSettings = $('#cookie-settings');
+    const btnClose = $('#cookie-close');
+    const btnSave = $('#cookie-save');
+    const toggleAnalytics = $('#toggle-analytics');
+
+    if(btnAccept) btnAccept.addEventListener('click', () => {
+      const consent = { necessary: true, analytics: true, at: new Date().toISOString() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    if(btnReject) btnReject.addEventListener('click', () => {
+      const consent = { necessary: true, analytics: false, at: new Date().toISOString() };
+      setConsent(consent);
+      applyConsent(consent);
+      hideBanner();
+    });
+
+    if(btnCustomize) btnCustomize.addEventListener('click', () => {
+      const c = getConsent() || { analytics: false };
+      if(toggleAnalytics) toggleAnalytics.checked = !!c.analytics;
+      openModal();
+    });
+
+    if(btnSettings) btnSettings.addEventListener('click', () => {
+      const c = getConsent() || { analytics: false };
+      if(toggleAnalytics) toggleAnalytics.checked = !!c.analytics;
+      openModal();
+    });
+
+    if(btnClose) btnClose.addEventListener('click', closeModal);
+
+    if(btnSave) btnSave.addEventListener('click', () => {
+      const consent = { necessary: true, analytics: !!(toggleAnalytics && toggleAnalytics.checked), at: new Date().toISOString() };
+      setConsent(consent);
+      applyConsent(consent);
+      closeModal();
+      hideBanner();
+    });
+  }
+
+  // On load: default deny already set in stub. Decide UI and possibly enable analytics.
+  document.addEventListener('DOMContentLoaded', function(){
+    initUI();
+    const consent = getConsent();
+    if(consent){
+      applyConsent(consent);
+      hideBanner();
+    }else{
+      showBanner();
+    }
+  });
+})();

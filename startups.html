@@ -6,6 +6,18 @@
     <title>GF Innovative Solutions - Startup Growth Journey</title>
     <link rel="stylesheet" href="startup-styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics Consent Stub -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Deny by default (before any network calls)
+      gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied' });
+      
+      // Set configuration variables
+      window.__GA_MEASUREMENT_ID__ = 'G-2D1MXJ2SMZ';
+      window.__CONSENT_VERSION__ = 'startup-v1';
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -63,37 +75,22 @@
                 Click on each stage to explore the strategic elements that will accelerate your startup's growth.
             </p>
 
-            <!-- Growth Journey Packages floating over the background, no white box -->
+            <!-- Growth Journey Packages floating over the background -->
             <div style="position:relative; min-height: 700px; width:100%;">
-                <div class="growth-box" data-step="competitive" style="position:absolute;left:5%;top:600px;width:220px;cursor:pointer;">
-                    <strong data-en="Competitive Landscape" data-de="Wettbewerbslandschaft">Competitive Landscape</strong>
+                <div class="growth-box" data-step="startup-clarity" style="position:absolute;left:5%;top:600px;width:220px;cursor:pointer;">
+                    <strong data-en="Startup Clarity" data-de="Startup-Klarheit">Startup Clarity</strong>
                 </div>
-                <div class="growth-box" data-step="market" style="position:absolute;left:15%;top:530px;width:220px;cursor:pointer;">
-                    <strong data-en="Market Insights" data-de="Markteinblicke">Market Insights</strong>
+                <div class="growth-box" data-step="revenue-engine" style="position:absolute;left:15%;top:530px;width:220px;cursor:pointer;">
+                    <strong data-en="Revenue Engine" data-de="Umsatzmotor">Revenue Engine</strong>
                 </div>
-                <div class="growth-box" data-step="revenue" style="position:absolute;left:25%;top:460px;width:220px;cursor:pointer;">
-                    <strong data-en="Revenue Strategy" data-de="Umsatzstrategie">Revenue Strategy</strong>
+                <div class="growth-box" data-step="sales-boost" style="position:absolute;left:25%;top:460px;width:220px;cursor:pointer;">
+                    <strong data-en="Sales Boost" data-de="Verkaufssteigerung">Sales Boost</strong>
                 </div>
-                <div class="growth-box" data-step="sales" style="position:absolute;left:35%;top:390px;width:220px;cursor:pointer;">
-                    <strong data-en="Sales Acceleration" data-de="Vertriebsbeschleunigung">Sales Acceleration</strong>
+                <div class="growth-box" data-step="growth-capabilities" style="position:absolute;left:35%;top:390px;width:220px;cursor:pointer;">
+                    <strong data-en="Growth Capabilities" data-de="Wachstumsfähigkeiten">Growth Capabilities</strong>
                 </div>
-                <div class="growth-box" data-step="capabilities" style="position:absolute;left:45%;top:320px;width:220px;cursor:pointer;">
-                    <strong data-en="Strategic Capabilities" data-de="Strategische Fähigkeiten">Strategic Capabilities</strong>
-                </div>
-                <div class="growth-box" data-step="cost" style="position:absolute;left:55%;top:250px;width:220px;cursor:pointer;">
-                    <strong data-en="Cost Efficiency" data-de="Kosteneffizienz">Cost Efficiency</strong>
-                </div>
-                <div class="growth-box" data-step="partner" style="position:absolute;left:65%;top:180px;width:220px;cursor:pointer;">
-                    <strong data-en="Strategic Partnerships" data-de="Strategische Partnerschaften">Strategic Partnerships</strong>
-                </div>
-                <div class="growth-box" data-step="usp" style="position:absolute;left:75%;top:110px;width:220px;cursor:pointer;">
-                    <strong data-en="Value Proposition" data-de="Wertversprechen">Value Proposition</strong>
-                </div>
-                <div class="growth-box" data-step="pitch" style="position:absolute;left:85%;top:40px;width:220px;cursor:pointer;">
-                    <strong data-en="Pitch Readiness" data-de="Pitch-Bereitschaft">Pitch Readiness</strong>
-                </div>
-                <div class="growth-box" data-step="ai" style="position:absolute;left:95%;top:-30px;width:220px;transform:translateX(-100%);cursor:pointer;">
-                    <strong data-en="AI for Startups" data-de="KI für Startups">AI for Startups</strong>
+                <div class="growth-box" data-step="scale-strategy" style="position:absolute;left:45%;top:320px;width:220px;cursor:pointer;">
+                    <strong data-en="Scale Strategy" data-de="Skalierungsstrategie">Scale Strategy</strong>
                 </div>
             </div>
 
@@ -102,7 +99,7 @@
                 <div class="growth-modal-content">
                     <span class="growth-close">&times;</span>
                     <h3 id="growth-modal-title"></h3>
-                    <p id="growth-modal-text"></p>
+                    <div id="growth-modal-text"></div>
                 </div>
             </div>
         </div>
@@ -195,6 +192,63 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-banner__inner">
+            <div class="cookie-banner__text">
+                <strong data-en="We value your privacy" data-de="Wir respektieren Ihre Privatsphäre">We value your privacy</strong>
+                <p data-en="This website uses cookies to enhance your experience and provide analytics. You can choose which cookies to accept." data-de="Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern und Analysen bereitzustellen. Sie können wählen, welche Cookies Sie akzeptieren.">This website uses cookies to enhance your experience and provide analytics. You can choose which cookies to accept.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button id="cookie-accept" class="btn btn-primary" data-en="Accept All" data-de="Alle akzeptieren">Accept All</button>
+                <button id="cookie-reject" class="btn btn-secondary" data-en="Essential Only" data-de="Nur notwendige">Essential Only</button>
+                <button id="cookie-customize" class="btn btn-outline" data-en="Customize" data-de="Anpassen">Customize</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Entry Point -->
+    <div class="cookie-settings-entry">
+        <button id="cookie-settings" class="link-like" data-en="Cookie Settings" data-de="Cookie-Einstellungen">Cookie Settings</button>
+    </div>
+
+    <!-- Cookie Modal -->
+    <div id="cookie-modal" class="cookie-modal" aria-hidden="true">
+        <div class="cookie-modal__backdrop" onclick="closeModal()"></div>
+        <div class="cookie-modal__dialog">
+            <div class="cookie-modal__header">
+                <h3 data-en="Cookie Preferences" data-de="Cookie-Einstellungen">Cookie Preferences</h3>
+                <button id="cookie-close" class="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="cookie-modal__body">
+                <p data-en="We use cookies to improve your experience on our website. You can customize your preferences below." data-de="Wir verwenden Cookies, um Ihr Erlebnis auf unserer Website zu verbessern. Sie können Ihre Präferenzen unten anpassen.">We use cookies to improve your experience on our website. You can customize your preferences below.</p>
+                
+                <div class="cookie-toggle">
+                    <div>
+                        <strong data-en="Essential Cookies" data-de="Notwendige Cookies">Essential Cookies</strong>
+                        <p data-en="Required for the website to function properly." data-de="Erforderlich für das ordnungsgemäße Funktionieren der Website.">Required for the website to function properly.</p>
+                    </div>
+                    <div class="switch disabled">
+                        <input type="checkbox" checked disabled>
+                    </div>
+                </div>
+                
+                <div class="cookie-toggle">
+                    <div>
+                        <strong data-en="Analytics Cookies" data-de="Analyse-Cookies">Analytics Cookies</strong>
+                        <p data-en="Help us understand how visitors interact with our website." data-de="Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.">Help us understand how visitors interact with our website.</p>
+                    </div>
+                    <div class="switch">
+                        <input type="checkbox" id="toggle-analytics">
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal__footer">
+                <button id="cookie-save" class="btn btn-primary" data-en="Save Preferences" data-de="Einstellungen speichern">Save Preferences</button>
+            </div>
+        </div>
+    </div>
 
     <script src="startup-script.js"></script>
 </body>

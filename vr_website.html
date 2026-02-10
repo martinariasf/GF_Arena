@@ -16,6 +16,18 @@
     
     <!-- VR Website Specific Styles -->
     <link rel="stylesheet" href="styles-vr.css">
+    
+    <!-- Google Analytics Consent Stub -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      // Deny by default (before any network calls)
+      gtag('consent', 'default', { ad_storage: 'denied', analytics_storage: 'denied' });
+      
+      // Set configuration variables
+      window.__GA_MEASUREMENT_ID__ = 'G-2D1MXJ2SMZ';
+      window.__CONSENT_VERSION__ = 'vr-v1';
+    </script>
 </head>
 
 <body>
@@ -33,8 +45,19 @@
                 <li data-en="Free initial consultation included" data-de="Kostenlose Erstberatung inklusive">Kostenlose Erstberatung inklusive</li>
             </ul>
             
-            <form class="email-form" id="modalForm">
-                <input type="email" class="email-input" placeholder="Ihre E-Mail-Adresse" required id="modalEmail" data-en="Your email address" data-de="Ihre E-Mail-Adresse">
+            <form class="email-form" id="modalForm" action="https://formspree.io/f/myzgvodd" method="POST">
+                <input type="email" class="email-input" name="email" placeholder="Ihre E-Mail-Adresse" required id="modalEmail" data-en="Your email address" data-de="Ihre E-Mail-Adresse">
+                
+                <!-- Hidden fields for modal form -->
+                <input type="hidden" name="_subject" value="Neue VR-Guide Anfrage (Popup Modal)">
+                <input type="hidden" name="_replyto" id="modalReplyTo">
+                <input type="hidden" name="_next" value="https://gfinnov.com/vr_website.html">
+                <input type="hidden" name="form_type" value="VR Popup Modal Guide Request">
+                <input type="hidden" name="timestamp" id="modalTimestamp">
+                <input type="hidden" name="source" value="VR Website Popup Modal">
+                <input type="hidden" name="name" value="Not provided (Popup)">
+                <input type="hidden" name="company" value="Not provided (Popup)">
+                
                 <button type="submit" class="email-submit" data-en="📧 Get Free Guide" data-de="📧 Kostenlosen Guide erhalten">📧 Kostenlosen Guide erhalten</button>
             </form>
             
@@ -235,15 +258,24 @@
                 
                 <div class="newsletter-form-container fade-in">
                     <h4 style="margin-bottom: 1.5rem; text-align: center; font-size: 1.3rem;" data-en="Download Free Guide" data-de="Kostenlosen Guide herunterladen">Kostenlosen Guide herunterladen</h4>
-                    <form class="newsletter-form" id="newsletterForm">
-                        <input type="text" class="newsletter-input" placeholder="Ihr Name" required id="nameInput" data-en="Your Name" data-de="Ihr Name">
-                        <input type="email" class="newsletter-input" placeholder="Ihre E-Mail-Adresse" required id="emailInput" data-en="Your Email Address" data-de="Ihre E-Mail-Adresse">
-                        <input type="text" class="newsletter-input" placeholder="Unternehmen (optional)" id="companyInput" data-en="Company (optional)" data-de="Unternehmen (optional)">
+                    <form class="newsletter-form" id="newsletterForm" action="https://formspree.io/f/myzgvodd" method="POST">
+                        <input type="text" class="newsletter-input" name="name" placeholder="Ihr Name" required id="nameInput" data-en="Your Name" data-de="Ihr Name">
+                        <input type="email" class="newsletter-input" name="email" placeholder="Ihre E-Mail-Adresse" required id="emailInput" data-en="Your Email Address" data-de="Ihre E-Mail-Adresse">
+                        <input type="text" class="newsletter-input" name="company" placeholder="Unternehmen (optional)" id="companyInput" data-en="Company (optional)" data-de="Unternehmen (optional)">
+                        
+                        <!-- Hidden fields for tracking -->
+                        <input type="hidden" name="_subject" value="Neue VR-Guide Anfrage von der Website">
+                        <input type="hidden" name="_replyto" id="hiddenReplyTo">
+                        <input type="hidden" name="_next" value="https://gfinnov.com/vr_website.html#newsletter">
+                        <input type="hidden" name="form_type" value="VR Newsletter Guide Request">
+                        <input type="hidden" name="timestamp" id="timestamp">
+                        <input type="hidden" name="source" value="VR Website Newsletter Section">
+                        
                         <button type="submit" class="newsletter-submit" data-en="📧 Get Free Guide" data-de="📧 Guide kostenlos erhalten">📧 Guide kostenlos erhalten</button>
                     </form>
                     <div class="success-message" id="successMessage">
                         <strong data-en="🎉 Thank you!" data-de="🎉 Vielen Dank!">🎉 Vielen Dank!</strong><br>
-                        <span data-en="Your VR Trade Show Guide will be in your inbox within the next few minutes." data-de="Ihr VR-Messe-Guide wird in den nächsten Minuten in Ihrem Postfach sein.">Ihr VR-Messe-Guide wird in den nächsten Minuten in Ihrem Postfach sein.</span>
+                        <span data-en="Your VR Trade Show Guide request has been sent! We'll send you the guide and contact you soon." data-de="Ihre VR-Messe-Guide Anfrage wurde gesendet! Wir senden Ihnen den Guide und kontaktieren Sie bald.">Ihre VR-Messe-Guide Anfrage wurde gesendet! Wir senden Ihnen den Guide und kontaktieren Sie bald.</span>
                     </div>
                     <p class="privacy-note" data-en="🔒 Your data is secure. No sharing with third parties. Unsubscribe anytime." data-de="🔒 Ihre Daten sind sicher. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.">
                         <i class="fas fa-lock"></i> Ihre Daten sind sicher. Keine Weitergabe an Dritte. Abmeldung jederzeit möglich.
@@ -344,6 +376,63 @@
             </div>
         </div>
     </section>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-banner__inner">
+            <div class="cookie-banner__text">
+                <strong data-en="We value your privacy" data-de="Wir respektieren Ihre Privatsphäre">Wir respektieren Ihre Privatsphäre</strong>
+                <p data-en="This website uses cookies to enhance your experience and provide analytics. You can choose which cookies to accept." data-de="Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern und Analysen bereitzustellen. Sie können wählen, welche Cookies Sie akzeptieren.">Diese Website verwendet Cookies, um Ihr Erlebnis zu verbessern und Analysen bereitzustellen. Sie können wählen, welche Cookies Sie akzeptieren.</p>
+            </div>
+            <div class="cookie-banner__actions">
+                <button id="cookie-accept" class="btn btn-primary" data-en="Accept All" data-de="Alle akzeptieren">Alle akzeptieren</button>
+                <button id="cookie-reject" class="btn btn-secondary" data-en="Essential Only" data-de="Nur notwendige">Nur notwendige</button>
+                <button id="cookie-customize" class="btn btn-outline" data-en="Customize" data-de="Anpassen">Anpassen</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Entry Point -->
+    <div class="cookie-settings-entry">
+        <button id="cookie-settings" class="link-like" data-en="Cookie Settings" data-de="Cookie-Einstellungen">Cookie-Einstellungen</button>
+    </div>
+
+    <!-- Cookie Modal -->
+    <div id="cookie-modal" class="cookie-modal" aria-hidden="true">
+        <div class="cookie-modal__backdrop" onclick="closeModal()"></div>
+        <div class="cookie-modal__dialog">
+            <div class="cookie-modal__header">
+                <h3 data-en="Cookie Preferences" data-de="Cookie-Einstellungen">Cookie-Einstellungen</h3>
+                <button id="cookie-close" class="modal-close" aria-label="Close">&times;</button>
+            </div>
+            <div class="cookie-modal__body">
+                <p data-en="We use cookies to improve your experience on our website. You can customize your preferences below." data-de="Wir verwenden Cookies, um Ihr Erlebnis auf unserer Website zu verbessern. Sie können Ihre Präferenzen unten anpassen.">Wir verwenden Cookies, um Ihr Erlebnis auf unserer Website zu verbessern. Sie können Ihre Präferenzen unten anpassen.</p>
+                
+                <div class="cookie-toggle">
+                    <div>
+                        <strong data-en="Essential Cookies" data-de="Notwendige Cookies">Notwendige Cookies</strong>
+                        <p data-en="Required for the website to function properly." data-de="Erforderlich für das ordnungsgemäße Funktionieren der Website.">Erforderlich für das ordnungsgemäße Funktionieren der Website.</p>
+                    </div>
+                    <div class="switch disabled">
+                        <input type="checkbox" checked disabled>
+                    </div>
+                </div>
+                
+                <div class="cookie-toggle">
+                    <div>
+                        <strong data-en="Analytics Cookies" data-de="Analyse-Cookies">Analyse-Cookies</strong>
+                        <p data-en="Help us understand how visitors interact with our website." data-de="Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.">Helfen uns zu verstehen, wie Besucher mit unserer Website interagieren.</p>
+                    </div>
+                    <div class="switch">
+                        <input type="checkbox" id="toggle-analytics">
+                    </div>
+                </div>
+            </div>
+            <div class="cookie-modal__footer">
+                <button id="cookie-save" class="btn btn-primary" data-en="Save Preferences" data-de="Einstellungen speichern">Einstellungen speichern</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Scripts -->
     <script src="script-vr.js"></script>

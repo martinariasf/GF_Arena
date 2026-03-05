@@ -1122,54 +1122,61 @@ p {
 /* Team Row Layout */
 .team-row-primary {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 32px;
     margin-bottom: 32px;
 }
 
 .team-row-primary .team-member {
-    width: 320px;
+    width: 300px;
     flex-shrink: 0;
 }
 
 .team-row-secondary {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 24px;
+    gap: 20px;
 }
 
 .team-row-secondary .team-member {
-    width: 260px;
+    width: 220px;
     flex-shrink: 0;
-    padding: 24px;
+    padding: 20px;
 }
 
 .team-row-secondary .member-photo {
-    width: 220px;
-    height: 220px;
+    width: 160px;
+    height: 160px;
 }
 
 .team-row-secondary h3 {
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .team-row-secondary .member-role {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
 }
 
 .team-row-secondary .member-skills li {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 /* Digital Workers Grid */
+.digital-workers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
 .digital-workers-grid .team-member {
     padding: 20px;
 }
 
 .digital-workers-grid .member-photo {
-    width: 200px;
-    height: 160px;
-    border-radius: 8px;
+    width: 160px !important;
+    height: 130px !important;
+    border-radius: 8px !important;
 }
 
 .digital-workers-grid h3 {

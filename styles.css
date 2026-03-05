@@ -1119,6 +1119,71 @@ p {
     line-height: 1.7;
 }
 
+/* Team Row Layout */
+.team-row-primary {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.team-row-primary .team-member {
+    width: 320px;
+    flex-shrink: 0;
+}
+
+.team-row-secondary {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+}
+
+.team-row-secondary .team-member {
+    width: 260px;
+    flex-shrink: 0;
+    padding: 24px;
+}
+
+.team-row-secondary .member-photo {
+    width: 220px;
+    height: 220px;
+}
+
+.team-row-secondary h3 {
+    font-size: 1.1rem;
+}
+
+.team-row-secondary .member-role {
+    font-size: 0.85rem;
+}
+
+.team-row-secondary .member-skills li {
+    font-size: 13px;
+}
+
+/* Digital Workers Grid */
+.digital-workers-grid .team-member {
+    padding: 20px;
+}
+
+.digital-workers-grid .member-photo {
+    width: 200px;
+    height: 160px;
+    border-radius: 8px;
+}
+
+.digital-workers-grid h3 {
+    font-size: 1rem;
+}
+
+.digital-workers-grid .member-role {
+    font-size: 0.8rem;
+}
+
+.digital-workers-grid .member-skills li {
+    font-size: 12px;
+}
+
 /* Team Member Links */
 .member-link {
     text-decoration: none;

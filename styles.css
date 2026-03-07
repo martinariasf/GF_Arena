@@ -1407,3 +1407,26 @@ p {
         height: 120px;
     }
 }
+
+/* Hero Metrics Bar */
+.hero-metrics {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+.metric {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.metric-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color, #00d4ff);
+}
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #aaa);
+    text-align: center;
+}

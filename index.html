@@ -194,7 +194,7 @@
         border-radius: 6px;
         font-family: var(--font);
     }
-    .lang-toggle .active-lang { color: var(--white); font-weight: 600; }
+    .lang-toggle .active-lang { color: var(--white); font-weight: 700; text-decoration: underline; }
 
     /* ── Hero ── */
     .hero {
@@ -898,7 +898,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="images/gf-logo.png" alt="GF Innovative Solutions" class="logo" style="height:40px; width:auto;">
+                <img src="images/gf-logo.png" alt="GF Innovative Solutions" style="height:40px; width:auto;">
             </div>
             <div class="nav-menu">
                 <a href="#home" class="nav-link" data-en="Home" data-de="Startseite">Home</a>
@@ -1411,7 +1411,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="images/gf-logo.png" alt="GF Innovative Solutions" class="footer-logo" style="height:36px; width:auto;">
+                    <img src="images/gf-logo.png" alt="GF Innovative Solutions" style="height:36px; width:auto;">
                     <p class="footer-tagline" data-en="Guided by tech, powered by people." data-de="Geleitet von Technologie, angetrieben von Menschen.">Guided by tech, powered by people.</p>
                 </div>
                 <div>
@@ -1584,28 +1584,28 @@
         var langEn = document.getElementById('lang-en');
         var langDe = document.getElementById('lang-de');
 
-        function setLang(l) {
+        function applyLang(l) {
             lang = l;
             localStorage.setItem('site-lang', l);
             document.documentElement.lang = l;
-            document.querySelectorAll('[data-de]').forEach(function(el) {
+            document.querySelectorAll('[data-en][data-de]').forEach(function(el) {
                 el.innerHTML = el.getAttribute('data-' + l);
             });
-            if (l === 'de') {
-                langDe.classList.add('active-lang');
-                langEn.classList.remove('active-lang');
-            } else {
+            if (l === 'en') {
                 langEn.classList.add('active-lang');
                 langDe.classList.remove('active-lang');
+            } else {
+                langDe.classList.add('active-lang');
+                langEn.classList.remove('active-lang');
             }
         }
 
         toggleBtn.addEventListener('click', function() {
-            setLang(lang === 'en' ? 'de' : 'en');
+            applyLang(lang === 'en' ? 'de' : 'en');
         });
 
-        if (lang === 'de') setLang('de');
+        applyLang(lang);
     })();
-    </script>
+</script>
 </body>
 </html>

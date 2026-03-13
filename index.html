@@ -898,20 +898,20 @@
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-logo">
-                <img src="./images/gf-logo.png" alt="GF Innovative Solutions" class="logo">
+                <img src="images/gf-logo.png" alt="GF Innovative Solutions" class="logo" style="height:40px; width:auto;">
             </div>
             <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#how-we-work" class="nav-link">How We Work</a>
-                <a href="#use-cases" class="nav-link">Use Cases</a>
-                <a href="#resources" class="nav-link">Resources</a>
-                <a href="#team" class="nav-link">Team</a>
-                <a href="#digital-team" class="nav-link">Digital Team</a>
-                <a href="https://calendly.com/gfinnov-info/30min" class="nav-cta" target="_blank">Free AI Assessment</a>
-                <button class="lang-toggle" type="button" aria-label="Toggle Language">
-                    <span class="active-lang">EN</span> | <span>DE</span>
+                <a href="#home" class="nav-link" data-en="Home" data-de="Startseite">Home</a>
+                <a href="#about" class="nav-link" data-en="About" data-de="Über uns">About</a>
+                <a href="#services" class="nav-link" data-en="Services" data-de="Leistungen">Services</a>
+                <a href="#how-we-work" class="nav-link" data-en="How We Work" data-de="Wie wir arbeiten">How We Work</a>
+                <a href="#use-cases" class="nav-link" data-en="Use Cases" data-de="Anwendungsfälle">Use Cases</a>
+                <a href="#resources" class="nav-link" data-en="Resources" data-de="Ressourcen">Resources</a>
+                <a href="#team" class="nav-link" data-en="Team" data-de="Team">Team</a>
+                <a href="#digital-team" class="nav-link" data-en="Digital Team" data-de="Digitales Team">Digital Team</a>
+                <a href="https://calendly.com/gfinnov-info/30min" class="nav-cta" target="_blank" data-en="Free AI Assessment" data-de="Kostenloses KI-Assessment">Free AI Assessment</a>
+                <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Toggle Language">
+                    <span class="active-lang" id="lang-en">EN</span> | <span id="lang-de">DE</span>
                 </button>
             </div>
         </div>
@@ -920,12 +920,12 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-inner">
-            <span class="hero-label">AI Implementation Partner</span>
-            <h1>Your first AI team without the hiring cost.</h1>
-            <p class="hero-sub">We build custom AI agents for <strong>companies of 4–50 people</strong> — no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>.</p>
+            <span class="hero-label" data-en="AI Implementation Partner" data-de="KI-Implementierungspartner">AI Implementation Partner</span>
+            <h1 data-en="Your first AI team without the hiring cost." data-de="Ihr erstes KI-Team ohne Einstellungskosten.">Your first AI team without the hiring cost.</h1>
+            <p class="hero-sub" data-en="We build custom AI agents for <strong>companies of 4–50 people</strong> — no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>." data-de="Wir entwickeln maßgeschneiderte KI-Agenten für <strong>Unternehmen mit 4–50 Mitarbeitern</strong> — kein internes Entwicklerteam erforderlich. Von der Automatisierung manueller Arbeit bis zur Bearbeitung von Kundenabläufen liefern wir Ergebnisse <strong>ab dem ersten Monat</strong>.">We build custom AI agents for <strong>companies of 4–50 people</strong> — no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>.</p>
             <div class="hero-buttons">
-                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank">Book Free AI Assessment</a>
-                <a href="#services" class="btn btn-ghost">Explore our services</a>
+                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
+                <a href="#services" class="btn btn-ghost" data-en="Explore our services" data-de="Leistungen entdecken">Explore our services</a>
             </div>
         </div>
     </section>
@@ -933,8 +933,8 @@
     <!-- About Section -->
     <section id="about" class="section section--darker">
         <div class="container">
-            <span class="section-tag">Who We Are</span>
-            <h2 class="section-title">About Us</h2>
+            <span class="section-tag" data-en="Who We Are" data-de="Wer wir sind">Who We Are</span>
+            <h2 class="section-title" data-en="About Us" data-de="Über uns">About Us</h2>
             <div class="about-grid">
                 <div class="about-text">
                     <p><strong>GF Innovative Solutions</strong> is a German-based AI consultancy and implementation partner. We help startups and SMEs unlock the real capabilities of artificial intelligence — not with slide decks, but with working systems.</p>
@@ -974,9 +974,9 @@
     <!-- What Makes Us Different -->
     <section class="section section--gradient">
         <div class="container">
-            <span class="section-tag">Our Edge</span>
-            <h2 class="section-title">What Makes Us Different</h2>
-            <p class="section-subtitle">Guided by tech, powered by people.</p>
+            <span class="section-tag" data-en="Our Edge" data-de="Unser Vorteil">Our Edge</span>
+            <h2 class="section-title" data-en="What Makes Us Different" data-de="Was uns unterscheidet">What Makes Us Different</h2>
+            <p class="section-subtitle" data-en="Guided by tech, powered by people." data-de="Geleitet von Technologie, angetrieben von Menschen.">Guided by tech, powered by people.</p>
             <div class="diff-grid">
                 <div class="glass-card diff-card">
                     <div class="diff-icon">
@@ -1008,8 +1008,8 @@
                 </div>
             </div>
             <div class="cta-strip">
-                <h3>Ready to build something that lasts?</h3>
-                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank">Book Free AI Assessment</a>
+                <h3 data-en="Ready to build something that lasts?" data-de="Bereit, etwas Bleibendes zu schaffen?">Ready to build something that lasts?</h3>
+                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
             </div>
         </div>
     </section>
@@ -1017,11 +1017,11 @@
     <!-- Services Section -->
     <section id="services" class="section section--darker">
         <div class="container">
-            <span class="section-tag">What We Do</span>
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">A structured portfolio built around practical AI implementation — from free assessment to full automation.</p>
+            <span class="section-tag" data-en="What We Do" data-de="Was wir tun">What We Do</span>
+            <h2 class="section-title" data-en="Our Services" data-de="Unsere Leistungen">Our Services</h2>
+            <p class="section-subtitle" data-en="A structured portfolio built around practical AI implementation — from free assessment to full automation." data-de="Ein strukturiertes Portfolio rund um praktische KI-Implementierung — vom kostenlosen Assessment bis zur vollständigen Automatisierung.">A structured portfolio built around practical AI implementation — from free assessment to full automation.</p>
 
-            <h3 class="services-tier-title">AI Automation</h3>
+            <h3 class="services-tier-title" data-en="AI Automation" data-de="KI-Automatisierung">AI Automation</h3>
             <div class="services-grid">
                 <!-- Process Screening (featured) -->
                 <div class="service-card service-card--featured">
@@ -1093,7 +1093,7 @@
                 </div>
             </div>
 
-            <h3 class="services-tier-title">Complementary Services</h3>
+            <h3 class="services-tier-title" data-en="Complementary Services" data-de="Ergänzende Leistungen">Complementary Services</h3>
             <div class="complementary-grid">
                 <div class="complementary-card">
                     <h4>AI Strategy Consulting</h4>
@@ -1117,9 +1117,9 @@
     <!-- Tools & Resources -->
     <section id="resources" class="section section--gradient">
         <div class="container">
-            <span class="section-tag">Resources</span>
-            <h2 class="section-title">Tools &amp; Resources</h2>
-            <p class="section-subtitle">We don't just talk about AI innovation. We build tools and share them.</p>
+            <span class="section-tag" data-en="Resources" data-de="Ressourcen">Resources</span>
+            <h2 class="section-title" data-en="Tools &amp; Resources" data-de="Tools &amp; Ressourcen">Tools &amp; Resources</h2>
+            <p class="section-subtitle" data-en="We don't just talk about AI innovation. We build tools and share them." data-de="Wir reden nicht nur über KI-Innovation. Wir bauen Tools und teilen sie.">We don't just talk about AI innovation. We build tools and share them.</p>
             <div class="tools-grid">
                 <div class="tool-card">
                     <div class="tool-icon">&#x1F916;</div>
@@ -1141,8 +1141,8 @@
                 </div>
             </div>
             <div class="tools-cta">
-                <h3>Ready to discover your AI potential?</h3>
-                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank">Book Free AI Assessment</a>
+                <h3 data-en="Ready to discover your AI potential?" data-de="Bereit, Ihr KI-Potenzial zu entdecken?">Ready to discover your AI potential?</h3>
+                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
             </div>
         </div>
     </section>
@@ -1150,9 +1150,9 @@
     <!-- Trust & Compliance -->
     <section id="trust" class="section section--darker">
         <div class="container">
-            <span class="section-tag">Security</span>
-            <h2 class="section-title">Trust &amp; Compliance</h2>
-            <p class="section-subtitle">Designed for the German B2B market. Security and compliance are not afterthoughts.</p>
+            <span class="section-tag" data-en="Security" data-de="Sicherheit">Security</span>
+            <h2 class="section-title" data-en="Trust &amp; Compliance" data-de="Vertrauen &amp; Compliance">Trust &amp; Compliance</h2>
+            <p class="section-subtitle" data-en="Designed for the German B2B market. Security and compliance are not afterthoughts." data-de="Entwickelt für den deutschen B2B-Markt. Sicherheit und Compliance sind keine Nebensache.">Designed for the German B2B market. Security and compliance are not afterthoughts.</p>
             <div class="trust-grid">
                 <div class="trust-card">
                     <div class="trust-icon">&#x1F6E1;&#xFE0F;</div>
@@ -1191,9 +1191,9 @@
     <!-- Team Section -->
     <section id="team" class="section section--gradient">
         <div class="container">
-            <span class="section-tag">The People</span>
-            <h2 class="section-title">Our Team</h2>
-            <p class="section-subtitle">Engineers who understand business. Business people who understand technology.</p>
+            <span class="section-tag" data-en="The People" data-de="Die Menschen">The People</span>
+            <h2 class="section-title" data-en="Our Team" data-de="Unser Team">Our Team</h2>
+            <p class="section-subtitle" data-en="Engineers who understand business. Business people who understand technology." data-de="Ingenieure, die Geschäft verstehen. Geschäftsleute, die Technologie verstehen.">Engineers who understand business. Business people who understand technology.</p>
 
             <!-- Co-Founders -->
             <div class="founders-grid">
@@ -1272,9 +1272,9 @@
     <!-- Digital Team Section -->
     <section id="digital-team" class="section section--darker">
         <div class="container">
-            <span class="section-tag">AI Team Members</span>
-            <h2 class="section-title">Our Digital Team</h2>
-            <p class="section-subtitle">Meet our AI-powered team members — always on, always learning.</p>
+            <span class="section-tag" data-en="AI Team Members" data-de="KI-Teammitglieder">AI Team Members</span>
+            <h2 class="section-title" data-en="Our Digital Team" data-de="Unser digitales Team">Our Digital Team</h2>
+            <p class="section-subtitle" data-en="Meet our AI-powered team members — always on, always learning." data-de="Lernen Sie unsere KI-gestützten Teammitglieder kennen — immer aktiv, immer lernend.">Meet our AI-powered team members — always on, always learning.</p>
             <div class="digital-grid">
                 <div class="digital-card">
                     <div class="digital-photo">
@@ -1343,9 +1343,9 @@
     <!-- Ethics Section -->
     <section class="section section--gradient">
         <div class="container">
-            <span class="section-tag">Ethics</span>
-            <h2 class="section-title">Our Commitment to Ethical AI</h2>
-            <p class="section-subtitle">Responsible AI isn't optional. It's how we build.</p>
+            <span class="section-tag" data-en="Ethics" data-de="Ethik">Ethics</span>
+            <h2 class="section-title" data-en="Our Commitment to Ethical AI" data-de="Unser Engagement für ethische KI">Our Commitment to Ethical AI</h2>
+            <p class="section-subtitle" data-en="Responsible AI isn't optional. It's how we build." data-de="Verantwortungsvolle KI ist keine Option. So bauen wir.">Responsible AI isn't optional. It's how we build.</p>
             <div class="ethics-grid">
                 <div class="ethics-card">
                     <h4>Human-First</h4>
@@ -1366,8 +1366,8 @@
     <!-- Testimonials Section -->
     <section class="section section--darker">
         <div class="container">
-            <span class="section-tag">Testimonials</span>
-            <h2 class="section-title">What Our Clients Say</h2>
+            <span class="section-tag" data-en="Testimonials" data-de="Referenzen">Testimonials</span>
+            <h2 class="section-title" data-en="What Our Clients Say" data-de="Was unsere Kunden sagen">What Our Clients Say</h2>
             <p class="section-subtitle" style="margin-bottom:32px;"></p>
             <div class="testimonials-grid">
                 <div class="testimonial-card">
@@ -1385,24 +1385,24 @@
     <!-- Contact Section -->
     <section id="contact" class="section section--gradient contact-section">
         <div class="container">
-            <span class="section-tag">Get Started</span>
-            <h2 class="section-title">Let's Start Your Journey</h2>
+            <span class="section-tag" data-en="Get Started" data-de="Loslegen">Get Started</span>
+            <h2 class="section-title" data-en="Let's Start Your Journey" data-de="Starten Sie Ihre Reise">Let's Start Your Journey</h2>
 
             <div class="tab-buttons">
-                <button class="tab-btn active" onclick="switchTab('startup')">I'm a startup</button>
-                <button class="tab-btn" onclick="switchTab('business')">I'm an established business</button>
+                <button class="tab-btn active" onclick="switchTab('startup')" data-en="I'm a startup" data-de="Ich bin ein Startup">I'm a startup</button>
+                <button class="tab-btn" onclick="switchTab('business')" data-en="I'm an established business" data-de="Ich bin ein etabliertes Unternehmen">I'm an established business</button>
             </div>
 
             <div id="startup-tab" class="tab-pane active">
-                <h3>Ready to build AI into your product?</h3>
-                <p>Let's discuss your MVP, AI strategy, and technical roadmap. Talk directly with our CTO.</p>
+                <h3 data-en="Ready to build AI into your product?" data-de="Bereit, KI in Ihr Produkt einzubauen?">Ready to build AI into your product?</h3>
+                <p data-en="Let's discuss your MVP, AI strategy, and technical roadmap. Talk directly with our CTO." data-de="Lassen Sie uns Ihr MVP, Ihre KI-Strategie und technische Roadmap besprechen. Sprechen Sie direkt mit unserem CTO.">Let's discuss your MVP, AI strategy, and technical roadmap. Talk directly with our CTO.</p>
             </div>
             <div id="business-tab" class="tab-pane">
-                <h3>Ready to automate your operations with AI?</h3>
-                <p>Book a free assessment — we'll identify processes that waste your team's time and show you what AI can do. No fluff, just results.</p>
+                <h3 data-en="Ready to automate your operations with AI?" data-de="Bereit, Ihre Abläufe mit KI zu automatisieren?">Ready to automate your operations with AI?</h3>
+                <p data-en="Book a free assessment — we'll identify processes that waste your team's time and show you what AI can do. No fluff, just results." data-de="Buchen Sie ein kostenloses Assessment — wir identifizieren Prozesse, die Ihr Team Zeit kosten, und zeigen Ihnen, was KI leisten kann. Keine leeren Versprechen, nur Ergebnisse.">Book a free assessment — we'll identify processes that waste your team's time and show you what AI can do. No fluff, just results.</p>
             </div>
 
-            <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" style="margin-top:8px;">Schedule Your Intro Call</a>
+            <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" style="margin-top:8px;" data-en="Schedule Your Intro Call" data-de="Erstgespräch vereinbaren">Schedule Your Intro Call</a>
         </div>
     </section>
 
@@ -1411,11 +1411,11 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <img src="./images/gf-logo-white.png" alt="GF Innovative Solutions" class="footer-logo">
-                    <p class="footer-tagline">Guided by tech, powered by people.</p>
+                    <img src="images/gf-logo.png" alt="GF Innovative Solutions" class="footer-logo" style="height:36px; width:auto;">
+                    <p class="footer-tagline" data-en="Guided by tech, powered by people." data-de="Geleitet von Technologie, angetrieben von Menschen.">Guided by tech, powered by people.</p>
                 </div>
                 <div>
-                    <h4>Services</h4>
+                    <h4 data-en="Services" data-de="Leistungen">Services</h4>
                     <ul>
                         <li><a href="#services">AI Implementation &amp; Strategy</a></li>
                         <li><a href="#services">Custom AI Agents &amp; Automation</a></li>
@@ -1424,7 +1424,7 @@
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contact</h4>
+                    <h4 data-en="Contact" data-de="Kontakt">Contact</h4>
                     <p>info@gf-innovative.com</p>
                     <p>+49 172 95 123 76</p>
                     <p>Wiesbadener Straße 41<br>D-70372 Stuttgart<br>Germany</p>
@@ -1576,6 +1576,36 @@
         }
         closeCookieModal();
     }
+
+    /* Language toggle */
+    (function() {
+        var lang = localStorage.getItem('site-lang') || 'en';
+        var toggleBtn = document.getElementById('lang-toggle');
+        var langEn = document.getElementById('lang-en');
+        var langDe = document.getElementById('lang-de');
+
+        function setLang(l) {
+            lang = l;
+            localStorage.setItem('site-lang', l);
+            document.documentElement.lang = l;
+            document.querySelectorAll('[data-de]').forEach(function(el) {
+                el.innerHTML = el.getAttribute('data-' + l);
+            });
+            if (l === 'de') {
+                langDe.classList.add('active-lang');
+                langEn.classList.remove('active-lang');
+            } else {
+                langEn.classList.add('active-lang');
+                langDe.classList.remove('active-lang');
+            }
+        }
+
+        toggleBtn.addEventListener('click', function() {
+            setLang(lang === 'en' ? 'de' : 'en');
+        });
+
+        if (lang === 'de') setLang('de');
+    })();
     </script>
 </body>
 </html>

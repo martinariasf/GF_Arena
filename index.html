@@ -19,18 +19,18 @@
     <style>
     /* ── CSS Custom Properties ── */
     :root {
-        --bg: #07101f;
-        --bg-light: #0b1628;
-        --bg-card: rgba(255,255,255,0.03);
+        --bg: #ffffff;
+        --bg-light: #f8f9fa;
+        --bg-card: #ffffff;
         --green: #22c55e;
         --teal: #14b8a6;
-        --white: #f1f5f9;
-        --gray: #94a3b8;
-        --gray-dim: #64748b;
-        --border: rgba(255,255,255,0.07);
-        --border-hover: rgba(255,255,255,0.14);
-        --glass: rgba(7,16,31,0.72);
-        --glass-border: rgba(255,255,255,0.08);
+        --white: #1a1a1a;
+        --gray: #6b7280;
+        --gray-dim: #9ca3af;
+        --border: #e5e7eb;
+        --border-hover: #d1d5db;
+        --glass: rgba(255,255,255,0.92);
+        --glass-border: #e5e7eb;
         --radius: 16px;
         --radius-sm: 10px;
         --font: 'Inter', system-ui, -apple-system, sans-serif;
@@ -95,18 +95,18 @@
     }
     .btn-primary {
         background: var(--green);
-        color: var(--bg);
+        color: #fff;
     }
     .btn-primary:hover {
         background: #16a34a;
-        color: var(--bg);
+        color: #fff;
         transform: translateY(-2px);
         box-shadow: 0 8px 24px rgba(34,197,94,.25);
     }
     .btn-ghost {
         background: transparent;
         color: var(--white);
-        border: 1px solid var(--border-hover);
+        border: 1px solid var(--border);
     }
     .btn-ghost:hover {
         border-color: var(--green);
@@ -124,11 +124,9 @@
     }
     .section--darker {
         background: var(--bg-light);
-        background-image: radial-gradient(ellipse 60% 40% at 80% 20%, rgba(20,184,166,.04) 0%, transparent 70%);
     }
     .section--gradient {
         background: var(--bg);
-        background-image: radial-gradient(ellipse 50% 50% at 20% 80%, rgba(34,197,94,.05) 0%, transparent 60%);
     }
 
     /* ── Navigation ── */
@@ -138,10 +136,10 @@
         left: 0;
         right: 0;
         z-index: 1000;
-        background: var(--glass);
+        background: rgba(11,22,40,0.95);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        border-bottom: 1px solid var(--glass-border);
+        border-bottom: 1px solid rgba(255,255,255,0.08);
         transition: background .3s;
     }
     .nav-container {
@@ -163,15 +161,15 @@
         gap: 28px;
     }
     .nav-link {
-        color: var(--gray);
+        color: #94a3b8;
         font-size: 14px;
         font-weight: 500;
         transition: color .2s;
     }
-    .nav-link:hover { color: var(--white); }
+    .nav-link:hover { color: #f1f5f9; }
     .nav-cta {
         background: var(--green);
-        color: var(--bg) !important;
+        color: #fff !important;
         padding: 6px 14px;
         border-radius: 6px;
         font-weight: 600;
@@ -180,21 +178,21 @@
     }
     .nav-cta:hover {
         background: #16a34a;
-        color: var(--bg) !important;
+        color: #fff !important;
         transform: translateY(-1px);
     }
     .lang-toggle {
-        color: var(--gray-dim);
+        color: #64748b;
         font-size: 13px;
         font-weight: 500;
         cursor: pointer;
-        border: 1px solid var(--border);
+        border: 1px solid rgba(255,255,255,0.12);
         background: transparent;
         padding: 5px 10px;
         border-radius: 6px;
         font-family: var(--font);
     }
-    .lang-toggle .active-lang { color: var(--white); font-weight: 700; text-decoration: underline; }
+    .lang-toggle .active-lang { color: #f1f5f9; font-weight: 700; text-decoration: underline; }
 
     /* ── Hero ── */
     .hero {
@@ -204,7 +202,8 @@
         position: relative;
         overflow: hidden;
         padding-top: 68px;
-        background: var(--bg);
+        background: #0b1628;
+        color: #f1f5f9;
     }
     .hero::before {
         content: '';
@@ -273,7 +272,7 @@
     }
     .hero-sub {
         font-size: 18px;
-        color: var(--gray);
+        color: #94a3b8;
         max-width: 600px;
         line-height: 1.7;
         margin-bottom: 40px;
@@ -282,6 +281,14 @@
         display: flex;
         gap: 16px;
         flex-wrap: wrap;
+    }
+    .hero .btn-ghost {
+        color: #f1f5f9;
+        border-color: rgba(255,255,255,0.2);
+    }
+    .hero .btn-ghost:hover {
+        border-color: var(--green);
+        color: var(--green);
     }
 
     /* ── Glass Card ── */
@@ -295,7 +302,7 @@
     .glass-card:hover {
         border-color: var(--border-hover);
         transform: translateY(-4px);
-        box-shadow: 0 12px 40px rgba(0,0,0,.3);
+        box-shadow: 0 12px 40px rgba(0,0,0,.08);
     }
 
     /* ── About Section ── */
@@ -310,15 +317,15 @@
         margin-bottom: 16px;
         font-size: 16px;
     }
-    .about-text strong { color: var(--white); }
+    .about-text strong { color: #1a1a1a; }
     .claude-callout {
-        background: linear-gradient(135deg, rgba(34,197,94,.08), rgba(20,184,166,.08));
+        background: linear-gradient(135deg, rgba(34,197,94,.06), rgba(20,184,166,.06));
         border: 1px solid rgba(34,197,94,.2);
         border-radius: var(--radius-sm);
         padding: 20px 24px;
         margin-top: 24px;
         font-size: 15px;
-        color: var(--white);
+        color: #1a1a1a;
     }
     .claude-callout strong { color: var(--green); }
     .about-badges {
@@ -384,7 +391,7 @@
         text-align: center;
         padding: 40px;
         border-radius: var(--radius);
-        background: linear-gradient(135deg, rgba(34,197,94,.06), rgba(20,184,166,.06));
+        background: var(--bg-light);
         border: 1px solid var(--border);
     }
     .cta-strip h3 {
@@ -397,7 +404,7 @@
         font-size: 20px;
         font-weight: 700;
         margin-bottom: 24px;
-        color: var(--white);
+        color: #1a1a1a;
     }
     .services-grid {
         display: grid;
@@ -415,10 +422,11 @@
     .service-card:hover {
         border-color: var(--border-hover);
         transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0,0,0,.06);
     }
     .service-card--featured {
         border-color: var(--green) !important;
-        box-shadow: 0 0 30px rgba(34,197,94,.08);
+        box-shadow: 0 0 30px rgba(34,197,94,.1);
     }
     .service-card h3 {
         font-size: 18px;
@@ -428,12 +436,6 @@
     .service-card > p {
         color: var(--gray);
         font-size: 14px;
-        margin-bottom: 14px;
-    }
-    .service-price {
-        font-size: 13px;
-        color: var(--teal);
-        font-weight: 600;
         margin-bottom: 14px;
     }
     .accordion-toggle {
@@ -473,13 +475,11 @@
         color: var(--green);
         border-bottom: 1px solid var(--border);
     }
-    .tier-table th:last-child { text-align: right; }
     .tier-table td {
         padding: 6px 0;
-        border-bottom: 1px solid rgba(255,255,255,0.03);
+        border-bottom: 1px solid var(--border);
         color: var(--gray);
     }
-    .tier-table td:last-child { text-align: right; font-weight: 600; color: var(--white); }
     .complementary-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -530,7 +530,7 @@
     .tools-cta {
         text-align: center;
         padding: 40px;
-        background: linear-gradient(135deg, rgba(20,184,166,.06), rgba(34,197,94,.06));
+        background: var(--bg-light);
         border: 1px solid var(--border);
         border-radius: var(--radius);
     }
@@ -593,7 +593,7 @@
     }
     .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
     .founder-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .founder-info h3 a { color: var(--white); }
+    .founder-info h3 a { color: #1a1a1a; }
     .founder-info h3 a:hover { color: var(--green); }
     .founder-role { color: var(--green); font-size: 13px; font-weight: 500; margin-bottom: 10px; }
     .founder-skills { font-size: 13px; color: var(--gray); }
@@ -688,7 +688,7 @@
     .testimonial-card blockquote {
         font-size: 16px;
         font-style: italic;
-        color: var(--white);
+        color: #1a1a1a;
         margin-bottom: 14px;
         line-height: 1.6;
     }
@@ -724,10 +724,10 @@
     }
     .tab-btn.active {
         background: var(--green);
-        color: var(--bg);
+        color: #fff;
         font-weight: 600;
     }
-    .tab-btn:not(.active):hover { color: var(--white); }
+    .tab-btn:not(.active):hover { color: #1a1a1a; }
     .tab-pane { display: none; margin-bottom: 32px; }
     .tab-pane.active { display: block; }
     .tab-pane h3 { font-size: 22px; margin-bottom: 10px; }
@@ -735,8 +735,9 @@
 
     /* ── Footer ── */
     .footer {
-        background: var(--bg-light);
-        border-top: 1px solid var(--border);
+        background: #0b1628;
+        color: #f1f5f9;
+        border-top: 1px solid rgba(255,255,255,0.08);
         padding: 60px 0 30px;
     }
     .footer-grid {
@@ -750,22 +751,22 @@
         width: auto;
         margin-bottom: 12px;
     }
-    .footer-tagline { color: var(--gray); font-size: 14px; }
-    .footer h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; }
+    .footer-tagline { color: #94a3b8; font-size: 14px; }
+    .footer h4 { font-size: 14px; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 1px; color: #f1f5f9; }
     .footer ul li { margin-bottom: 8px; }
-    .footer ul a { color: var(--gray); font-size: 14px; }
+    .footer ul a { color: #94a3b8; font-size: 14px; }
     .footer ul a:hover { color: var(--green); }
-    .footer-contact p { color: var(--gray); font-size: 14px; margin-bottom: 4px; }
+    .footer-contact p { color: #94a3b8; font-size: 14px; margin-bottom: 4px; }
     .footer-bottom {
-        border-top: 1px solid var(--border);
+        border-top: 1px solid rgba(255,255,255,0.08);
         padding-top: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         font-size: 13px;
-        color: var(--gray-dim);
+        color: #64748b;
     }
-    .footer-bottom a { color: var(--gray-dim); }
+    .footer-bottom a { color: #64748b; }
     .footer-bottom a:hover { color: var(--green); }
 
     /* ── Cookie Banner ── */
@@ -775,11 +776,12 @@
         left: 0;
         right: 0;
         z-index: 9999;
-        background: var(--glass);
+        background: rgba(255,255,255,0.95);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
-        border-top: 1px solid var(--glass-border);
+        border-top: 1px solid var(--border);
         padding: 20px 24px;
+        box-shadow: 0 -4px 20px rgba(0,0,0,.06);
     }
     .cookie-banner__inner {
         max-width: var(--max-w);
@@ -790,7 +792,7 @@
         gap: 24px;
         flex-wrap: wrap;
     }
-    .cookie-banner__text strong { color: var(--white); font-size: 15px; }
+    .cookie-banner__text strong { color: #1a1a1a; font-size: 15px; }
     .cookie-banner__text p { color: var(--gray); font-size: 13px; margin-top: 4px; }
     .cookie-banner__actions { display: flex; gap: 10px; flex-wrap: wrap; }
     .cookie-banner__actions .btn { padding: 10px 18px; font-size: 13px; }
@@ -816,7 +818,7 @@
     }
     .cookie-modal__dialog {
         position: relative;
-        background: var(--bg-light);
+        background: #ffffff;
         border: 1px solid var(--border);
         border-radius: var(--radius);
         max-width: 480px;
@@ -922,7 +924,7 @@
         <div class="hero-inner">
             <span class="hero-label" data-en="AI Implementation Partner" data-de="KI-Implementierungspartner">AI Implementation Partner</span>
             <h1 data-en="Your first AI team without the hiring cost." data-de="Ihr erstes KI-Team ohne Einstellungskosten.">Your first AI team without the hiring cost.</h1>
-            <p class="hero-sub" data-en="We build custom AI agents for <strong>companies of 4–50 people</strong> — no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>." data-de="Wir entwickeln maßgeschneiderte KI-Agenten für <strong>Unternehmen mit 4–50 Mitarbeitern</strong> — kein internes Entwicklerteam erforderlich. Von der Automatisierung manueller Arbeit bis zur Bearbeitung von Kundenabläufen liefern wir Ergebnisse <strong>ab dem ersten Monat</strong>.">We build custom AI agents for <strong>companies of 4–50 people</strong> — no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>.</p>
+            <p class="hero-sub" data-en="We build custom AI agents for <strong>companies of 4–50 people</strong>, no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>." data-de="Wir entwickeln maßgeschneiderte KI-Agenten für <strong>Unternehmen mit 4–50 Mitarbeitern</strong>, kein internes Entwicklerteam erforderlich. Von der Automatisierung manueller Arbeit bis zur Bearbeitung von Kundenabläufen liefern wir Ergebnisse <strong>ab dem ersten Monat</strong>.">We build custom AI agents for <strong>companies of 4–50 people</strong>, no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>.</p>
             <div class="hero-buttons">
                 <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
                 <a href="#services" class="btn btn-ghost" data-en="Explore our services" data-de="Leistungen entdecken">Explore our services</a>
@@ -937,11 +939,11 @@
             <h2 class="section-title" data-en="About Us" data-de="Über uns">About Us</h2>
             <div class="about-grid">
                 <div class="about-text">
-                    <p><strong>GF Innovative Solutions</strong> is a German-based AI consultancy and implementation partner. We help startups and SMEs unlock the real capabilities of artificial intelligence — not with slide decks, but with working systems.</p>
+                    <p><strong>GF Innovative Solutions</strong> is a German-based AI consultancy and implementation partner. We help startups and SMEs unlock the real capabilities of artificial intelligence, not with slide decks, but with working systems.</p>
                     <p>We don't just consult. <strong>We implement.</strong> We build AI systems that automate operations, reduce costs, and free up your team for higher-value work. From custom AI agents to process automation and secure infrastructure, we handle the strategy and the code.</p>
-                    <p><strong>Made in Germany.</strong> Built for businesses that want results, not presentations. Bridging Germany and Israel — international perspective, local implementation.</p>
+                    <p><strong>Made in Germany.</strong> Built for businesses that want results, not presentations. Bridging Germany and Israel, international perspective, local implementation.</p>
                     <div class="claude-callout">
-                        <strong>Powered by Anthropic's Claude</strong> — frontier AI with enterprise-grade security and safety built in.
+                        <strong>Powered by Anthropic's Claude</strong>: frontier AI with enterprise-grade security and safety built in.
                     </div>
                 </div>
                 <div class="about-badges">
@@ -976,13 +978,13 @@
         <div class="container">
             <span class="section-tag" data-en="Our Edge" data-de="Unser Vorteil">Our Edge</span>
             <h2 class="section-title" data-en="What Makes Us Different" data-de="Was uns unterscheidet">What Makes Us Different</h2>
-            <p class="section-subtitle" data-en="Guided by tech, powered by people." data-de="Geleitet von Technologie, angetrieben von Menschen.">Guided by tech, powered by people.</p>
+            <p class="section-subtitle" data-en="Guided by people, powered by tech." data-de="Geleitet von Menschen, angetrieben von Technologie.">Guided by people, powered by tech.</p>
             <div class="diff-grid">
                 <div class="glass-card diff-card">
                     <div class="diff-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                     </div>
-                    <h3>We speak startup — and scale-up</h3>
+                    <h3>We speak startup and scale-up</h3>
                     <p>Our team blends deep technical expertise with real-world experience helping early-stage founders launch functional MVPs. Whether you're building your first AI-powered prototype or scaling existing operations, we guide you with clarity, speed and precision.</p>
                 </div>
                 <div class="glass-card diff-card">
@@ -1004,7 +1006,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
                     </div>
                     <h3>From concept to continuity</h3>
-                    <p>We don't "launch and leave." We accompany your journey — iterating, testing, and scaling — until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game.</p>
+                    <p>We don't "launch and leave." We accompany your journey, iterating, testing, and scaling, until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game.</p>
                 </div>
             </div>
             <div class="cta-strip">
@@ -1019,7 +1021,7 @@
         <div class="container">
             <span class="section-tag" data-en="What We Do" data-de="Was wir tun">What We Do</span>
             <h2 class="section-title" data-en="Our Services" data-de="Unsere Leistungen">Our Services</h2>
-            <p class="section-subtitle" data-en="A structured portfolio built around practical AI implementation — from free assessment to full automation." data-de="Ein strukturiertes Portfolio rund um praktische KI-Implementierung — vom kostenlosen Assessment bis zur vollständigen Automatisierung.">A structured portfolio built around practical AI implementation — from free assessment to full automation.</p>
+            <p class="section-subtitle" data-en="A structured portfolio built around practical AI implementation, from free assessment to full automation." data-de="Ein strukturiertes Portfolio rund um praktische KI-Implementierung, vom kostenlosen Assessment bis zur vollständigen Automatisierung.">A structured portfolio built around practical AI implementation, from free assessment to full automation.</p>
 
             <h3 class="services-tier-title" data-en="AI Automation" data-de="KI-Automatisierung">AI Automation</h3>
             <div class="services-grid">
@@ -1027,15 +1029,14 @@
                 <div class="service-card service-card--featured">
                     <h3>Process Screening</h3>
                     <p>Our flagship service. We identify your highest-burden manual processes and map exactly where AI creates measurable ROI. Express tier is free.</p>
-                    <div class="service-price">Express &euro;0 &middot; Premium T1 from &euro;1,000 &middot; T2 from &euro;1,600</div>
                     <button class="accordion-toggle" onclick="toggleAccordion(this)">View tiers <span class="arrow">&#9660;</span></button>
                     <div class="accordion-body">
                         <table class="tier-table">
-                            <thead><tr><th>Tier</th><th>Price</th></tr></thead>
+                            <thead><tr><th>Tier</th></tr></thead>
                             <tbody>
-                                <tr><td>Express (free AI scan)</td><td>&euro;0</td></tr>
-                                <tr><td>Premium Tier 1 (deep analysis)</td><td>from &euro;1,000</td></tr>
-                                <tr><td>Premium Tier 2 (full roadmap)</td><td>from &euro;1,600</td></tr>
+                                <tr><td>Express (free AI scan)</td></tr>
+                                <tr><td>Premium Tier 1 (deep analysis)</td></tr>
+                                <tr><td>Premium Tier 2 (full roadmap)</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -1049,15 +1050,15 @@
                     <button class="accordion-toggle" onclick="toggleAccordion(this)">View tiers <span class="arrow">&#9660;</span></button>
                     <div class="accordion-body">
                         <table class="tier-table">
-                            <thead><tr><th>Tier</th><th>Price</th></tr></thead>
+                            <thead><tr><th>Tier</th></tr></thead>
                             <tbody>
-                                <tr><td>Server install (existing infra)</td><td>&euro;300</td></tr>
-                                <tr><td>Server install (full VPS)</td><td>&euro;600</td></tr>
-                                <tr><td>Workflow Simple (&lt;5 steps)</td><td>&euro;200</td></tr>
-                                <tr><td>Workflow Mid (5–15 steps)</td><td>&euro;600</td></tr>
-                                <tr><td>Workflow Complex (&gt;15 steps)</td><td>&euro;1,400</td></tr>
-                                <tr><td>Custom</td><td>On request</td></tr>
-                                <tr><td>Monthly maintenance</td><td>from &euro;200/mo</td></tr>
+                                <tr><td>Server install (existing infra)</td></tr>
+                                <tr><td>Server install (full VPS)</td></tr>
+                                <tr><td>Workflow Simple (&lt;5 steps)</td></tr>
+                                <tr><td>Workflow Mid (5–15 steps)</td></tr>
+                                <tr><td>Workflow Complex (&gt;15 steps)</td></tr>
+                                <tr><td>Custom</td></tr>
+                                <tr><td>Monthly maintenance</td></tr>
                             </tbody>
                         </table>
                         <p style="font-size:12px;color:var(--gray-dim);">Self-Managed Package available: full documentation, team training, and on-demand consulting.</p>
@@ -1072,11 +1073,11 @@
                     <button class="accordion-toggle" onclick="toggleAccordion(this)">View details <span class="arrow">&#9660;</span></button>
                     <div class="accordion-body">
                         <table class="tier-table">
-                            <thead><tr><th>Service</th><th>Price</th></tr></thead>
+                            <thead><tr><th>Service</th></tr></thead>
                             <tbody>
-                                <tr><td>Agent install (existing VPS)</td><td>from &euro;400</td></tr>
-                                <tr><td>Full VPS provision + install</td><td>from &euro;800</td></tr>
-                                <tr><td>Monthly maintenance</td><td>from &euro;300/mo</td></tr>
+                                <tr><td>Agent install (existing VPS)</td></tr>
+                                <tr><td>Full VPS provision + install</td></tr>
+                                <tr><td>Monthly maintenance</td></tr>
                             </tbody>
                         </table>
                         <p style="font-size:12px;color:var(--gray-dim);margin-top:8px;">Includes skill configuration, n8n integration, and private VPS hosting. Minimum 4 GB RAM / 2 vCPU recommended.</p>
@@ -1087,8 +1088,7 @@
                 <!-- AI Security -->
                 <div class="service-card">
                     <h3>AI Security &amp; Compliance</h3>
-                    <p>Hands-on Security Talk workshops and AI Risk Assessments. Fully aligned with EU AI Act requirements — transparency, human oversight, and risk management built into every engagement.</p>
-                    <div class="service-price">On request</div>
+                    <p>Hands-on Security Talk workshops and AI Risk Assessments. Fully aligned with EU AI Act requirements: transparency, human oversight, and risk management built into every engagement.</p>
                     <a href="#contact" class="btn btn-ghost">Contact us</a>
                 </div>
             </div>
@@ -1130,7 +1130,7 @@
                 <div class="tool-card">
                     <div class="tool-icon">&#x2699;&#xFE0F;</div>
                     <h3>Automation Workflows</h3>
-                    <p>Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation — battle-tested.</p>
+                    <p>Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation, battle-tested.</p>
                     <span class="badge-soon">Coming Soon</span>
                 </div>
                 <div class="tool-card">
@@ -1162,7 +1162,7 @@
                 <div class="trust-card">
                     <div class="trust-icon">&#x1F512;</div>
                     <h4>Private Infrastructure</h4>
-                    <p>Your data runs on private VPS — never shared cloud. Not used for AI model training.</p>
+                    <p>Your data runs on private VPS, never shared cloud. Not used for AI model training.</p>
                 </div>
                 <div class="trust-card">
                     <div class="trust-icon">&#x1F513;</div>
@@ -1274,7 +1274,7 @@
         <div class="container">
             <span class="section-tag" data-en="AI Team Members" data-de="KI-Teammitglieder">AI Team Members</span>
             <h2 class="section-title" data-en="Our Digital Team" data-de="Unser digitales Team">Our Digital Team</h2>
-            <p class="section-subtitle" data-en="Meet our AI-powered team members — always on, always learning." data-de="Lernen Sie unsere KI-gestützten Teammitglieder kennen — immer aktiv, immer lernend.">Meet our AI-powered team members — always on, always learning.</p>
+            <p class="section-subtitle" data-en="Meet our AI-powered team members, always on, always learning." data-de="Lernen Sie unsere KI-gestützten Teammitglieder kennen, immer aktiv, immer lernend.">Meet our AI-powered team members, always on, always learning.</p>
             <div class="digital-grid">
                 <div class="digital-card">
                     <div class="digital-photo">
@@ -1372,11 +1372,11 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <blockquote>"They challenged our assumptions and helped us build something real."</blockquote>
-                    <cite>— Ira, Startup Founder</cite>
+                    <cite>Ira, Startup Founder</cite>
                 </div>
                 <div class="testimonial-card">
                     <blockquote>"GF helped us turn a highly manual process into a visual, scalable VR experience."</blockquote>
-                    <cite>— Client from Manufacturing Sector</cite>
+                    <cite>Client from Manufacturing Sector</cite>
                 </div>
             </div>
         </div>
@@ -1399,7 +1399,7 @@
             </div>
             <div id="business-tab" class="tab-pane">
                 <h3 data-en="Ready to automate your operations with AI?" data-de="Bereit, Ihre Abläufe mit KI zu automatisieren?">Ready to automate your operations with AI?</h3>
-                <p data-en="Book a free assessment — we'll identify processes that waste your team's time and show you what AI can do. No fluff, just results." data-de="Buchen Sie ein kostenloses Assessment — wir identifizieren Prozesse, die Ihr Team Zeit kosten, und zeigen Ihnen, was KI leisten kann. Keine leeren Versprechen, nur Ergebnisse.">Book a free assessment — we'll identify processes that waste your team's time and show you what AI can do. No fluff, just results.</p>
+                <p data-en="Book a free assessment. We'll identify processes that waste your team's time and show you what AI can do. No fluff, just results." data-de="Buchen Sie ein kostenloses Assessment. Wir identifizieren Prozesse, die Ihr Team Zeit kosten, und zeigen Ihnen, was KI leisten kann. Keine leeren Versprechen, nur Ergebnisse.">Book a free assessment. We'll identify processes that waste your team's time and show you what AI can do. No fluff, just results.</p>
             </div>
 
             <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" style="margin-top:8px;" data-en="Schedule Your Intro Call" data-de="Erstgespräch vereinbaren">Schedule Your Intro Call</a>
@@ -1412,7 +1412,7 @@
             <div class="footer-grid">
                 <div>
                     <img src="images/Logo GF - B&N Chico.png" alt="GF Innovative Solutions" style="height:36px; width:auto;">
-                    <p class="footer-tagline" data-en="Guided by tech, powered by people." data-de="Geleitet von Technologie, angetrieben von Menschen.">Guided by tech, powered by people.</p>
+                    <p class="footer-tagline" data-en="Guided by people, powered by tech." data-de="Geleitet von Menschen, angetrieben von Technologie.">Guided by people, powered by tech.</p>
                 </div>
                 <div>
                     <h4 data-en="Services" data-de="Leistungen">Services</h4>

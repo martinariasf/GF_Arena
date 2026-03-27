@@ -135,7 +135,7 @@
         top: 0;
         left: 0;
         right: 0;
-        z-index: 1000;
+        z-index: 10100;
         background: rgba(11,22,40,0.95);
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
@@ -150,6 +150,7 @@
         align-items: center;
         justify-content: space-between;
         height: 68px;
+        position: relative;
     }
     .nav-logo .logo {
         height: 36px;
@@ -250,7 +251,7 @@
     }
     .hero-sub {
         font-size: 18px;
-        color: #94a3b8;
+        color: #ffffff;
         max-width: 600px;
         line-height: 1.7;
         margin-bottom: 40px;
@@ -854,6 +855,12 @@
     @media (max-width: 920px) {
         .nav-menu { display: none; }
         .nav-hamburger { display: flex; }
+        .nav-menu.open .nav-link,
+        .nav-menu.open .nav-cta {
+            display: block;
+            padding: 12px 0;
+            pointer-events: auto;
+        }
         .about-grid { grid-template-columns: 1fr; }
         .diff-grid { grid-template-columns: 1fr; }
         .services-grid { grid-template-columns: 1fr; }
@@ -882,7 +889,8 @@
         border: none;
         cursor: pointer;
         padding: 0;
-        z-index: 1001;
+        z-index: 10102;
+        pointer-events: auto;
     }
     .nav-hamburger span {
         display: block;
@@ -905,8 +913,9 @@
         background: rgba(11,22,40,0.98);
         padding: 20px 24px;
         gap: 16px;
-        z-index: 1000;
+        z-index: 10101;
         border-top: 1px solid rgba(255,255,255,0.1);
+        pointer-events: auto;
     }
     </style>
 </head>

@@ -202,40 +202,34 @@
         position: relative;
         overflow: hidden;
         padding-top: 68px;
-        background: #0b1628;
+        background: linear-gradient(135deg, #1a2d4a 0%, #1e3a4a 40%, #3d6b6b 70%, #4a7c70 100%);
         color: #f1f5f9;
     }
     .hero::before {
         content: '';
         position: absolute;
-        top: -20%;
-        left: -10%;
-        width: 60%;
-        height: 80%;
-        background: radial-gradient(ellipse, rgba(34,197,94,.12) 0%, transparent 70%);
-        animation: heroGlow1 8s ease-in-out infinite alternate;
+        top: 0;
+        left: 0;
+        width: 65%;
+        height: 100%;
+        background: linear-gradient(160deg, #1a2d4a 60%, #1e3d52 100%);
+        clip-path: ellipse(90% 100% at 10% 50%);
+        z-index: 0;
     }
     .hero::after {
         content: '';
         position: absolute;
-        bottom: -10%;
-        right: -10%;
-        width: 50%;
-        height: 70%;
-        background: radial-gradient(ellipse, rgba(20,184,166,.10) 0%, transparent 70%);
-        animation: heroGlow2 10s ease-in-out infinite alternate;
-    }
-    @keyframes heroGlow1 {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(40px, 30px) scale(1.1); }
-    }
-    @keyframes heroGlow2 {
-        0% { transform: translate(0, 0) scale(1); }
-        100% { transform: translate(-30px, -20px) scale(1.15); }
+        top: -10%;
+        right: 0;
+        width: 55%;
+        height: 120%;
+        background: linear-gradient(200deg, #2a5a6a 0%, #4a7c70 50%, #5a8a78 100%);
+        clip-path: ellipse(100% 100% at 90% 50%);
+        z-index: 0;
     }
     .hero-inner {
         position: relative;
-        z-index: 2;
+        z-index: 1;
         max-width: var(--max-w);
         margin: 0 auto;
         padding: 80px 24px;
@@ -875,6 +869,7 @@
     /* ── Responsive ── */
     @media (max-width: 920px) {
         .nav-menu { display: none; }
+        .nav-hamburger { display: flex; }
         .about-grid { grid-template-columns: 1fr; }
         .diff-grid { grid-template-columns: 1fr; }
         .services-grid { grid-template-columns: 1fr; }
@@ -892,6 +887,43 @@
         .section { padding: 64px 0; }
         .founder-card { flex-direction: column; align-items: center; text-align: center; }
     }
+    /* ── Hamburger Menu ── */
+    .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 28px;
+        height: 20px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+    .nav-hamburger span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #f1f5f9;
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .nav-menu.open {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: rgba(11,22,40,0.98);
+        padding: 20px 24px;
+        gap: 16px;
+        z-index: 1000;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
     </style>
 </head>
 <body>
@@ -902,6 +934,9 @@
             <div class="nav-logo">
                 <img src="images/Logo GF - B&N Chico.png" alt="GF Innovative Solutions" style="height:36px; width:auto;">
             </div>
+            <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
             <div class="nav-menu">
                 <a href="#home" class="nav-link" data-en="Home" data-de="Startseite">Home</a>
                 <a href="#about" class="nav-link" data-en="About" data-de="Über uns">About</a>
@@ -1606,6 +1641,23 @@
 
         applyLang(lang);
     })();
+</script>
+<script>
+    const hamburger = document.getElementById('nav-hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+    hamburger.addEventListener('click', function() {
+        this.classList.toggle('open');
+        navMenu.classList.toggle('open');
+        this.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+    });
+    // Close menu when a nav link is clicked
+    navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('open');
+            navMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+        });
+    });
 </script>
 </body>
 </html>

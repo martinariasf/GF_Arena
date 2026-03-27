@@ -202,7 +202,7 @@
         position: relative;
         overflow: hidden;
         padding-top: 68px;
-        background: linear-gradient(135deg, #1a2d4a 0%, #1e3a4a 40%, #3d6b6b 70%, #4a7c70 100%);
+        background: linear-gradient(135deg, #1a2d4a 0%, #2a4a6a 50%, #3d6b6b 75%, #4a7c70 100%);
         color: #f1f5f9;
     }
     .hero::before {
@@ -210,22 +210,14 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 65%;
+        width: 100%;
         height: 100%;
-        background: linear-gradient(160deg, #1a2d4a 60%, #1e3d52 100%);
-        clip-path: ellipse(90% 100% at 10% 50%);
+        background: #1a2d4a;
+        clip-path: path('M 0 0 L 0 1080 L 550 1080 Q 700 540 550 0 Z');
         z-index: 0;
     }
     .hero::after {
-        content: '';
-        position: absolute;
-        top: -10%;
-        right: 0;
-        width: 55%;
-        height: 120%;
-        background: linear-gradient(200deg, #2a5a6a 0%, #4a7c70 50%, #5a8a78 100%);
-        clip-path: ellipse(100% 100% at 90% 50%);
-        z-index: 0;
+        content: none;
     }
     .hero-inner {
         position: relative;

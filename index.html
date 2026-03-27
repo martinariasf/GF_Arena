@@ -202,22 +202,22 @@
         position: relative;
         overflow: hidden;
         padding-top: 68px;
-        background: linear-gradient(135deg, #1a2d4a 0%, #2a4a6a 50%, #3d6b6b 75%, #4a7c70 100%);
+        background: #1a2d4a;
         color: #f1f5f9;
     }
     .hero::before {
-        content: '';
+        content: none;
+    }
+    .hero::after {
+        content: none;
+    }
+    .hero-wave-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: #1a2d4a;
-        clip-path: path('M 0 0 L 0 1080 L 550 1080 Q 700 540 550 0 Z');
         z-index: 0;
-    }
-    .hero::after {
-        content: none;
     }
     .hero-inner {
         position: relative;
@@ -948,6 +948,16 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <svg class='hero-wave-bg' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice' aria-hidden='true'>
+          <defs>
+            <linearGradient id='tealGrad' x1='0%' y1='0%' x2='100%' y2='100%'>
+              <stop offset='0%' style='stop-color:#2a4a6a;stop-opacity:1' />
+              <stop offset='100%' style='stop-color:#4a7c70;stop-opacity:1' />
+            </linearGradient>
+          </defs>
+          <rect width='1440' height='900' fill='url(#tealGrad)'/>
+          <path d='M 0 0 L 0 900 L 600 900 Q 820 450 600 0 Z' fill='#1a2d4a'/>
+        </svg>
         <div class="hero-inner">
             <span class="hero-label" data-en="AI Implementation Partner" data-de="KI-Implementierungspartner">AI Implementation Partner</span>
             <h1 data-en="Your first AI team without the hiring cost." data-de="Ihr erstes KI-Team ohne Einstellungskosten.">Your first AI team without the hiring cost.</h1>

@@ -310,7 +310,13 @@
     .about-badges {
         display: flex;
         flex-direction: column;
-        gap: 20px;
+        gap: 16px;
+    }
+    .inline-toggle-wrap {
+        margin-top: 24px;
+    }
+    .inline-toggle-wrap .accordion-toggle {
+        margin-bottom: 0;
     }
     .badge-card {
         background: var(--bg-card);
@@ -341,18 +347,18 @@
     .diff-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        margin-bottom: 48px;
+        gap: 18px;
+        margin: 20px 0 0;
     }
     .diff-card h3 {
-        font-size: 18px;
+        font-size: 17px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     .diff-card p {
         color: var(--gray);
-        font-size: 14px;
-        line-height: 1.7;
+        font-size: 13px;
+        line-height: 1.55;
     }
     .diff-icon {
         width: 44px;
@@ -368,7 +374,7 @@
     .diff-icon svg { width: 22px; height: 22px; }
     .cta-strip {
         text-align: center;
-        padding: 40px;
+        padding: 28px;
         border-radius: var(--radius);
         background: var(--bg-light);
         border: 1px solid var(--border);
@@ -380,22 +386,22 @@
 
     /* ── Services ── */
     .services-tier-title {
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 700;
-        margin-bottom: 24px;
+        margin-bottom: 18px;
         color: #1a1a1a;
     }
     .services-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-        margin-bottom: 48px;
+        gap: 18px;
+        margin-bottom: 24px;
     }
     .service-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 28px;
+        padding: 20px;
         transition: border-color .3s, transform .3s;
     }
     .service-card:hover {
@@ -408,14 +414,15 @@
         box-shadow: 0 0 30px rgba(34,197,94,.1);
     }
     .service-card h3 {
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 700;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
     .service-card > p {
         color: var(--gray);
-        font-size: 14px;
-        margin-bottom: 14px;
+        font-size: 13px;
+        line-height: 1.55;
+        margin-bottom: 12px;
     }
     .accordion-toggle {
         background: transparent;
@@ -462,18 +469,37 @@
     .complementary-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 16px;
+        margin-top: 16px;
     }
     .complementary-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
-        padding: 24px;
+        padding: 18px;
         transition: border-color .3s;
     }
     .complementary-card:hover { border-color: var(--border-hover); }
     .complementary-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
     .complementary-card p { font-size: 13px; color: var(--gray); margin-bottom: 12px; }
+
+    .compact-panel {
+        margin-top: 18px;
+        padding: 20px 22px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+    }
+    .compact-panel p {
+        color: var(--gray);
+        font-size: 13px;
+        line-height: 1.55;
+    }
+    .compact-panel .section-subtitle {
+        margin-bottom: 18px;
+        max-width: none;
+        font-size: 14px;
+    }
 
     /* ── Tools ── */
     .tools-grid {
@@ -519,160 +545,162 @@
     .trust-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 14px;
     }
     .trust-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
-        padding: 24px;
+        padding: 16px;
         transition: border-color .3s;
     }
     .trust-card:hover { border-color: var(--border-hover); }
     .trust-icon {
-        width: 40px;
-        height: 40px;
+        width: 34px;
+        height: 34px;
         border-radius: 8px;
         background: rgba(34,197,94,.1);
         display: flex;
         align-items: center;
         justify-content: center;
         color: var(--green);
-        margin-bottom: 14px;
-        font-size: 18px;
+        margin-bottom: 10px;
+        font-size: 15px;
     }
-    .trust-card h4 { color: var(--teal); font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-    .trust-card p { font-size: 13px; color: var(--gray); }
+    .trust-card h4 { color: var(--teal); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+    .trust-card p { font-size: 12px; line-height: 1.5; color: var(--gray); }
 
     /* ── Team ── */
     .founders-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 28px;
-        margin-bottom: 40px;
+        gap: 18px;
+        margin-bottom: 20px;
     }
     .founder-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 32px;
+        padding: 22px;
         display: flex;
-        gap: 24px;
+        gap: 18px;
         align-items: start;
         transition: border-color .3s;
     }
     .founder-card:hover { border-color: var(--border-hover); }
     .founder-photo {
-        width: 90px;
-        height: 90px;
+        width: 72px;
+        height: 72px;
         border-radius: 50%;
         overflow: hidden;
         flex-shrink: 0;
         border: 2px solid var(--border);
     }
     .founder-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .founder-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .founder-info h3 { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
     .founder-info h3 a { color: #1a1a1a; }
     .founder-info h3 a:hover { color: var(--green); }
-    .founder-role { color: var(--green); font-size: 13px; font-weight: 500; margin-bottom: 10px; }
-    .founder-skills { font-size: 13px; color: var(--gray); }
-    .founder-skills li { margin-bottom: 4px; }
+    .founder-role { color: var(--green); font-size: 12px; font-weight: 500; margin-bottom: 8px; }
+    .founder-skills { font-size: 12px; color: var(--gray); line-height: 1.45; }
+    .founder-skills li { margin-bottom: 3px; }
     .extended-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
+        gap: 14px;
+        margin-bottom: 18px;
     }
     .extended-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
-        padding: 24px;
+        padding: 18px;
         text-align: center;
         transition: border-color .3s;
     }
     .extended-card:hover { border-color: var(--border-hover); }
     .extended-photo {
-        width: 64px;
-        height: 64px;
+        width: 54px;
+        height: 54px;
         border-radius: 50%;
         overflow: hidden;
         margin: 0 auto 12px;
         border: 2px solid var(--border);
     }
     .extended-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .extended-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .extended-card .ext-role { color: var(--teal); font-size: 12px; font-weight: 500; margin-bottom: 8px; }
-    .extended-card ul { font-size: 12px; color: var(--gray); }
+    .extended-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .extended-card .ext-role { color: var(--teal); font-size: 11px; font-weight: 500; margin-bottom: 6px; }
+    .extended-card ul { font-size: 11px; line-height: 1.45; color: var(--gray); }
     .extended-card li { margin-bottom: 2px; }
 
     /* ── Digital Team ── */
     .digital-grid {
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
+        gap: 12px;
     }
     .digital-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius-sm);
-        padding: 24px;
+        padding: 16px;
         text-align: center;
         transition: border-color .3s;
     }
     .digital-card:hover { border-color: var(--border-hover); }
     .digital-photo {
-        width: 64px;
-        height: 64px;
+        width: 52px;
+        height: 52px;
         border-radius: 50%;
         overflow: hidden;
         margin: 0 auto 12px;
         border: 2px solid var(--border);
     }
     .digital-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .digital-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
-    .digital-card .digi-role { color: var(--teal); font-size: 12px; font-weight: 500; margin-bottom: 8px; }
-    .digital-card ul { font-size: 12px; color: var(--gray); text-align: left; }
+    .digital-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .digital-card .digi-role { color: var(--teal); font-size: 11px; font-weight: 500; margin-bottom: 6px; }
+    .digital-card ul { font-size: 11px; line-height: 1.4; color: var(--gray); text-align: left; }
     .digital-card li { margin-bottom: 2px; }
 
     /* ── Ethics ── */
     .ethics-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 14px;
+        margin-top: 16px;
     }
     .ethics-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-radius: var(--radius);
-        padding: 28px;
+        padding: 16px;
         transition: border-color .3s;
     }
     .ethics-card:hover { border-color: var(--border-hover); }
-    .ethics-card h4 { font-size: 17px; font-weight: 600; margin-bottom: 10px; color: var(--green); }
-    .ethics-card p { font-size: 14px; color: var(--gray); }
+    .ethics-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--green); }
+    .ethics-card p { font-size: 12px; line-height: 1.5; color: var(--gray); }
 
     /* ── Testimonials ── */
     .testimonials-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
+        gap: 16px;
     }
     .testimonial-card {
         background: var(--bg-card);
         border: 1px solid var(--border);
         border-left: 3px solid var(--green);
         border-radius: var(--radius-sm);
-        padding: 28px 28px 28px 32px;
+        padding: 18px 18px 18px 22px;
     }
     .testimonial-card blockquote {
-        font-size: 16px;
+        font-size: 14px;
         font-style: italic;
         color: #1a1a1a;
-        margin-bottom: 14px;
-        line-height: 1.6;
+        margin-bottom: 10px;
+        line-height: 1.5;
     }
     .testimonial-card cite {
-        font-size: 14px;
+        font-size: 12px;
         color: var(--teal);
         font-style: normal;
         font-weight: 500;
@@ -935,10 +963,9 @@
                 <a href="#home" class="nav-link" data-en="Home" data-de="Startseite">Home</a>
                 <a href="#about" class="nav-link" data-en="About" data-de="Über uns">About</a>
                 <a href="#services" class="nav-link" data-en="Services" data-de="Leistungen">Services</a>
-                <a href="#resources" class="nav-link" data-en="Resources" data-de="Ressourcen">Resources</a>
-                <a href="webinar.html" class="nav-link" data-en="Webinar" data-de="Webinar">Webinar</a>
+                <a href="#resources-panel" class="nav-link" data-en="Tools &amp; Resources" data-de="Tools &amp; Ressourcen">Tools &amp; Resources</a>
+                <a href="webinar-video.html" class="nav-link" data-en="Webinar Video" data-de="Webinar-Video">Webinar Video</a>
                 <a href="#team" class="nav-link" data-en="Team" data-de="Team">Team</a>
-                <a href="#digital-team" class="nav-link" data-en="Digital Team" data-de="Digitales Team">Digital Team</a>
                 <a href="https://calendly.com/gfinnov-info/30min" class="nav-cta" target="_blank" data-en="Free AI Assessment" data-de="Kostenloses KI-Assessment">Free AI Assessment</a>
                 <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Toggle Language">
                     <span class="active-lang" id="lang-en">EN</span> | <span id="lang-de">DE</span>
@@ -955,7 +982,6 @@
             <p class="hero-sub" data-en="We build custom AI agents for <strong>companies of 4–50 people</strong>, no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>." data-de="Wir entwickeln maßgeschneiderte KI-Agenten für <strong>Unternehmen mit 4–50 Mitarbeitern</strong>, kein internes Entwicklerteam erforderlich. Von der Automatisierung manueller Arbeit bis zur Bearbeitung von Kundenabläufen liefern wir Ergebnisse <strong>ab dem ersten Monat</strong>.">We build custom AI agents for <strong>companies of 4–50 people</strong>, no internal dev team required. From automating manual work to handling customer flows, we deliver results <strong>from month one</strong>.</p>
             <div class="hero-buttons">
                 <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
-                <a href="webinar.html" class="btn btn-ghost" data-en="Join Webinar" data-de="Zum Webinar">Join Webinar</a>
             </div>
         </div>
     </section>
@@ -972,6 +998,41 @@
                     <p data-en="Made in Germany. Built for businesses that want results, not presentations. Bridging Germany and Israel, international perspective, local implementation." data-de="Made in Germany. Gebaut für Unternehmen, die Ergebnisse wollen, keine Präsentationen. Brücke zwischen Deutschland und Israel, internationale Perspektive, lokale Umsetzung."><strong>Made in Germany.</strong> Built for businesses that want results, not presentations. Bridging Germany and Israel, international perspective, local implementation.</p>
                     <div class="claude-callout">
                         <strong>Powered by Anthropic's Claude</strong>: frontier AI with enterprise-grade security and safety built in.
+                    </div>
+                    <div class="inline-toggle-wrap">
+                        <button class="accordion-toggle" onclick="toggleAccordion(this)" data-en="What Makes Us Different" data-de="Was uns unterscheidet">What Makes Us Different <span class="arrow">&#9660;</span></button>
+                        <div class="accordion-body">
+                            <div class="diff-grid">
+                                <div class="glass-card diff-card">
+                                    <div class="diff-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                                    </div>
+                                    <h3 data-en="We speak startup and scale-up" data-de="Wir sprechen Startup und Scale-up">We speak startup and scale-up</h3>
+                                    <p data-en="Our team blends deep technical expertise with real-world experience helping early-stage founders launch functional MVPs. Whether you're building your first AI-powered prototype or scaling existing operations, we guide you with clarity, speed and precision." data-de="Unser Team vereint tiefes technisches Know-how mit praktischer Erfahrung bei der Unterstützung von Gründern beim Launch funktionaler MVPs. Ob Sie Ihren ersten KI-Prototyp bauen oder bestehende Abläufe skalieren – wir begleiten Sie mit Klarheit, Geschwindigkeit und Präzision.">Our team blends deep technical expertise with real-world experience helping early-stage founders launch functional MVPs. Whether you're building your first AI-powered prototype or scaling existing operations, we guide you with clarity, speed and precision.</p>
+                                </div>
+                                <div class="glass-card diff-card">
+                                    <div class="diff-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/></svg>
+                                    </div>
+                                    <h3 data-en="AI implementation, not just strategy" data-de="KI-Implementierung, nicht nur Strategie">AI implementation, not just strategy</h3>
+                                    <p data-en="We don't sell the hype. We show you what's possible today, with your data, in your context. Then we build it. Behind every AI system we deploy, a human team monitors, adjusts, and ensures real results." data-de="Wir verkaufen keinen Hype. Wir zeigen Ihnen, was heute möglich ist – mit Ihren Daten, in Ihrem Kontext. Dann bauen wir es. Hinter jedem KI-System, das wir einsetzen, überwacht ein menschliches Team, passt an und stellt echte Ergebnisse sicher.">We don't sell the hype. We show you what's possible today, with your data, in your context. Then we build it. Behind every AI system we deploy, a human team monitors, adjusts, and ensures real results.</p>
+                                </div>
+                                <div class="glass-card diff-card">
+                                    <div class="diff-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    </div>
+                                    <h3 data-en="Security and compliance built-in" data-de="Sicherheit und Compliance integriert">Security and compliance built-in</h3>
+                                    <p data-en="Every AI system we build is designed with GDPR compliance and German data protection standards. We work with secure hosting, implement proper access controls, and ensure your data never leaves your control." data-de="Jedes KI-System, das wir bauen, ist mit DSGVO-Konformität und deutschen Datenschutzstandards konzipiert. Wir arbeiten mit sicherem Hosting, implementieren Zugriffskontrollen und stellen sicher, dass Ihre Daten unter Ihrer Kontrolle bleiben.">Every AI system we build is designed with GDPR compliance and German data protection standards. We work with secure hosting, implement proper access controls, and ensure your data never leaves your control.</p>
+                                </div>
+                                <div class="glass-card diff-card">
+                                    <div class="diff-icon">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
+                                    </div>
+                                    <h3 data-en="From concept to continuity" data-de="Vom Konzept zur Kontinuität">From concept to continuity</h3>
+                                    <p data-en="We don't &quot;launch and leave.&quot; We accompany your journey, iterating, testing, and scaling, until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game." data-de="Wir starten und verschwinden nicht. Wir begleiten Ihre Reise – iterierend, testend und skalierend – bis Ihre Ideen messbare Wirkung erzielen. Ob technischer Berater oder Go-to-Market-Unterstützung, wir sind langfristig dabei.">We don't "launch and leave." We accompany your journey, iterating, testing, and scaling, until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="about-badges">
@@ -1001,49 +1062,6 @@
         </div>
     </section>
 
-    <!-- What Makes Us Different -->
-    <section class="section section--gradient">
-        <div class="container">
-            <span class="section-tag" data-en="Our Edge" data-de="Unser Vorteil">Our Edge</span>
-            <h2 class="section-title" data-en="What Makes Us Different" data-de="Was uns unterscheidet">What Makes Us Different</h2>
-            <p class="section-subtitle" data-en="Guided by people, powered by tech." data-de="Geleitet von Menschen, angetrieben von Technologie.">Guided by people, powered by tech.</p>
-            <div class="diff-grid">
-                <div class="glass-card diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    </div>
-                    <h3 data-en="We speak startup and scale-up" data-de="Wir sprechen Startup und Scale-up">We speak startup and scale-up</h3>
-                    <p data-en="Our team blends deep technical expertise with real-world experience helping early-stage founders launch functional MVPs. Whether you're building your first AI-powered prototype or scaling existing operations, we guide you with clarity, speed and precision." data-de="Unser Team vereint tiefes technisches Know-how mit praktischer Erfahrung bei der Unterstützung von Gründern beim Launch funktionaler MVPs. Ob Sie Ihren ersten KI-Prototyp bauen oder bestehende Abläufe skalieren – wir begleiten Sie mit Klarheit, Geschwindigkeit und Präzision.">Our team blends deep technical expertise with real-world experience helping early-stage founders launch functional MVPs. Whether you're building your first AI-powered prototype or scaling existing operations, we guide you with clarity, speed and precision.</p>
-                </div>
-                <div class="glass-card diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/></svg>
-                    </div>
-                    <h3 data-en="AI implementation, not just strategy" data-de="KI-Implementierung, nicht nur Strategie">AI implementation, not just strategy</h3>
-                    <p data-en="We don't sell the hype. We show you what's possible today, with your data, in your context. Then we build it. Behind every AI system we deploy, a human team monitors, adjusts, and ensures real results." data-de="Wir verkaufen keinen Hype. Wir zeigen Ihnen, was heute möglich ist – mit Ihren Daten, in Ihrem Kontext. Dann bauen wir es. Hinter jedem KI-System, das wir einsetzen, überwacht ein menschliches Team, passt an und stellt echte Ergebnisse sicher.">We don't sell the hype. We show you what's possible today, with your data, in your context. Then we build it. Behind every AI system we deploy, a human team monitors, adjusts, and ensures real results.</p>
-                </div>
-                <div class="glass-card diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3 data-en="Security and compliance built-in" data-de="Sicherheit und Compliance integriert">Security and compliance built-in</h3>
-                    <p data-en="Every AI system we build is designed with GDPR compliance and German data protection standards. We work with secure hosting, implement proper access controls, and ensure your data never leaves your control." data-de="Jedes KI-System, das wir bauen, ist mit DSGVO-Konformität und deutschen Datenschutzstandards konzipiert. Wir arbeiten mit sicherem Hosting, implementieren Zugriffskontrollen und stellen sicher, dass Ihre Daten unter Ihrer Kontrolle bleiben.">Every AI system we build is designed with GDPR compliance and German data protection standards. We work with secure hosting, implement proper access controls, and ensure your data never leaves your control.</p>
-                </div>
-                <div class="glass-card diff-card">
-                    <div class="diff-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87m-4-12a4 4 0 0 1 0 7.75"/></svg>
-                    </div>
-                    <h3 data-en="From concept to continuity" data-de="Vom Konzept zur Kontinuität">From concept to continuity</h3>
-                    <p data-en="We don't &quot;launch and leave.&quot; We accompany your journey, iterating, testing, and scaling, until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game." data-de="Wir starten und verschwinden nicht. Wir begleiten Ihre Reise – iterierend, testend und skalierend – bis Ihre Ideen messbare Wirkung erzielen. Ob technischer Berater oder Go-to-Market-Unterstützung, wir sind langfristig dabei.">We don't "launch and leave." We accompany your journey, iterating, testing, and scaling, until your ideas generate measurable impact. Whether you need a technical advisor or go-to-market support, we're here for the long game.</p>
-                </div>
-            </div>
-            <div class="cta-strip">
-                <h3 data-en="Ready to build something that lasts?" data-de="Bereit, etwas Bleibendes zu schaffen?">Ready to build something that lasts?</h3>
-                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section id="services" class="section section--darker">
         <div class="container">
@@ -1053,7 +1071,6 @@
 
             <h3 class="services-tier-title" data-en="AI Automation" data-de="KI-Automatisierung">AI Automation</h3>
             <div class="services-grid">
-                <!-- Process Screening (featured) -->
                 <div class="service-card service-card--featured">
                     <h3 data-en="Process Screening" data-de="Prozess-Screening">Process Screening</h3>
                     <p data-en="Our flagship service. We identify your highest-burden manual processes and map exactly where AI creates measurable ROI. Express tier is free." data-de="Unser Flaggschiff-Service. Wir identifizieren Ihre aufwändigsten manuellen Prozesse und zeigen genau, wo KI messbaren ROI erzeugt. Express-Stufe ist kostenlos.">Our flagship service. We identify your highest-burden manual processes and map exactly where AI creates measurable ROI. Express tier is free.</p>
@@ -1070,8 +1087,6 @@
                     </div>
                     <a href="process-screening.html" class="btn btn-primary" style="margin-top:10px" data-en="Learn more" data-de="Mehr erfahren">Learn more</a>
                 </div>
-
-                <!-- n8n Automation -->
                 <div class="service-card">
                     <h3 data-en="AI Workflow Automation (n8n)" data-de="KI-Workflow-Automatisierung (n8n)">AI Workflow Automation (n8n)</h3>
                     <p data-en="Custom n8n workflow automation tailored to your operations. From simple integrations to complex multi-step automations with full pricing transparency." data-de="Maßgeschneiderte n8n-Workflow-Automatisierung für Ihre Abläufe. Von einfachen Integrationen bis zu komplexen mehrstufigen Automatisierungen mit voller Preistransparenz.">Custom n8n workflow automation tailored to your operations. From simple integrations to complex multi-step automations with full pricing transparency.</p>
@@ -1093,8 +1108,6 @@
                     </div>
                     <a href="#contact" class="btn btn-ghost" style="margin-top:10px" data-en="Get a quote" data-de="Angebot anfordern">Get a quote</a>
                 </div>
-
-                <!-- OpenClawd Agents -->
                 <div class="service-card">
                     <h3>OpenClawd AI Agents</h3>
                     <p data-en="Autonomous AI agents deployed on your private VPS. Powered by Anthropic Claude. Integrates with Telegram, WhatsApp, Discord, calendars, CRMs, and n8n." data-de="Autonome KI-Agenten auf Ihrem privaten VPS. Powered by Anthropic Claude. Integration mit Telegram, WhatsApp, Discord, Kalendern, CRMs und n8n.">Autonomous AI agents deployed on your private VPS. Powered by Anthropic Claude. Integrates with Telegram, WhatsApp, Discord, calendars, CRMs, and n8n.</p>
@@ -1112,8 +1125,6 @@
                     </div>
                     <a href="openclawd-agents.html" class="btn btn-ghost" style="margin-top:10px" data-en="Learn more" data-de="Mehr erfahren">Learn more</a>
                 </div>
-
-                <!-- AI Security -->
                 <div class="service-card">
                     <h3 data-en="AI Security &amp; Compliance" data-de="KI-Sicherheit &amp; Compliance">AI Security &amp; Compliance</h3>
                     <p data-en="Hands-on Security Talk workshops and AI Risk Assessments. Fully aligned with EU AI Act requirements: transparency, human oversight, and risk management built into every engagement." data-de="Praxisnahe Security-Talk-Workshops und KI-Risikobewertungen. Vollständig konform mit den Anforderungen des EU AI Act: Transparenz, menschliche Aufsicht und Risikomanagement in jedem Auftrag.">Hands-on Security Talk workshops and AI Risk Assessments. Fully aligned with EU AI Act requirements: transparency, human oversight, and risk management built into every engagement.</p>
@@ -1121,56 +1132,65 @@
                 </div>
             </div>
 
-            <h3 class="services-tier-title" data-en="Complementary Services" data-de="Ergänzende Leistungen">Complementary Services</h3>
-            <div class="complementary-grid">
-                <div class="complementary-card">
-                    <h4 data-en="AI Strategy Consulting" data-de="KI-Strategieberatung">AI Strategy Consulting</h4>
-                    <p data-en="For COOs, Heads of Operations, and AI Managers in Mittelstand companies. Fractional CTO support without the full-time cost." data-de="Für COOs, Betriebsleiter und KI-Manager in Mittelstandsunternehmen. Fractional-CTO-Unterstützung ohne Vollzeitkosten.">For COOs, Heads of Operations, and AI Managers in Mittelstand companies. Fractional CTO support without the full-time cost.</p>
-                    <a href="#contact" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;" data-en="Contact us" data-de="Kontaktieren Sie uns">Contact us</a>
-                </div>
-                <div class="complementary-card">
-                    <h4 data-en="VR &amp; Trade Fair Solutions" data-de="VR- &amp; Messelösungen">VR &amp; Trade Fair Solutions</h4>
-                    <p data-en="Immersive VR demos and digital twins for industrial clients. Ideal for trade fairs and remote demonstrations." data-de="Immersive VR-Demos und digitale Zwillinge für Industriekunden. Ideal für Messen und Remote-Demonstrationen.">Immersive VR demos and digital twins for industrial clients. Ideal for trade fairs and remote demonstrations.</p>
-                    <a href="vr_website.html" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;" data-en="Learn more" data-de="Mehr erfahren">Learn more</a>
-                </div>
-                <div class="complementary-card">
-                    <h4 data-en="Startup Growth Journey" data-de="Startup-Wachstumsreise">Startup Growth Journey</h4>
-                    <p data-en="Tailored consulting for early-stage startups. Strategy, product-market fit, and AI integration roadmap." data-de="Maßgeschneiderte Beratung für Startups in der Frühphase. Strategie, Product-Market-Fit und KI-Integrations-Roadmap.">Tailored consulting for early-stage startups. Strategy, product-market fit, and AI integration roadmap.</p>
-                    <a href="startups.html" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;">Learn more</a>
+            <div class="inline-toggle-wrap">
+                <button class="accordion-toggle" onclick="toggleAccordion(this)" data-en="Complementary Services" data-de="Ergänzende Leistungen">Complementary Services <span class="arrow">&#9660;</span></button>
+                <div class="accordion-body">
+                    <div class="complementary-grid">
+                        <div class="complementary-card">
+                            <h4 data-en="AI Strategy Consulting" data-de="KI-Strategieberatung">AI Strategy Consulting</h4>
+                            <p data-en="For COOs, Heads of Operations, and AI Managers in Mittelstand companies. Fractional CTO support without the full-time cost." data-de="Für COOs, Betriebsleiter und KI-Manager in Mittelstandsunternehmen. Fractional-CTO-Unterstützung ohne Vollzeitkosten.">For COOs, Heads of Operations, and AI Managers in Mittelstand companies. Fractional CTO support without the full-time cost.</p>
+                            <a href="#contact" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;" data-en="Contact us" data-de="Kontaktieren Sie uns">Contact us</a>
+                        </div>
+                        <div class="complementary-card">
+                            <h4 data-en="VR &amp; Trade Fair Solutions" data-de="VR- &amp; Messelösungen">VR &amp; Trade Fair Solutions</h4>
+                            <p data-en="Immersive VR demos and digital twins for industrial clients. Ideal for trade fairs and remote demonstrations." data-de="Immersive VR-Demos und digitale Zwillinge für Industriekunden. Ideal für Messen und Remote-Demonstrationen.">Immersive VR demos and digital twins for industrial clients. Ideal for trade fairs and remote demonstrations.</p>
+                            <a href="vr_website.html" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;" data-en="Learn more" data-de="Mehr erfahren">Learn more</a>
+                        </div>
+                        <div class="complementary-card">
+                            <h4 data-en="Startup Growth Journey" data-de="Startup-Wachstumsreise">Startup Growth Journey</h4>
+                            <p data-en="Tailored consulting for early-stage startups. Strategy, product-market fit, and AI integration roadmap." data-de="Maßgeschneiderte Beratung für Startups in der Frühphase. Strategie, Product-Market-Fit und KI-Integrations-Roadmap.">Tailored consulting for early-stage startups. Strategy, product-market fit, and AI integration roadmap.</p>
+                            <a href="startups.html" class="btn btn-ghost" style="padding:8px 16px;font-size:13px;">Learn more</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Tools & Resources -->
-    <section id="resources" class="section section--gradient">
+    <section id="resources-panel" class="section section--gradient">
         <div class="container">
             <span class="section-tag" data-en="Resources" data-de="Ressourcen">Resources</span>
             <h2 class="section-title" data-en="Tools &amp; Resources" data-de="Tools &amp; Ressourcen">Tools &amp; Resources</h2>
-            <p class="section-subtitle" data-en="We don't just talk about AI innovation. We build tools and share them." data-de="Wir reden nicht nur über KI-Innovation. Wir bauen Tools und teilen sie.">We don't just talk about AI innovation. We build tools and share them.</p>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-icon">&#x1F916;</div>
-                    <h3 data-en="Agent Templates" data-de="Agenten-Vorlagen">Agent Templates</h3>
-                    <p data-en="Pre-built AI agent architectures for common business processes: document processing, customer support routing, data validation, and report generation." data-de="Vorgefertigte KI-Agenten-Architekturen für gängige Geschäftsprozesse: Dokumentenverarbeitung, Kundenservice-Routing, Datenvalidierung und Berichtserstellung.">Pre-built AI agent architectures for common business processes: document processing, customer support routing, data validation, and report generation.</p>
-                    <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
+            <p class="section-subtitle" data-en="We moved this out of the homepage flow to keep the main story tighter. Explore the resources on demand below." data-de="Wir haben diesen Bereich aus dem Hauptfluss der Startseite herausgenommen, damit die Story kompakter bleibt. Entdecken Sie die Ressourcen unten bei Bedarf.">We moved this out of the homepage flow to keep the main story tighter. Explore the resources on demand below.</p>
+            <div class="compact-panel">
+                <button class="accordion-toggle" onclick="toggleAccordion(this)" data-en="Open Tools &amp; Resources" data-de="Tools &amp; Ressourcen öffnen">Open Tools &amp; Resources <span class="arrow">&#9660;</span></button>
+                <div class="accordion-body">
+                    <div class="tools-grid" style="margin-top:18px; margin-bottom:20px;">
+                        <div class="tool-card">
+                            <div class="tool-icon">&#x1F916;</div>
+                            <h3 data-en="Agent Templates" data-de="Agenten-Vorlagen">Agent Templates</h3>
+                            <p data-en="Pre-built AI agent architectures for common business processes: document processing, customer support routing, data validation, and report generation." data-de="Vorgefertigte KI-Agenten-Architekturen für gängige Geschäftsprozesse: Dokumentenverarbeitung, Kundenservice-Routing, Datenvalidierung und Berichtserstellung.">Pre-built AI agent architectures for common business processes: document processing, customer support routing, data validation, and report generation.</p>
+                            <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">&#x2699;&#xFE0F;</div>
+                            <h3 data-en="Automation Workflows" data-de="Automatisierungs-Workflows">Automation Workflows</h3>
+                            <p data-en="Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation, battle-tested." data-de="Einsatzbereite Workflow-Vorlagen für n8n, Make und individuelle Integrationen. Von Rechnungsverarbeitung bis CRM-Automatisierung, praxiserprobt.">Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation, battle-tested.</p>
+                            <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
+                        </div>
+                        <div class="tool-card">
+                            <div class="tool-icon">&#x1F4CA;</div>
+                            <h3 data-en="AI Implementation Toolkit" data-de="KI-Implementierungs-Toolkit">AI Implementation Toolkit</h3>
+                            <p data-en="Internal frameworks for AI project scoping, ROI calculation, and performance monitoring. Assessment templates, cost calculators, and checklists." data-de="Interne Frameworks für KI-Projektplanung, ROI-Berechnung und Leistungsüberwachung. Assessment-Vorlagen, Kostenrechner und Checklisten.">Internal frameworks for AI project scoping, ROI calculation, and performance monitoring. Assessment templates, cost calculators, and checklists.</p>
+                            <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
+                        </div>
+                    </div>
+                    <div class="tools-cta">
+                        <h3 data-en="Ready to discover your AI potential?" data-de="Bereit, Ihr KI-Potenzial zu entdecken?">Ready to discover your AI potential?</h3>
+                        <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
+                    </div>
                 </div>
-                <div class="tool-card">
-                    <div class="tool-icon">&#x2699;&#xFE0F;</div>
-                    <h3 data-en="Automation Workflows" data-de="Automatisierungs-Workflows">Automation Workflows</h3>
-                    <p data-en="Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation, battle-tested." data-de="Einsatzbereite Workflow-Vorlagen für n8n, Make und individuelle Integrationen. Von Rechnungsverarbeitung bis CRM-Automatisierung, praxiserprobt.">Ready-to-deploy workflow templates for n8n, Make, and custom integrations. From invoice processing to CRM automation, battle-tested.</p>
-                    <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
-                </div>
-                <div class="tool-card">
-                    <div class="tool-icon">&#x1F4CA;</div>
-                    <h3 data-en="AI Implementation Toolkit" data-de="KI-Implementierungs-Toolkit">AI Implementation Toolkit</h3>
-                    <p data-en="Internal frameworks for AI project scoping, ROI calculation, and performance monitoring. Assessment templates, cost calculators, and checklists." data-de="Interne Frameworks für KI-Projektplanung, ROI-Berechnung und Leistungsüberwachung. Assessment-Vorlagen, Kostenrechner und Checklisten.">Internal frameworks for AI project scoping, ROI calculation, and performance monitoring. Assessment templates, cost calculators, and checklists.</p>
-                    <span class="badge-soon" data-en="Coming Soon" data-de="Demnächst">Coming Soon</span>
-                </div>
-            </div>
-            <div class="tools-cta">
-                <h3 data-en="Ready to discover your AI potential?" data-de="Bereit, Ihr KI-Potenzial zu entdecken?">Ready to discover your AI potential?</h3>
-                <a href="https://calendly.com/gfinnov-info/30min" class="btn btn-primary" target="_blank" data-en="Book Free AI Assessment" data-de="Kostenloses KI-Assessment buchen">Book Free AI Assessment</a>
             </div>
         </div>
     </section>
@@ -1294,6 +1314,25 @@
                     </ul>
                 </div>
             </div>
+            <div class="inline-toggle-wrap">
+                <button class="accordion-toggle" onclick="toggleAccordion(this)" data-en="Our Commitment to Ethical AI" data-de="Unser Engagement für ethische KI">Our Commitment to Ethical AI <span class="arrow">&#9660;</span></button>
+                <div class="accordion-body">
+                    <div class="ethics-grid">
+                        <div class="ethics-card">
+                            <h4 data-en="Human-First" data-de="Mensch zuerst">Human-First</h4>
+                            <p data-en="AI amplifies human capacity. We never design systems that remove human judgment from critical decisions." data-de="KI verstärkt menschliche Fähigkeiten. Wir entwickeln niemals Systeme, die menschliches Urteilsvermögen aus kritischen Entscheidungen entfernen.">AI amplifies human capacity. We never design systems that remove human judgment from critical decisions.</p>
+                        </div>
+                        <div class="ethics-card">
+                            <h4 data-en="Radical Transparency" data-de="Radikale Transparenz">Radical Transparency</h4>
+                            <p data-en="We show you what the AI found, how it found it, and the limits of that analysis. No black boxes." data-de="Wir zeigen Ihnen, was die KI gefunden hat, wie sie es gefunden hat und wo die Grenzen dieser Analyse liegen. Keine Black Boxes.">We show you what the AI found, how it found it, and the limits of that analysis. No black boxes.</p>
+                        </div>
+                        <div class="ethics-card">
+                            <h4 data-en="EU AI Act Aligned" data-de="Mit EU AI Act abgestimmt">EU AI Act Aligned</h4>
+                            <p data-en="Our implementations comply with EU AI Act requirements. We stay current so your systems stay compliant." data-de="Unsere Implementierungen entsprechen den Anforderungen des EU AI Act. Wir bleiben aktuell, damit Ihre Systeme compliant bleiben.">Our implementations comply with EU AI Act requirements. We stay current so your systems stay compliant.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1363,29 +1402,6 @@
                         <li>Budget analysis</li>
                         <li>Invoice processing</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ethics Section -->
-    <section class="section section--gradient">
-        <div class="container">
-            <span class="section-tag" data-en="Ethics" data-de="Ethik">Ethics</span>
-            <h2 class="section-title" data-en="Our Commitment to Ethical AI" data-de="Unser Engagement für ethische KI">Our Commitment to Ethical AI</h2>
-            <p class="section-subtitle" data-en="Responsible AI isn't optional. It's how we build." data-de="Verantwortungsvolle KI ist keine Option. So bauen wir.">Responsible AI isn't optional. It's how we build.</p>
-            <div class="ethics-grid">
-                <div class="ethics-card">
-                    <h4 data-en="Human-First" data-de="Mensch zuerst">Human-First</h4>
-                    <p data-en="AI amplifies human capacity. We never design systems that remove human judgment from critical decisions." data-de="KI verstärkt menschliche Fähigkeiten. Wir entwickeln niemals Systeme, die menschliches Urteilsvermögen aus kritischen Entscheidungen entfernen.">AI amplifies human capacity. We never design systems that remove human judgment from critical decisions.</p>
-                </div>
-                <div class="ethics-card">
-                    <h4 data-en="Radical Transparency" data-de="Radikale Transparenz">Radical Transparency</h4>
-                    <p data-en="We show you what the AI found, how it found it, and the limits of that analysis. No black boxes." data-de="Wir zeigen Ihnen, was die KI gefunden hat, wie sie es gefunden hat und wo die Grenzen dieser Analyse liegen. Keine Black Boxes.">We show you what the AI found, how it found it, and the limits of that analysis. No black boxes.</p>
-                </div>
-                <div class="ethics-card">
-                    <h4 data-en="EU AI Act Aligned" data-de="Mit EU AI Act abgestimmt">EU AI Act Aligned</h4>
-                    <p data-en="Our implementations comply with EU AI Act requirements. We stay current so your systems stay compliant." data-de="Unsere Implementierungen entsprechen den Anforderungen des EU AI Act. Wir bleiben aktuell, damit Ihre Systeme compliant bleiben.">Our implementations comply with EU AI Act requirements. We stay current so your systems stay compliant.</p>
                 </div>
             </div>
         </div>

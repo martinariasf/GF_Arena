@@ -1,70 +1,84 @@
 // Global variables
-let currentLanguage = 'de';
+// Language lives entirely in lang.js now; this file only reads the current
+// choice to pick the right copy for the growth modal, whose text is in JS
+// rather than in data-* attributes.
 let testimonialIndex = 0;
+let openGrowthStep = null;
+
+function activeLanguage() {
+    return (window.GFLang && window.GFLang.get()) || 'de';
+}
 
 // Growth Journey Content Data
 const growthContent = {
     market: {
-        title: { en: "Market Research", de: "Marktforschung" },
+        title: { en: "Market Research", de: "Marktforschung", es: "Investigación de mercado" },
         text: { 
             en: "Explore key market segments, current volumes, and emerging trends to identify growth paths.\n\n• Market Segmentation Analysis\n• Volume Assessment\n• Emerging Trend Identification\n• Growth Path Discovery\n• Market Opportunity Mapping",
-            de: "Erkunden Sie wichtige Marktsegmente, aktuelle Volumina und aufkommende Trends, um Wachstumspfade zu identifizieren.\n\n• Marktsegmentierungsanalyse\n• Volumenbewertung\n• Identifikation aufkommender Trends\n• Entdeckung von Wachstumspfaden\n• Marktchancen-Mapping"
+            de: "Erkunden Sie wichtige Marktsegmente, aktuelle Volumina und aufkommende Trends, um Wachstumspfade zu identifizieren.\n\n• Marktsegmentierungsanalyse\n• Volumenbewertung\n• Identifikation aufkommender Trends\n• Entdeckung von Wachstumspfaden\n• Marktchancen-Mapping",
+            es: "Explore los segmentos de mercado clave, los volúmenes actuales y las tendencias emergentes para identificar vías de crecimiento.\n\n• Análisis de segmentación de mercado\n• Evaluación de volúmenes\n• Identificación de tendencias emergentes\n• Descubrimiento de vías de crecimiento\n• Mapeo de oportunidades de mercado"
         }
     },
     revenue: {
-        title: { en: "Revenue Strategy", de: "Umsatzstrategie" },
+        title: { en: "Revenue Strategy", de: "Umsatzstrategie", es: "Estrategia de ingresos" },
         text: { 
             en: "Maximize profitability by evaluating income streams and strategic partnerships.\n\n• Income Stream Evaluation\n• Profitability Optimization\n• Strategic Partnership Assessment\n• Revenue Model Development\n• Financial Performance Enhancement",
-            de: "Maximieren Sie die Rentabilität durch Bewertung von Einkommensströmen und strategischen Partnerschaften.\n\n• Bewertung von Einkommensströmen\n• Rentabilitätsoptimierung\n• Bewertung strategischer Partnerschaften\n• Entwicklung von Umsatzmodellen\n• Verbesserung der Finanzleistung"
+            de: "Maximieren Sie die Rentabilität durch Bewertung von Einkommensströmen und strategischen Partnerschaften.\n\n• Bewertung von Einkommensströmen\n• Rentabilitätsoptimierung\n• Bewertung strategischer Partnerschaften\n• Entwicklung von Umsatzmodellen\n• Verbesserung der Finanzleistung",
+            es: "Maximice la rentabilidad evaluando sus fuentes de ingresos y sus alianzas estratégicas.\n\n• Evaluación de fuentes de ingresos\n• Optimización de la rentabilidad\n• Evaluación de alianzas estratégicas\n• Desarrollo de modelos de ingresos\n• Mejora del desempeño financiero"
         }
     },
     sales: {
-        title: { en: "Sales Acceleration", de: "Vertriebsbeschleunigung" },
+        title: { en: "Sales Acceleration", de: "Vertriebsbeschleunigung", es: "Aceleración de ventas" },
         text: { 
             en: "Enhance reach and conversion by optimizing your sales approach and channel mix.\n\n• Sales Approach Optimization\n• Channel Mix Strategy\n• Reach Enhancement\n• Conversion Rate Improvement\n• Sales Performance Acceleration",
-            de: "Verbessern Sie Reichweite und Konversion durch Optimierung Ihres Vertriebsansatzes und Channel-Mix.\n\n• Optimierung des Vertriebsansatzes\n• Channel-Mix-Strategie\n• Reichweitensteigerung\n• Verbesserung der Konversionsrate\n• Beschleunigung der Vertriebsleistung"
+            de: "Verbessern Sie Reichweite und Konversion durch Optimierung Ihres Vertriebsansatzes und Channel-Mix.\n\n• Optimierung des Vertriebsansatzes\n• Channel-Mix-Strategie\n• Reichweitensteigerung\n• Verbesserung der Konversionsrate\n• Beschleunigung der Vertriebsleistung",
+            es: "Amplíe su alcance y su conversión optimizando el enfoque comercial y el mix de canales.\n\n• Optimización del enfoque comercial\n• Estrategia de mix de canales\n• Ampliación del alcance\n• Mejora de la tasa de conversión\n• Aceleración del desempeño comercial"
         }
     },
     capabilities: {
-        title: { en: "Strategic Capabilities", de: "Strategische Fähigkeiten" },
+        title: { en: "Strategic Capabilities", de: "Strategische Fähigkeiten", es: "Capacidades estratégicas" },
         text: { 
             en: "Build the essential skills, resources, and technologies that drive long-term success.\n\n• Essential Skills Development\n• Resource Optimization\n• Technology Integration\n• Long-term Success Planning\n• Capability Building",
-            de: "Bauen Sie die wesentlichen Fähigkeiten, Ressourcen und Technologien auf, die langfristigen Erfolg vorantreiben.\n\n• Entwicklung wesentlicher Fähigkeiten\n• Ressourcenoptimierung\n• Technologieintegration\n• Langfristige Erfolgsplanung\n• Fähigkeitenaufbau"
+            de: "Bauen Sie die wesentlichen Fähigkeiten, Ressourcen und Technologien auf, die langfristigen Erfolg vorantreiben.\n\n• Entwicklung wesentlicher Fähigkeiten\n• Ressourcenoptimierung\n• Technologieintegration\n• Langfristige Erfolgsplanung\n• Fähigkeitenaufbau",
+            es: "Desarrolle las habilidades, los recursos y las tecnologías esenciales que impulsan el éxito a largo plazo.\n\n• Desarrollo de habilidades esenciales\n• Optimización de recursos\n• Integración tecnológica\n• Planificación del éxito a largo plazo\n• Construcción de capacidades"
         }
     },
     cost: {
-        title: { en: "Cost Efficiency", de: "Kosteneffizienz" },
+        title: { en: "Cost Efficiency", de: "Kosteneffizienz", es: "Eficiencia de costos" },
         text: { 
             en: "Streamline expenses and refine cost models to improve financial agility.\n\n• Expense Streamlining\n• Cost Model Refinement\n• Financial Agility Enhancement\n• Operational Efficiency\n• Budget Optimization",
-            de: "Rationalisieren Sie Ausgaben und verfeinern Sie Kostenmodelle, um die finanzielle Agilität zu verbessern.\n\n• Ausgabenrationalisierung\n• Verfeinerung von Kostenmodellen\n• Verbesserung der finanziellen Agilität\n• Operative Effizienz\n• Budgetoptimierung"
+            de: "Rationalisieren Sie Ausgaben und verfeinern Sie Kostenmodelle, um die finanzielle Agilität zu verbessern.\n\n• Ausgabenrationalisierung\n• Verfeinerung von Kostenmodellen\n• Verbesserung der finanziellen Agilität\n• Operative Effizienz\n• Budgetoptimierung",
+            es: "Racionalice los gastos y refine los modelos de costos para ganar agilidad financiera.\n\n• Racionalización de gastos\n• Refinamiento de modelos de costos\n• Mayor agilidad financiera\n• Eficiencia operativa\n• Optimización presupuestaria"
         }
     },
     partner: {
-        title: { en: "Strategic Partnerships", de: "Strategische Partnerschaften" },
+        title: { en: "Strategic Partnerships", de: "Strategische Partnerschaften", es: "Alianzas estratégicas" },
         text: { 
             en: "Forge alliances that complement your strengths and expand your market presence.\n\n• Alliance Development\n• Strength Complementation\n• Market Presence Expansion\n• Partnership Strategy\n• Collaborative Growth",
-            de: "Schmieden Sie Allianzen, die Ihre Stärken ergänzen und Ihre Marktpräsenz erweitern.\n\n• Allianzentwicklung\n• Stärkenergänzung\n• Erweiterung der Marktpräsenz\n• Partnerschaftsstrategie\n• Kollaboratives Wachstum"
+            de: "Schmieden Sie Allianzen, die Ihre Stärken ergänzen und Ihre Marktpräsenz erweitern.\n\n• Allianzentwicklung\n• Stärkenergänzung\n• Erweiterung der Marktpräsenz\n• Partnerschaftsstrategie\n• Kollaboratives Wachstum",
+            es: "Forje alianzas que complementen sus fortalezas y amplíen su presencia en el mercado.\n\n• Desarrollo de alianzas\n• Complemento de fortalezas\n• Expansión de la presencia en el mercado\n• Estrategia de alianzas\n• Crecimiento colaborativo"
         }
     },
     usp: {
-        title: { en: "Value Proposition", de: "Wertversprechen" },
+        title: { en: "Value Proposition", de: "Wertversprechen", es: "Propuesta de valor" },
         text: { 
             en: "Clearly define what sets your offering apart to create lasting competitive advantage.\n\n• Unique Value Definition\n• Competitive Advantage Creation\n• Market Differentiation\n• Value Communication\n• Positioning Strategy",
-            de: "Definieren Sie klar, was Ihr Angebot auszeichnet, um dauerhaften Wettbewerbsvorteil zu schaffen.\n\n• Definition einzigartiger Werte\n• Schaffung von Wettbewerbsvorteilen\n• Marktdifferenzierung\n• Wertkommunikation\n• Positionierungsstrategie"
+            de: "Definieren Sie klar, was Ihr Angebot auszeichnet, um dauerhaften Wettbewerbsvorteil zu schaffen.\n\n• Definition einzigartiger Werte\n• Schaffung von Wettbewerbsvorteilen\n• Marktdifferenzierung\n• Wertkommunikation\n• Positionierungsstrategie",
+            es: "Defina con claridad qué distingue su oferta para crear una ventaja competitiva duradera.\n\n• Definición del valor único\n• Creación de ventaja competitiva\n• Diferenciación en el mercado\n• Comunicación del valor\n• Estrategia de posicionamiento"
         }
     },
     pitch: {
-        title: { en: "Pitch Readiness", de: "Pitch-Bereitschaft" },
+        title: { en: "Pitch Readiness", de: "Pitch-Bereitschaft", es: "Preparación del pitch" },
         text: { 
             en: "Craft persuasive investor and client pitches that drive engagement and commitment.\n\n• Investor Pitch Development\n• Client Presentation Crafting\n• Engagement Strategy\n• Commitment Building\n• Persuasive Communication",
-            de: "Erstellen Sie überzeugende Investor- und Kunden-Pitches, die Engagement und Commitment fördern.\n\n• Entwicklung von Investor-Pitches\n• Erstellung von Kundenpräsentationen\n• Engagement-Strategie\n• Commitment-Aufbau\n• Überzeugende Kommunikation"
+            de: "Erstellen Sie überzeugende Investor- und Kunden-Pitches, die Engagement und Commitment fördern.\n\n• Entwicklung von Investor-Pitches\n• Erstellung von Kundenpräsentationen\n• Engagement-Strategie\n• Commitment-Aufbau\n• Überzeugende Kommunikation",
+            es: "Elabore pitches convincentes para inversores y clientes que generen interés y compromiso.\n\n• Desarrollo del pitch para inversores\n• Elaboración de presentaciones para clientes\n• Estrategia de interacción\n• Construcción de compromiso\n• Comunicación persuasiva"
         }
     }
 };
 
 // DOM Content Loaded - Single event listener
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM Content Loaded');
     initializeWebsite();
     initializeScrollAnimations();
     addFloatingAnimations();
@@ -72,24 +86,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize website functionality
 function initializeWebsite() {
-    console.log('Initializing website...');
     initializeNavigation();
     initializeTestimonialSlider();
     initializeSmoothScrolling();
-    initializeLanguageToggle();
     initializeContactTabs();
     initializeGrowthJourney();
-    
-    // Load saved language preference first
-    loadLanguagePreference();
-    
-    // Set initial language (fallback to 'en' if no preference saved)
-    if (!currentLanguage) {
-        currentLanguage = 'en';
-    }
-    updateLanguage(currentLanguage);
-    
-    console.log('Website initialization completed');
 }
 
 // Navigation functionality
@@ -163,79 +164,6 @@ function initializeSmoothScrolling() {
     });
 }
 
-// Language toggle functionality
-function toggleLanguage() {
-    console.log('Current language:', currentLanguage);
-    currentLanguage = currentLanguage === 'en' ? 'de' : 'en';
-    console.log('Switching to language:', currentLanguage);
-    updateLanguage(currentLanguage);
-}
-
-function initializeLanguageToggle() {
-    const languageToggle = document.querySelector('.language-toggle');
-    console.log('Language toggle button found:', !!languageToggle);
-    
-    if (languageToggle) {
-        // Remove any existing event listeners and add a new one
-        languageToggle.removeEventListener('click', toggleLanguage);
-        languageToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Language toggle clicked');
-            toggleLanguage();
-        });
-        
-        // Also add keyboard support
-        languageToggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleLanguage();
-            }
-        });
-    } else {
-        console.error('Language toggle button not found!');
-    }
-}
-
-function updateLanguage(lang) {
-    console.log('Updating language to:', lang);
-    
-    // Update language toggle button
-    const currentLangElement = document.getElementById('current-lang');
-    const altLangElement = document.getElementById('alt-lang');
-    
-    if (currentLangElement && altLangElement) {
-        currentLangElement.textContent = lang.toUpperCase();
-        altLangElement.textContent = lang === 'en' ? 'DE' : 'EN';
-        console.log('Updated language toggle display');
-    } else {
-        console.error('Language toggle elements not found');
-    }
-    
-    // Update all elements with language attributes
-    const elementsWithLang = document.querySelectorAll('[data-en][data-de]');
-    console.log('Found elements to translate:', elementsWithLang.length);
-    
-    elementsWithLang.forEach((element, index) => {
-        const text = element.getAttribute(`data-${lang}`);
-        if (text) {
-            // Check if element is an input or has special handling needed
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = text;
-            } else {
-                element.textContent = text;
-            }
-        }
-    });
-    
-    // Update document language
-    document.documentElement.lang = lang;
-    
-    // Store language preference
-    localStorage.setItem('preferred-language', lang);
-    
-    console.log('Language update completed');
-}
-
 // Testimonial slider
 function initializeTestimonialSlider() {
     const testimonials = document.querySelectorAll('.testimonial');
@@ -274,24 +202,19 @@ function switchTab(tabName) {
 
 // Growth Journey functionality
 function initializeGrowthJourney() {
-    console.log('Initializing Growth Journey...');
     
     // Add click listeners to growth boxes
     const growthBoxes = document.querySelectorAll('.growth-box');
     const modal = document.getElementById('growth-modal');
     const closeBtn = document.querySelector('.growth-close');
     
-    console.log('Found growth boxes:', growthBoxes.length);
-    console.log('Found modal:', modal ? 'Yes' : 'No');
     
     growthBoxes.forEach((box, index) => {
-        console.log(`Setting up box ${index + 1}:`, box.getAttribute('data-step'));
         
         box.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
             const step = this.getAttribute('data-step');
-            console.log('Clicked box:', step);
             openGrowthModal(step);
         });
         
@@ -326,37 +249,34 @@ function initializeGrowthJourney() {
 }
 
 function openGrowthModal(step) {
-    console.log('Opening modal for step:', step);
     
     const modal = document.getElementById('growth-modal');
     const title = document.getElementById('growth-modal-title');
     const text = document.getElementById('growth-modal-text');
     
     if (!modal || !title || !text) {
-        console.error('Modal elements not found:', { modal: !!modal, title: !!title, text: !!text });
         return;
     }
     
     if (growthContent[step]) {
         const content = growthContent[step];
-        title.textContent = content.title[currentLanguage];
-        text.textContent = content.text[currentLanguage];
+        const lang = activeLanguage();
+        title.textContent = content.title[lang] || content.title.en;
+        text.textContent = content.text[lang] || content.text.en;
         modal.style.display = 'block';
-        
-        console.log('Modal opened successfully');
-        
+        openGrowthStep = step;
+
         // Prevent body scroll when modal is open
         document.body.style.overflow = 'hidden';
     } else {
-        console.error('Content not found for step:', step);
     }
 }
 
 function closeGrowthModal() {
-    console.log('Closing modal');
     const modal = document.getElementById('growth-modal');
     if (modal) {
         modal.style.display = 'none';
+        openGrowthStep = null;
         // Restore body scroll
         document.body.style.overflow = 'auto';
     }
@@ -392,7 +312,6 @@ function handleContactForm(event) {
     // Add your form handling logic here
     // For now, we're using Calendly, but this is ready for future forms
     
-    console.log('Contact form submitted');
 }
 
 // Utility functions
@@ -440,24 +359,14 @@ function adjustLayoutForScreenSize() {
     }
 }
 
-// Load saved language preference
-function loadLanguagePreference() {
-    const savedLanguage = localStorage.getItem('preferred-language');
-    console.log('Saved language preference:', savedLanguage);
-    
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
-        currentLanguage = savedLanguage;
-        console.log('Loaded language preference:', currentLanguage);
-    } else {
-        currentLanguage = 'de'; // Default to German
-        console.log('No saved preference, defaulting to German');
+// The growth modal's copy lives in JS, so it does not get swapped by the
+// data-* pass in lang.js. Re-render it if the visitor switches language while
+// it is open.
+document.addEventListener('gf:langchange', () => {
+    const modal = document.getElementById('growth-modal');
+    if (modal && modal.style.display === 'block' && openGrowthStep) {
+        openGrowthModal(openGrowthStep);
     }
-}
-
-// Initialize language preference on load
-document.addEventListener('DOMContentLoaded', () => {
-    loadLanguagePreference();
-    initializeScrollAnimations();
 });
 
 // Add floating animation CSS classes dynamically
@@ -496,11 +405,10 @@ function addFloatingAnimations() {
 // Call this when DOM is loaded
 document.addEventListener('DOMContentLoaded', addFloatingAnimations);
 
-// Export functions for potential use in other scripts
+// Export functions for potential use in other scripts.
+// Language is no longer exported here; use window.GFLang (lang.js).
 window.GFWebsite = {
-    toggleLanguage,
     switchTab,
-    updateLanguage,
     handleContactForm,
     openGrowthModal,
     closeGrowthModal

@@ -1,7 +1,17 @@
 /* CSS Variables following Corporate Identity */
 :root {
-    --primary-blue: #8cbe7d;
-    --innovation-green: #8BC07C;
+    /* NOTE: --primary-blue is green, not blue; the name is a fossil.
+       Both brand greens were #8BC07C/#8cbe7d, which fails WCAG AA in BOTH
+       directions: 2.15:1 as text on white, and 2.12:1 as a ground under white
+       text. They are used for both jobs throughout this stylesheet, so the fix
+       is at the token: #4a7a40 is the same hue, deep enough to clear 5.07:1
+       either way. --brand-green-light keeps the original tint for decoration
+       only (borders, dividers, fills that carry no text). */
+    --primary-blue: #3f6d35;
+    --innovation-green: #4a7a40;
+    --brand-green-light: #8BC07C;
+    --heading: #1f2937;      /* 13.6:1 on white */
+    --accent-green: #15803d; /* 5.1:1 on white, matches the homepage token */
     --pure-white: #FFFFFF;
     --light-gray: #F5F5F5;
     --medium-gray: #E0E0E0;
@@ -38,8 +48,9 @@ body {
 }
 
 /* Typography */
+/* Was --primary-blue (#8cbe7d) on white: ~2.1:1. See styles.css. */
 h1, h2, h3, h4, h5, h6 {
-    color: var(--primary-blue);
+    color: var(--heading);
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 16px;
@@ -157,21 +168,62 @@ p {
     color: var(--innovation-green);
 }
 
-.language-toggle {
+/* Language switch: three separate buttons rather than one cycling control.
+   With EN/DE a toggle was fine; with a third language a cycler hides ES
+   behind two clicks and never shows which languages exist.
+   Light-navbar variant; styles.css carries the dark one. */
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    padding: 3px;
     background: transparent;
     border: 1px solid var(--medium-gray);
-    padding: 8px 12px;
     border-radius: var(--border-radius);
-    cursor: pointer;
-    font-family: var(--font-primary);
-    font-weight: 600;
-    color: var(--primary-blue);
-    transition: var(--transition);
 }
 
-.language-toggle:hover {
-    border-color: var(--innovation-green);
+.lang-switch .lang-opt {
+    /* They are links now: kill the default underline and centre the label
+       the way a button box did for free. */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    background: transparent;
+    padding: 6px 9px;
+    border-radius: 5px;
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: 0.02em;
+    color: var(--dark-gray);
+    cursor: pointer;
+    /* Only the two properties that actually change between states. `all`
+       would also animate padding and min-width when the coarse-pointer and
+       breakpoint rules below kick in. */
+    transition: color .2s ease, background-color .2s ease;
+    min-height: 32px;
+}
+
+.lang-switch .lang-opt:hover {
+    background: var(--light-gray);
     color: var(--innovation-green);
+}
+
+/* Solid chip for the current language: the only cue that survives for
+   colour-blind visitors. */
+.lang-switch .lang-opt.active {
+    background: var(--innovation-green);
+    color: var(--pure-white);
+    cursor: default;
+}
+
+@media (pointer: coarse) {
+    .lang-switch .lang-opt { min-width: 44px; min-height: 44px; }
 }
 
 /* Sections */
@@ -674,9 +726,12 @@ p {
         display: block;
     }
 
-    .language-toggle {
+    .lang-switch {
         margin-top: 20px;
-        padding: 12px 20px;
+    }
+
+    .lang-switch .lang-opt {
+        padding: 12px 16px;
         font-size: 14px;
     }
     
@@ -705,12 +760,28 @@ p {
         padding: 0 10px;
     }
     
+    /* The desktop staircase is absolutely positioned via inline left/top with a
+       fixed 220px width, which pushed the page 16px past a 375px viewport.
+       Collapse it to a stack; !important is required to beat inline styles. */
+    .growth-stage {
+        min-height: 0 !important;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    .growth-stage .growth-box {
+        position: static !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+    }
+
     .growth-box {
         font-size: 12px;
         padding: 12px 16px;
-        min-width: 140px;
+        min-width: 0;
     }
-    
+
     .growth-modal-content {
         width: 95%;
         margin: 10% auto;
@@ -788,7 +859,7 @@ p {
         font-size: 14px;
     }
     
-    .language-toggle {
+    .lang-switch .lang-opt {
         padding: 6px 10px;
         font-size: 14px;
     }
@@ -808,3 +879,86 @@ p {
 .mt-24 { margin-top: 24px; }
 .mt-32 { margin-top: 32px; }
 .mt-48 { margin-top: 48px; }
+/* ── Accessibility foundation ──────────────────────────────────────────────
+   Added in the 2026-08-01 accessibility pass; see styles.css for rationale. */
+
+:focus-visible {
+    outline: 3px solid #15803d;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+.navbar :focus-visible,
+.hero :focus-visible {
+    outline-color: #ffffff;
+    box-shadow: 0 0 0 5px rgba(15, 23, 42, .55);
+}
+button.nav-toggle {
+    background: none;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
+}
+/* Tap-target floor lives on .lang-switch .lang-opt (see above). */
+
+.skip-link {
+    position: absolute;
+    left: 12px;
+    top: -100px;
+    z-index: 10200;
+    background: #15803d;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: top .18s ease;
+}
+.skip-link:focus { top: 12px; color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .12s !important;
+    }
+    /* These loop forever on the startup hero. */
+    .rocket-element, .orbit-element { animation: none !important; }
+}
+
+/* See styles.css: long German compounds overflow narrow viewports. */
+h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Minimum 24x24 tap targets (WCAG 2.5.8). */
+.link-like { padding: 6px 4px; min-height: 24px; }
+.footer-bottom a,
+.footer-section a {
+    display: inline-block;
+    padding: 5px 4px;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    width: 24px;
+    height: 24px;
+}
+
+.nav-logo a { display: inline-block; line-height: 0; }
+
+.footer-section h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; }
+
+/* Footer sits on the deep-green ground, so text there must be white. Without
+   these, .footer-bottom links fell back to the global link colour and
+   .footer-section headings to --heading, both near-invisible on green. */
+.footer-bottom,
+.footer-bottom a,
+.footer-bottom p,
+.footer-section h2,
+.footer-section h4 {
+    color: var(--pure-white);
+}

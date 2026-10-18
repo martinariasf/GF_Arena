@@ -1,27 +1,26 @@
 // VR Website JavaScript - Following GF Corporate Standards
 
 // Global variables
-let currentLanguage = 'de';
+// Language lives in lang.js; this file only reads the active choice
+// for the few strings it builds in JS.
+function activeLanguage() {
+    return (window.GFLang && window.GFLang.get()) || 'de';
+}
+
 let modalShown = false;
 let emailCaptured = false;
 
 // DOM Content Loaded - Single event listener
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('VR Website - DOM Content Loaded');
     initializeVRWebsite();
     initializeScrollAnimations();
 });
 
 // Initialize VR website functionality
 function initializeVRWebsite() {
-    console.log('Initializing VR website...');
     initializeNavigation();
     initializeSmoothScrolling();
-    initializeLanguageToggle();
     initializeEmailCapture();
-    loadLanguagePreference();
-    updateLanguage(currentLanguage || 'de');
-    console.log('VR Website initialization completed');
 }
 
 // Navigation functionality
@@ -81,89 +80,27 @@ function initializeSmoothScrolling() {
     });
 }
 
-// Language toggle functionality
-function toggleLanguage() {
-    console.log('Current language:', currentLanguage);
-    currentLanguage = currentLanguage === 'en' ? 'de' : 'en';
-    console.log('Switching to language:', currentLanguage);
-    updateLanguage(currentLanguage);
-}
+// Copy that is built in JS rather than swapped from data-* attributes.
+const SENDING = {
+    en: 'Sending...',
+    de: 'Wird gesendet...',
+    es: 'Enviando...'
+};
 
-function initializeLanguageToggle() {
-    const languageToggle = document.querySelector('.language-toggle');
-    console.log('Language toggle button found:', !!languageToggle);
-    
-    if (languageToggle) {
-        languageToggle.removeEventListener('click', toggleLanguage);
-        languageToggle.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Language toggle clicked');
-            toggleLanguage();
-        });
-        
-        languageToggle.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleLanguage();
-            }
-        });
-    } else {
-        console.error('Language toggle button not found!');
+const FEEDBACK = {
+    en: {
+        popup: 'Thank you! Your request has been sent. We\'ll contact you soon with the VR Guide.',
+        newsletter: 'Thank you! Your newsletter request has been sent.'
+    },
+    de: {
+        popup: 'Vielen Dank! Ihre Anfrage wurde gesendet. Wir kontaktieren Sie bald mit dem VR-Guide.',
+        newsletter: 'Vielen Dank! Ihre Newsletter-Anfrage wurde gesendet.'
+    },
+    es: {
+        popup: '¡Gracias! Hemos recibido su solicitud. Le enviaremos la guía de RV en breve.',
+        newsletter: '¡Gracias! Hemos recibido su solicitud de newsletter.'
     }
-}
-
-function updateLanguage(lang) {
-    console.log('Updating language to:', lang);
-    
-    // Update language toggle button
-    const currentLangElement = document.getElementById('current-lang');
-    const altLangElement = document.getElementById('alt-lang');
-    
-    if (currentLangElement && altLangElement) {
-        currentLangElement.textContent = lang.toUpperCase();
-        altLangElement.textContent = lang === 'en' ? 'DE' : 'EN';
-        console.log('Updated language toggle display');
-    } else {
-        console.error('Language toggle elements not found');
-    }
-    
-    // Update all elements with language attributes
-    const elementsWithLang = document.querySelectorAll('[data-en][data-de]');
-    console.log('Found elements to translate:', elementsWithLang.length);
-    
-    elementsWithLang.forEach((element, index) => {
-        const text = element.getAttribute(`data-${lang}`);
-        if (text) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = text;
-            } else {
-                element.textContent = text;
-            }
-        }
-    });
-    
-    // Update document language
-    document.documentElement.lang = lang;
-    
-    // Store language preference
-    localStorage.setItem('preferred-language', lang);
-    
-    console.log('Language update completed');
-}
-
-// Load saved language preference
-function loadLanguagePreference() {
-    const savedLanguage = localStorage.getItem('preferred-language');
-    console.log('Saved language preference:', savedLanguage);
-    
-    if (savedLanguage && (savedLanguage === 'en' || savedLanguage === 'de')) {
-        currentLanguage = savedLanguage;
-        console.log('Loaded language preference:', currentLanguage);
-    } else {
-        currentLanguage = 'de'; // Default to German for VR website
-        console.log('No saved preference, defaulting to German');
-    }
-}
+};
 
 // Email Capture Modal and Newsletter functionality
 function initializeEmailCapture() {
@@ -220,7 +157,7 @@ function initializeEmailCapture() {
             const submitBtn = e.target.querySelector('.email-submit');
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = currentLanguage === 'de' ? 'Wird gesendet...' : 'Sending...';
+                submitBtn.textContent = SENDING[activeLanguage()] || SENDING.en;
             }
             
             // Close modal after a brief delay to allow form submission
@@ -251,7 +188,7 @@ function initializeEmailCapture() {
             const submitBtn = e.target.querySelector('.newsletter-submit');
             if (submitBtn) {
                 submitBtn.disabled = true;
-                submitBtn.textContent = currentLanguage === 'de' ? 'Wird gesendet...' : 'Sending...';
+                submitBtn.textContent = SENDING[activeLanguage()] || SENDING.en;
             }
             
             // Form will submit normally to Formspree
@@ -296,16 +233,8 @@ function setFormTimestamps() {
 }
 
 function showSubmissionFeedback(source) {
-    let message;
-    if (currentLanguage === 'de') {
-        message = source === 'popup' 
-            ? 'Vielen Dank! Ihre Anfrage wurde gesendet. Wir kontaktieren Sie bald mit dem VR-Guide.'
-            : 'Vielen Dank! Ihre Newsletter-Anfrage wurde gesendet.';
-    } else {
-        message = source === 'popup'
-            ? 'Thank you! Your request has been sent. We\'ll contact you soon with the VR Guide.'
-            : 'Thank you! Your newsletter request has been sent.';
-    }
+    const copy = FEEDBACK[activeLanguage()] || FEEDBACK.en;
+    const message = source === 'popup' ? copy.popup : copy.newsletter;
     
     // Create and show temporary notification
     const notification = document.createElement('div');
@@ -363,7 +292,6 @@ function handleEmailSubmission(email, source, name = '', company = '') {
         if (form) form.style.display = 'none';
         if (successMessage) successMessage.classList.add('show');
         
-        console.log('Email captured:', { email, name, company, source });
         
         // Track conversion (Google Analytics, Facebook Pixel, etc.)
         if (typeof gtag !== 'undefined') {
@@ -437,9 +365,8 @@ function adjustLayoutForScreenSize() {
 }
 
 // Export functions for global use
+// Language is no longer exported here; use window.GFLang (lang.js).
 window.VRWebsite = {
-    toggleLanguage,
-    updateLanguage,
     contactUs,
     showModal,
     closeModal,

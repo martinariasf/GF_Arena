@@ -1321,6 +1321,12 @@
         .platform-cta .btn { width: 100%; }
     }
     
+    .capability__icon { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border-radius: 12px; background: #ecfdf3; color: var(--green); margin-bottom: 14px; }
+    .platform-capabilities { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 28px; }
+    .capability { border-top: 0; padding-top: 0; }
+    .capability h3 { font-size: 17px; }
+    @media (max-width: 1024px) { .platform-capabilities { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+    @media (max-width: 600px) { .platform-capabilities { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
     /* How we work: three steps, a real sequence */
     .steps { list-style: none; margin: 40px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; counter-reset: step; }
     .steps li { counter-increment: step; border-top: 2px solid var(--green); padding-top: 20px; }
@@ -1391,7 +1397,7 @@
         <div class="container">
             <h2 class="section-title" data-en="How it works" data-de="So funktioniert es" data-es="Cómo funciona">How it works</h2>
             <div class="platform-lede">
-                <p data-en="Built for marketing agencies and in-house marketing teams. Every client's posts live in one content calendar. Your AI agent drafts the copy and the visuals, you review them, and the client approves with a single link. No email threads, no &quot;is this the final version?&quot;." data-de="Gebaut für Marketing-Agenturen und Inhouse-Marketingteams. Alle Posts eines Kunden liegen in einem Content-Kalender. Ihr KI-Agent entwirft Text und Bild, Sie prüfen, und der Kunde gibt per Link frei. Keine E-Mail-Ketten, kein &quot;ist das die finale Version?&quot;." data-es="Creada para agencias de marketing y equipos de marketing internos. Todas las publicaciones de cada cliente viven en un mismo calendario de contenidos. Su agente de IA redacta los textos y crea las imágenes, usted los revisa y el cliente aprueba con un solo enlace: sin cadenas de correos ni &quot;¿esta es la versión final?&quot;.">Built for marketing agencies and in-house marketing teams. Every client's posts live in one content calendar. Your AI agent drafts the copy and the visuals, you review them, and the client approves with a single link. No email threads, no "is this the final version?".</p>
+                <p data-en="Your agent drafts. You review. The client approves with one link." data-de="Ihr Agent entwirft. Sie prüfen. Der Kunde gibt per Link frei." data-es="Su agente redacta. Usted revisa. El cliente aprueba con un enlace.">Your agent drafts. You review. The client approves with one link.</p>
             </div>
 
             <div class="platform-reels">
@@ -1403,9 +1409,9 @@
                         controls muted playsinline preload="none"
                         aria-label="15-second reel: a user asks the GF agent on WhatsApp for a Friday post about a new summer menu, and the agent replies with a finished photo and caption."></video>
                     <div class="reel-card__body">
-                        <span class="reel-card__step" data-en="Step 1 · Create" data-de="Schritt 1 · Erstellen" data-es="Paso 1 · Crear">Step 1 · Create</span>
+                        <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M18 4a3 3 0 0 1 3 3v8a3 3 0 0 1 -3 3h-5l-5 3v-3h-2a3 3 0 0 1 -3 -3v-8a3 3 0 0 1 3 -3h12z" /> <path d="M9.5 9h.01" /> <path d="M14.5 9h.01" /> <path d="M9.5 13a3.5 3.5 0 0 0 5 0" /> </svg></span>
                         <h3 data-en="Message your agent, get a finished post" data-de="Schreiben Sie Ihrem Agenten, erhalten Sie einen fertigen Post" data-es="Escriba a su agente y reciba una publicación terminada">Message your agent, get a finished post</h3>
-                        <p data-en="Ask on WhatsApp or Telegram in plain language. The agent writes the caption, generates the image, and hands back a draft ready to schedule. Drafting that took hours takes minutes." data-de="Fragen Sie auf WhatsApp oder Telegram in normaler Sprache. Der Agent schreibt den Text, erzeugt das Bild und liefert einen Entwurf zurück, der direkt geplant werden kann. Aus Stunden werden Minuten." data-es="Pídalo por WhatsApp o Telegram en lenguaje natural. El agente escribe el texto, genera la imagen y devuelve un borrador listo para programar. Lo que antes llevaba horas ahora lleva minutos.">Ask on WhatsApp or Telegram in plain language. The agent writes the caption, generates the image, and hands back a draft ready to schedule. Drafting that took hours takes minutes.</p>
+                        <p data-en="On WhatsApp or Telegram. Caption and image in minutes." data-de="Per WhatsApp oder Telegram. Text und Bild in Minuten." data-es="Por WhatsApp o Telegram. Texto e imagen en minutos.">On WhatsApp or Telegram. Caption and image in minutes.</p>
                     </div>
                 </div>
                 <div class="reel-card">
@@ -1416,43 +1422,41 @@
                         controls muted playsinline preload="none"
                         aria-label="20-second reel: scattered approval emails and chats resolve into one content calendar where a client approves a post with a single swipe."></video>
                     <div class="reel-card__body">
-                        <span class="reel-card__step" data-en="Step 2 · Approve" data-de="Schritt 2 · Freigeben" data-es="Paso 2 · Aprobar">Step 2 · Approve</span>
+                        <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0" /> <path d="M9 12l2 2l4 -4" /> </svg></span>
                         <h3 data-en="One calendar, one link, approved" data-de="Ein Kalender, ein Link, freigegeben" data-es="Un calendario, un enlace, aprobado">One calendar, one link, approved</h3>
-                        <p data-en="The client opens one link and swipes through the month: approve, comment, or request a change. Every decision is logged against the post, so nobody chases a thread to find the latest version." data-de="Der Kunde öffnet einen Link und geht den Monat durch: freigeben, kommentieren oder Änderung anfordern. Jede Entscheidung wird am Post protokolliert, niemand sucht mehr in E-Mail-Ketten nach der aktuellen Version." data-es="El cliente abre un enlace y recorre el mes: aprueba, comenta o pide un cambio. Cada decisión queda registrada junto a la publicación, así nadie tiene que rastrear un hilo para encontrar la última versión.">The client opens one link and swipes through the month: approve, comment, or request a change. Every decision is logged against the post, so nobody chases a thread to find the latest version.</p>
+                        <p data-en="The client swipes through the month: approve or comment." data-de="Der Kunde geht den Monat durch: freigeben oder kommentieren." data-es="El cliente repasa el mes: aprueba o comenta.">The client swipes through the month: approve or comment.</p>
                     </div>
                 </div>
             </div>
 
             <div class="platform-capabilities">
                 <div class="capability">
-                    <h3 data-en="Multi-client workspaces" data-de="Mandantenfähige Workspaces" data-es="Espacios de trabajo multicliente">Multi-client workspaces</h3>
-                    <p data-en="One login, every client separated. Roles for your team, your client, and read-only stakeholders." data-de="Ein Login, jeder Kunde getrennt. Rollen für Ihr Team, Ihren Kunden und Beteiligte mit Lesezugriff." data-es="Un solo acceso, cada cliente separado. Roles para su equipo, para su cliente y para participantes con permiso de solo lectura.">One login, every client separated. Roles for your team, your client, and read-only stakeholders.</p>
+                    <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M10 13a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M8 21v-1a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v1" /> <path d="M15 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M17 10h2a2 2 0 0 1 2 2v1" /> <path d="M5 5a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /> <path d="M3 13v-1a2 2 0 0 1 2 -2h2" /> </svg></span>
+                    <h3 data-en="Multi-client" data-de="Mandantenfähig" data-es="Multicliente">Multi-client</h3>
+                    <p data-en="Every client separated, one login." data-de="Jeder Kunde getrennt, ein Login." data-es="Cada cliente separado, un acceso.">Every client separated, one login.</p>
                 </div>
                 <div class="capability">
-                    <h3 data-en="Scheduling &amp; publishing" data-de="Planung &amp; Veröffentlichung" data-es="Programación y publicación">Scheduling &amp; publishing</h3>
-                    <p data-en="Approved posts go out on schedule to the connected channels. Nothing is published without a human yes." data-de="Freigegebene Posts gehen planmäßig an die verbundenen Kanäle. Nichts wird ohne menschliches Ja veröffentlicht." data-es="Las publicaciones aprobadas salen a tiempo hacia los canales conectados. Nada se publica sin un sí humano.">Approved posts go out on schedule to the connected channels. Nothing is published without a human yes.</p>
+                    <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" /> <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /> <path d="M15 3v4" /> <path d="M7 3v4" /> <path d="M3 11h16" /> <path d="M18 16.496v1.504l1 1" /> </svg></span>
+                    <h3 data-en="Auto-publishing" data-de="Auto-Veröffentlichung" data-es="Publicación automática">Auto-publishing</h3>
+                    <p data-en="Only after a human yes." data-de="Erst nach menschlichem Ja." data-es="Solo tras un sí humano.">Only after a human yes.</p>
                 </div>
                 <div class="capability">
-                    <h3 data-en="Your brand, not a template" data-de="Ihre Marke, keine Vorlage" data-es="Su marca, no una plantilla">Your brand, not a template</h3>
-                    <p data-en="The agent works from your brand assets, tone and past posts, so drafts arrive sounding like you." data-de="Der Agent arbeitet mit Ihren Markenassets, Ihrer Tonalität und früheren Posts, sodass Entwürfe von Anfang an nach Ihnen klingen." data-es="El agente trabaja a partir de sus recursos de marca, su tono y sus publicaciones anteriores, así los borradores ya suenan a usted.">The agent works from your brand assets, tone and past posts, so drafts arrive sounding like you.</p>
+                    <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /> <path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> </svg></span>
+                    <h3 data-en="Your brand" data-de="Ihre Marke" data-es="Su marca">Your brand</h3>
+                    <p data-en="Learns your tone and assets." data-de="Lernt Tonalität und Assets." data-es="Aprende su tono y recursos.">Learns your tone and assets.</p>
                 </div>
                 <div class="capability">
-                    <h3 data-en="A person behind it" data-de="Ein Mensch dahinter" data-es="Una persona detrás">A person behind it</h3>
-                    <p data-en="From Basic up, someone from the GF team works with you directly. The agent is a tool, not a replacement." data-de="Ab Basic begleitet Sie jemand aus dem GF-Team persönlich. Der Agent ist ein Werkzeug, kein Ersatz." data-es="Desde Basic, alguien del equipo de GF le acompaña personalmente. El agente es una herramienta, no un reemplazo.">From Basic up, someone from the GF team works with you directly. The agent is a tool, not a replacement.</p>
+                    <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /> <path d="M6 21v-2a4 4 0 0 1 4 -4h.5" /> <path d="M18 22l3.35 -3.284a2.143 2.143 0 0 0 .005 -3.071a2.242 2.242 0 0 0 -3.129 -.006l-.224 .22l-.223 -.22a2.242 2.242 0 0 0 -3.128 -.006a2.143 2.143 0 0 0 -.006 3.071l3.355 3.296z" /> </svg></span>
+                    <h3 data-en="A real person" data-de="Ein echter Mensch" data-es="Una persona real">A real person</h3>
+                    <p data-en="GF support from Basic up." data-de="GF-Betreuung ab Basic." data-es="Acompañamiento GF desde Basic.">GF support from Basic up.</p>
                 </div>
                 <div class="capability">
-                    <h3 data-en="Hosted in the EU" data-de="Gehostet in der EU" data-es="Alojado en la UE">Hosted in the EU</h3>
-                    <p data-en="Runs on private European infrastructure under the same AVV and GDPR terms as the rest of our work." data-de="Läuft auf privater europäischer Infrastruktur, unter denselben AVV- und DSGVO-Bedingungen wie unsere übrige Arbeit." data-es="Funciona sobre infraestructura europea privada, bajo las mismas condiciones de RGPD y contrato de encargo que el resto de nuestro trabajo.">Runs on private European infrastructure under the same AVV and GDPR terms as the rest of our work.</p>
+                    <span class="capability__icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >  <path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" /> <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /> <path d="M12 12l0 2.5" /> </svg></span>
+                    <h3 data-en="Hosted in the EU" data-de="In der EU gehostet" data-es="Alojado en la UE">Hosted in the EU</h3>
+                    <p data-en="GDPR, AVV signed." data-de="DSGVO, AVV unterzeichnet." data-es="RGPD, contrato firmado.">GDPR, AVV signed.</p>
                 </div>
             </div>
 
-            <div class="platform-cta">
-                <div>
-                    <p data-en="Three agencies get it free for three weeks." data-de="Drei Agenturen bekommen sie drei Wochen kostenlos." data-es="Tres agencias la reciben gratis durante tres semanas.">Three agencies get it free for three weeks.</p>
-                    <span data-en="Run it with one real client. We want your feedback, not your budget." data-de="Nutzen Sie sie mit einem echten Kunden. Wir wollen Ihr Feedback, nicht Ihr Budget." data-es="Úsela con un cliente real. Queremos su opinión, no su presupuesto.">Run it with one real client. We want your feedback, not your budget.</span>
-                </div>
-                <a href="pilot.html" class="btn btn-primary" data-en="Apply for the Pilot" data-de="Für den Piloten bewerben" data-es="Postular al piloto">Apply for the Pilot</a>
-            </div>
         </div>
     </section>
 
